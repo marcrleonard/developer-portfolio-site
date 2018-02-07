@@ -1,6 +1,7 @@
 
 import React, { Component } from 'react'
 
+import Nav from './Nav'
 import About from './About'
 import Work from './Work'
 import Contact from './Contact'
@@ -14,7 +15,8 @@ class Data extends Component {
 
         this.state = {
             be_resp : '',
-            yes: 1,
+            counter: 1,
+            // this is the default page to show.
             show_page : <About/>
         }
 
@@ -47,9 +49,9 @@ class Data extends Component {
       }
 
         change() {
-          this.new_val = this.state.yes + 1
+          this.new_val = this.state.counter + 1
         this.setState({
-            yes: this.new_val
+            counter: this.new_val
         })
         }
         get_data () {
@@ -67,28 +69,19 @@ class Data extends Component {
     }
 
     render() {
-
       return (
-
         <div className="App">
           <header className="App-header">
             <h1 className="App-title">{this.work}</h1>
           </header>
           <nav>
-            <div className="nav-wrapper">
-              <a href="#" className="brand-logo">ML</a>
-              <ul id="nav-mobile" className="right hide-on-med-and-down">
-                <li><a onClick={this.show_about} href="#">About</a></li>
-                <li><a onClick={this.show_work} href="#">Work</a></li>
-                <li><a onClick={this.show_contact} href="#">Contact</a></li>
-              </ul>
-            </div>
+            <Nav />
           </nav>
-          <div> 
-              {this.state.yes}
-          </div>
-
           {this.state.show_page}
+
+          <div> 
+              {this.state.counter}
+          </div>
 
           <button onClick={this.handle_click} > Click me! </button>
         </div>
