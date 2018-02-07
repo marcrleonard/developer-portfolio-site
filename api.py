@@ -11,9 +11,10 @@ def index():
 
 @APP.route("/hello")
 def hello():
+    rv = jsonify({'key_name':'hello'})
+    print('hit!')
 
-    return jsonify({'response':'hello'})
+    return rv
 
 if __name__ == '__main__':
-    APP.run(use_reloader=True, port=5000, threaded=True)
-    
+    APP.run(debug=False, use_reloader=True, port=5000, threaded=True)
