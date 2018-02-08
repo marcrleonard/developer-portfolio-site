@@ -1,7 +1,11 @@
 
 import React, { Component } from 'react'
+import {
+  BrowserRouter as Router,
+  Route,
+  Link
+} from 'react-router-dom'
 
-import Nav from './Nav'
 import About from './About'
 import Work from './Work'
 import Contact from './Contact'
@@ -15,8 +19,7 @@ class Data extends Component {
 
         this.state = {
             be_resp : '',
-            counter: 1,
-            // this is the default page to show.
+            yes: 1,
             show_page : <About/>
         }
 
@@ -49,39 +52,54 @@ class Data extends Component {
       }
 
         change() {
-          this.new_val = this.state.counter + 1
+          this.new_val = this.state.yes + 1
         this.setState({
-            counter: this.new_val
+            yes: this.new_val
         })
         }
         get_data () {
-            let data = fetch('/hello')
-                        .then((response_json) => response_json.json())
-                        .then(response_json => {
-                            console.log(response_json)
-                            this.setState({
-                                be_resp: response_json.key_name
-                            })
-                        })
+            // let data = fetch('/hello')
+            //             .then((response_json) => response_json.json())
+            //             .then(response_json => {
+            //                 console.log(response_json)
+            //                 this.setState({
+            //                     be_resp: response_json.key_name
+            //                 })
+            //             })
+            let data = null
             console.log(data)
         return data
     
     }
 
     render() {
+
       return (
+
         <div className="App">
           <header className="App-header">
             <h1 className="App-title">{this.work}</h1>
           </header>
           <nav>
-            <Nav />
+            <div className="nav-wrapper">
+              <a href="#" className="brand-logo">ML</a>
+              <ul id="nav-mobile" className="right hide-on-med-and-down">
+                {/* <li><a onClick={() => {this.setState({show_page: <About/>})}} href="#">About</a></li>
+                <li><a onClick={() => {this.setState({show_page: <Work/>})}} href="#">Work</a></li>
+                <li><a onClick={() => {this.setState({show_page: <Contact/>})}} href="#">Contact</a></li> */}
+                <li><Link to="/">About</Link></li>
+                <li><Link to="/Work">Work</Link></li>
+                <li><Link to="/Contact">Contact</Link></li>
+              </ul>
+            </div>
           </nav>
-          {this.state.show_page}
-
           <div> 
-              {this.state.counter}
+              {this.state.yes}
           </div>
+
+          <Route exact path="/" component={About}/>
+          <Route path="/Work" component={Work}/>
+          <Route path="/Contact" component={Contact}/>
 
           <button onClick={this.handle_click} > Click me! </button>
         </div>
