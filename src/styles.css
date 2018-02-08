@@ -2,3 +2,27 @@
     background: rgb(216, 216, 216);
     border: 1px, black;
 }
+
+.navBar .ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+.navBar li {
+    float: left;
+}
+
+.navBar li a {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 10px 10px;
+    text-decoration: none;
+}
+
+.navBar li a:hover {
+    background-color: #111;
+}

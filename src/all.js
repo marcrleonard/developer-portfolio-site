@@ -81,18 +81,18 @@ class Data extends Component {
             <h1 className="App-title">{this.work}</h1>
           </header>
           <nav>
-            <div className="nav-wrapper">
-              <a href="#" className="brand-logo">ML</a>
-              <ul id="nav-mobile" className="right hide-on-med-and-down">
+            <div className="navBar">
+              <ul id="" className="navBar ul">
                 {/* <li><a onClick={() => {this.setState({show_page: <About/>})}} href="#">About</a></li>
                 <li><a onClick={() => {this.setState({show_page: <Work/>})}} href="#">Work</a></li>
                 <li><a onClick={() => {this.setState({show_page: <Contact/>})}} href="#">Contact</a></li> */}
-                <li><Link to="/">About</Link></li>
-                <li><Link to="/Work">Work</Link></li>
-                <li><Link to="/Contact">Contact</Link></li>
+                <li className="navBar li" ><Link to="/">About</Link></li>
+                <li className="navBar li" ><Link to="/Work">Work</Link></li>
+                <li className="navBar li" ><Link to="/Contact">Contact</Link></li>
               </ul>
             </div>
           </nav>
+          <br/>
           <div> 
               {this.state.yes}
           </div>
