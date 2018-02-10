@@ -23,12 +23,7 @@ class Data extends Component {
             show_page : <About/>
         }
 
-        this.get_data()
-
         this.handle_click = this.change.bind(this)
-        this.show_work = this.show_work.bind(this)
-        this.show_about = this.show_about.bind(this)
-        this.show_contact = this.show_contact.bind(this)
         
       }
 
@@ -56,29 +51,15 @@ class Data extends Component {
         this.setState({
             yes: this.new_val
         })
-        }
-        get_data () {
-            // let data = fetch('/hello')
-            //             .then((response_json) => response_json.json())
-            //             .then(response_json => {
-            //                 console.log(response_json)
-            //                 this.setState({
-            //                     be_resp: response_json.key_name
-            //                 })
-            //             })
-            let data = null
-            console.log(data)
-        return data
-    
     }
-
+    
     render() {
 
       return (
 
         <div className="App">
           <header className="App-header">
-            <h1 className="App-title">{this.work}</h1>
+            <h1 className="title">Marc Leonard</h1>
           </header>
           <nav>
             <div className="navBar">
@@ -86,8 +67,8 @@ class Data extends Component {
                 {/* <li><a onClick={() => {this.setState({show_page: <About/>})}} href="#">About</a></li>
                 <li><a onClick={() => {this.setState({show_page: <Work/>})}} href="#">Work</a></li>
                 <li><a onClick={() => {this.setState({show_page: <Contact/>})}} href="#">Contact</a></li> */}
-                <li className="navBar li" ><Link to="/">About</Link></li>
                 <li className="navBar li" ><Link to="/Work">Work</Link></li>
+                <li className="navBar li" ><Link to="/">About</Link></li>
                 <li className="navBar li" ><Link to="/Contact">Contact</Link></li>
               </ul>
             </div>

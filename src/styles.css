@@ -8,7 +8,13 @@
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #333;
+    /* background-color: #333; */
+    border-top:  2px solid black;
+    border-bottom:  2px solid black;
+    /* border-radius: 5px; */
+}
+.title {
+    font-family: 'Lato';font-size: 26px;
 }
 
 .navBar li {
@@ -16,13 +22,42 @@
 }
 
 .navBar li a {
+    font-family: 'Lato';font-size: 18px;
     display: inline-block;
-    color: white;
+    color: rgb(0, 0, 0);
     text-align: center;
     padding: 10px 10px;
     text-decoration: none;
+    border-right:  2px solid black;
+    border-left:  2px solid black;
+    /* border-radius: 5px; */
+    margin: 5px;
 }
 
 .navBar li a:hover {
     background-color: #111;
+    color: rgb(255, 255, 255);
+}
+.workSidenav {
+    transition-property: margin-left, display;
+    transition-duration: 1.5s;
+    transition-timing-function: ease;
+    max-width: 150px;
+}
+
+@media(max-width:600px) {
+    .workSidenav {
+        /* display : none; */
+        transition-property: margin-left, display;
+        transition-duration: 1.5s;
+        margin-left: -150px;
+
+    }
+
+}
+@keyframes leave_left {
+    0% {opacity: 0}
+    99% {opacity: 1}
+    100% {display : none;}
+
 }
