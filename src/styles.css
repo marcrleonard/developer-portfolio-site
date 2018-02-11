@@ -1,52 +1,138 @@
+@font-face {
+    font-family: 'LemonMilk';
+    src: url('LemonMilk.otf');
+  }
+
+.body {
+    background: #454A4D;
+    margin:0px;
+    
+
+}
+
+.desc {
+    align-items: center
+}
+
+.header{
+    align-content: center
+}
+
+.app-page {
+    background: #454A4D;
+    padding: 10px
+}
+
+.title {
+    align-content: center;
+    font-family: 'LemonMilk', Fallback, 'Lato';
+    /* font-family: 'Lato'; */
+    font-size: 32pt; 
+    padding-left: 15px;
+    color: #70BEBE;
+}
+
 .workThumb {
     background: rgb(216, 216, 216);
     border: 1px, black;
+    height: 200px;
+    margin-left: 25px;
+    margin-top: 25px;
+}
+
+.navBar {
+    background: #454A4D;
 }
 
 .navBar .ul {
     list-style-type: none;
-    margin: 0;
-    padding: 0;
+    padding-left: 15px;
     overflow: hidden;
-    /* background-color: #333; */
-    border-top:  2px solid black;
-    border-bottom:  2px solid black;
-    /* border-radius: 5px; */
-}
-.title {
-    font-family: 'Lato';font-size: 26px;
+    border-top:  2px solid #707070;
+    border-bottom:  2px solid #707070;
 }
 
 .navBar li {
+    padding-right: 25px; /* spacing between menu items */
+    padding-top: 10px;
+    padding-bottom: 10px;   
     float: left;
+    font-family: 'Lato';
+    font-size: 16pt;
 }
 
 .navBar li a {
-    font-family: 'Lato';font-size: 18px;
+
     display: inline-block;
-    color: rgb(0, 0, 0);
+    color: rgb(235, 235, 235);
     text-align: center;
-    padding: 10px 10px;
+    /* padding: 10px 10px 10px 10px; */
     text-decoration: none;
-    border-right:  2px solid black;
-    border-left:  2px solid black;
-    /* border-radius: 5px; */
-    margin: 5px;
 }
 
 .navBar li a:hover {
     background-color: #111;
     color: rgb(255, 255, 255);
 }
-.workSidenav {
+.workMain {
+    /* margin-left:100px; */
+    background: #656565;
+    padding-right: 25px;
+
+}
+
+.fadeDown {
+    background: linear-gradient(to bottom, #454A4D, #656565);
+
+}
+
+.workSidenavcontaner {
+    width: 20%; 
+    float: left;
     transition-property: margin-left, display;
     transition-duration: 1.5s;
     transition-timing-function: ease;
     max-width: 150px;
+    background: #454A4D;
+    text-align: center;
+    
+}
+.line {
+    margin:auto;
+    /* margin-top: 10px; */
+    /* margin-left:75px; */
+    border-left: 2px solid #70BEBE;
+    height: 30px;
+    width:2px;
+}
+
+.workSidenavItem {
+    /* padding-top: 5px; */
+    padding-bottom:10px;
+    margin-bottom: 0px;
+}
+
+.workSidenavcontaner a {
+    /* padding: 20px; */
+    color: white;
+    /* padding-bottom: 20px;   */
+    /* text-decoration: underline;
+    text-decoration-color: #70BEBE; */
+    text-decoration: none;
+    border-bottom: 2px solid #70BEBE;
+}
+
+
+.thumbIcons {
+    /* margin:20px; */
+    transition-property: width;
+    transition-duration: 1s;
+    transition-timing-function: ease;
+
 }
 
 @media(max-width:600px) {
-    .workSidenav {
+    .workSidenavcontaner {
         /* display : none; */
         transition-property: margin-left, display;
         transition-duration: 1.5s;

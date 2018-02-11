@@ -3,12 +3,15 @@ import Thumbnail from './Thumbnail'
 
 import Grid from 'react-css-grid'
 
+
 class Work extends Component {
+
   constructor(props) {
     super(props);
 
     this.state = {
       yes: 1,
+      thumbWidth: 250,
       works: [
         {
           workTitle: 'LLBean',
@@ -18,7 +21,6 @@ class Work extends Component {
           otherMedia: [],
           year: 2016,
           tags: ['design']
-
         },
         {
           workTitle: 'Verge',
@@ -48,29 +50,31 @@ class Work extends Component {
           otherMedia: [],
           year: 2018,
           tags: ['video', 'design']
-
         },
       ]
     }
+    this.changeWidth = this.changeWidth.bind(this)
+  }
+  changeWidth() {
+    this.setState({ thumbWidth: (this.state.thumbWidth === '100%') ? '250px' : '100%' })
+    console.log('changed to: ' + this.state.thumbWidth)
   }
 
-
   render() {
-
-
     return (
-      <div style={{ 'width': '100%' }}>
+      <div style={{ 'width': '100%', 'padding-top': '0px' }}>
 
-        <div className="workSidenav" style={{ 'width': '20%', 'float': 'left' }}>
-          {this.state.works.map((obj, index) => <li>{obj.workTitle}</li>)}
+        <div className="workSidenavcontaner" >
+          {this.state.works.map((obj, index) => <div className='workSidenavItem' key={index} > <a >{obj.workTitle}</a><div className='line'></div></div>)}
+          <div className='fadeDown' style={{ 'height': '100px' }}> </div>
+
         </div>
 
-        <div className="App" style={{ 'overflow': 'hidden' }}>
-          <Grid width={250} gap={10}>
-            {this.state.works.map((obj, index) => <Thumbnail job={obj} key={index} />)}
+        <div className='workMain'>
+          <Grid width={this.state.thumbWidth} gap={0}>
+            {this.state.works.map((obj, index) => <div key={index} onClick={this.changeWidth} > <Thumbnail width={this.state.thumbWidth} job={obj} key={index} /> </div>)}
           </Grid>
         </div>
-
       </div>
     );
   }

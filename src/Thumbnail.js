@@ -4,11 +4,24 @@ require('./styles.css')
 class Thumbnail extends Component {
   constructor(props) {
     super(props);
-    // this is wrong... 
-    // console.log(this.props)
-    // console.log(this.props.job.workTitle)
-    // console.log(this.props.job.brief)
-    
+    this.state = {
+      showAll : false,
+    }
+  }
+
+  descReturn() {
+    // this logic is wonky...
+    console.log(this.props)
+    if (this.props.width != '100%') {
+      return this.props.job.brief
+    }
+    return <div>
+      {this.props.job.text}
+      <br/>
+      {this.props.job.tags}
+      <br/>
+      {this.props.job.year}
+      </div>
   }
 
   render() {
@@ -16,10 +29,8 @@ class Thumbnail extends Component {
       <div className="workThumb">
           {this.props.job.workTitle}
           <br/>
-          {this.props.job.brief}
-          <br/>    
+          {this.descReturn()}
       </div>
-      
     );
   }
 }
