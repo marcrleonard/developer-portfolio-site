@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import Thumbnail from './Thumbnail'
 
 import Grid from 'react-css-grid'
+import { HashRouter } from 'react-router-dom'
+
 
 
 class Work extends Component {
@@ -12,10 +14,11 @@ class Work extends Component {
     this.state = {
       yes: 1,
       thumbWidth: 250,
+      fullJob: false,
       works: [
         {
           workTitle: 'LLBean',
-          thumb: 'llbean.jpg',
+          thumb: './riding.png',
           brief: 'short!',
           text: 'This is a super long text...',
           otherMedia: [],
@@ -57,27 +60,23 @@ class Work extends Component {
   }
   changeWidth() {
     this.setState({ thumbWidth: (this.state.thumbWidth === '100%') ? '250px' : '100%' })
-    console.log('changed to: ' + this.state.thumbWidth)
   }
 
   render() {
     return (
-      <div style={{ 'width': '100%', 'padding-top': '0px' }}>
-
-        <div className="workSidenavcontaner" >
-          {this.state.works.map((obj, index) => <div className='workSidenavItem' key={index} > <a >{obj.workTitle}</a><div className='line'></div></div>)}
-          <div className='fadeDown' style={{ 'height': '100px' }}> </div>
-
-        </div>
-
-        <div className='workMain'>
-          <Grid width={this.state.thumbWidth} gap={0}>
-            {this.state.works.map((obj, index) => <div key={index} onClick={this.changeWidth} > <Thumbnail width={this.state.thumbWidth} job={obj} key={index} /> </div>)}
-          </Grid>
-        </div>
+      <div className='workMain'>
+        <Grid width={this.state.thumbWidth} gap={0}>
+          {this.state.works.map((obj, index) =>
+            <div key={index} onClick={this.changeWidth} >
+              <Thumbnail width={this.state.thumbWidth} job={obj} fullJob={this.state.fullJob} key={index} />
+            </div>
+          )}
+        </Grid>
       </div>
     );
   }
 }
+
+// 410-252-1573
 
 export default Work;
