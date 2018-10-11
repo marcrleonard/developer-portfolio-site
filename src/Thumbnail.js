@@ -6,41 +6,65 @@ class Thumbnail extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      showAll : false,
+      showAll: this.props.fullJob,
+      thumb: this.props.job.thumb
 
     }
   }
 
-  descReturn() {
-    // this logic is wonky...
 
-    if (this.props.width != '100%') {
-      return this.props.job.brief
+  // workTitle: '4',
+  // thumb: 'verge.jpg',
+  // brief: 'short!!!!',
+  // text: 'This is a super long text.!!!!..',
+  // otherMedia: [],
+  // year: 2018,
+  // tags: ['video', 'design']
+
+  descReturn() {
+
+    if (this.props.width !== '100%') {
+      return <div>
+        <center>
+        <item className='fullJobTitle'> {this.props.job.workTitle} </item>
+        <br />
+        <div className='jobText'> {this.props.job.brief} </div>
+        </center>
+      </div>
     }
     return <div>
-      {this.props.job.text}
-      <br/>
-      {this.props.job.tags}
-      <br/>
-      {this.props.job.year}
-      </div>
+      <center>
+        <item className='fullJobTitle'> {this.props.job.workTitle} </item>
+        <div className='jobText'>
+        <br />
+        {this.props.job.text}
+        <br />
+        {this.props.job.tags}
+        <br />
+        <div className='tagBox' ><a>{this.props.job.year}</a></div>
+        </div>
+      </center>
+    </div>
   }
 
   render() {
-    console.log(process.env.PUBLIC_URL + '/' + this.props.job.thumb)
-
-    console.log(this.props.fullJob)
 
     let img_size = '100%'
     if (this.props.fullJob) {
-      img_size = '300px';
+      img_size = '500px';
     }
 
     return (
-      <div className="workThumb">
-          <img src={process.env.PUBLIC_URL + '/' + this.props.job.thumb} width={img_size} alt={this.props.job.thumb}></img>
-          <br/>
+      <div>
+        <div style={{ 'height': '100%' }} className="workThumb">
+          <center>
+            <img src={process.env.PUBLIC_URL + '/' + this.state.thumb} width={img_size} alt={this.state.thumb}></img>
+          </center>
+          <br />
+        </div>
+        <div>
           {this.descReturn()}
+        </div>
       </div>
     );
   }

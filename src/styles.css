@@ -3,35 +3,66 @@
     src: url('LemonMilk.otf');
   }
 
+
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans:300,400');
+
+
 .leftHeader{
     /* height:100%; */
-    padding:50px;
+    padding:10%; 
 }
 
 .descContain {
     position: relative;
+    padding:10%; 
 }
 
 .desc {
-    position: absolute;
-    top: 50%;
-    transform: translateY(50%);
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 300;
 
-    padding-left:15%; 
-    padding-right:15%;
+    position: relative;
+    /* top: 50%; */
+
      /* margin-top: 50%; */
-    font-family: 'Lato';
     font-size: 14pt;
 }
+
 .titleDesc {
-    font-family: 'Lato';
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 400;
+
     font-size: 12pt;
 }
 
-/* .app-page {
+.tagBox a{
+    padding:5px;
+    border: 2px solid #656565;
+}
+
+.jobText{
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 300;
+    color: black;
+    font-size: 14pt;
+}
+
+.fullJobTitle {
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 400;
+    text-decoration: underline;
+    color: #70BEBE;
+    font-size: 16pt;
+
+}
+
+.app-page {
+    margin-left: auto;  /* These two center the block */
+    margin-right: auto;  /* These two center the block */
     background:white;
-    padding: 10px
-} */
+    max-width: 1000px;
+    /* padding: 10px */
+}
 
 .title {
     align-content: center;
@@ -47,7 +78,7 @@
 }
 
 .workThumb {
-    background: rgb(216, 216, 216);
+    /* background: rgb(216, 216, 216); */
     border: 1px, black;
     height: 200px;
     margin-left: 25px;
@@ -55,6 +86,7 @@
 }
 
 .navBar {
+    padding-left: 10%;
     background: white;
 
 }
@@ -76,7 +108,8 @@
     padding-top: 10px;
     padding-bottom: 10px;   
     float: left;
-    font-family: 'Lato';
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 400;
     font-size: 16pt;
 }
 
@@ -89,15 +122,15 @@
 }
 
 .navBar li a:hover {
-    background-color: #111;
+    background-color: #70BEBE;
     color: rgb(255, 255, 255);
 }
 
 .workMain {
-    /* margin-left:100px; */
     padding-right: 25px;
     /* border-top:  2px solid #70BEBE; */
     padding-bottom: 25px;
+    
 }
 
 .fadeDown {
@@ -139,7 +172,8 @@
 
 }
 
-@media(max-width:600px) {
+@media(max-width:650px) {
+
     .workSidenavcontaner {
         /* display : none; */
         transition-property: margin-left, display;

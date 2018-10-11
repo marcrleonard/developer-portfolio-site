@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {BrowserRouter as Router, browerHistory} from 'react-router-dom';
+import {BrowserRouter as Router} from 'react-router-dom';
 import Data from './all';
 // import registerServiceWorker from './registerServiceWorker';
 

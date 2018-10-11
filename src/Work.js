@@ -2,8 +2,6 @@ import React, { Component } from 'react'
 import Thumbnail from './Thumbnail'
 
 import Grid from 'react-css-grid'
-import { HashRouter } from 'react-router-dom'
-
 
 
 class Work extends Component {
@@ -60,6 +58,12 @@ class Work extends Component {
   }
   changeWidth() {
     this.setState({ thumbWidth: (this.state.thumbWidth === '100%') ? '250px' : '100%' })
+    
+    if (this.state.fullJob)
+      this.setState({'fullJob': false})
+    else {
+      this.setState({'fullJob': true})
+    }
   }
 
   render() {
