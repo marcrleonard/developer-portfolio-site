@@ -1,16 +1,21 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://fonts.googleapis.com/css?family=Cabin" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="style.css">
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.2/p5.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.2/addons/p5.dom.js"></script>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/parallax/3.1.0/parallax.js"></script>
 
-    <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
     <!-- <link rel="stylesheet" href="https://use.typekit.net/ofn1iqx.css"> -->
     <link href="https://fonts.googleapis.com/css?family=PT+Sans|Poppins:200,400" rel="stylesheet">
+
+    <link href="prism_coy.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+    <script src="prism.js"></script>
+
 </head>
 
 <div class='container'>
@@ -94,7 +99,7 @@
             <div class='currently'>
 
                 <center class='frame' href='https://pixelstrings.com/' style='align-items: center;'>
-                    <a href="http://pixelstrings.com"><img src="pxs_b.png" alt="PxS" width='200px' class='shadowfilter'></a>
+                    <a href="http://pixelstrings.com"><img src="img/pxs_b.png" alt="PxS" width='200px' class='shadowfilter'></a>
                 </center>
 
                 <p>
@@ -160,9 +165,21 @@
                     </a>
             </center>
 
-            <a href="#">
-                <img id='showcaseMedia' src="pxs.png" alt="PxS" width='400px'>
-            </a>
+            <div id='showcaseMedia'>
+                <div>
+                    <pre id="showcaseCode-container">
+                        <code id="showcaseCode" class="language-python" alt="PxS" width='400px'>
+class Hello(object):
+    def __init__(input_stuff):
+        self.input_stuff = input_stuff
+
+>>> yooy = Hello('asda')
+                        </code>
+                    </pre>
+                </div>
+                <img id="showcaseImage" src="" alt="PxS" width='400px'>
+            </div>
+
 
         </div>
     </div>

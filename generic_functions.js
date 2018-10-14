@@ -65,20 +65,32 @@ var fullwidth = function (element) {
 
     var title_ele = document.getElementById('showcaseTitle');
     var text_ele = document.getElementById('showcaseText');
-    var media_ele = document.getElementById('showcaseMedia');
+    var code_container = document.getElementById('showcaseCode-container');
+    var image = document.getElementById('showcaseImage');
+
+    code_container.style.visibility = "hidden";
+    image.style.visibility = "hidden";
+    document.getElementById('showcaseProject').style.backgroundImage = '';
+    // image.removeAttribute('src');
 
     title_ele.innerHTML = full_project.name;
     text_ele.innerHTML = full_project.full_desc;
-    media_ele.innerHTML = full_project.bg_img;
-    // ele.classList.add('showcaseExpand');
 
-    // console.log(getPos(ele));
+    if (full_project.hasOwnProperty('bg_img')) {
+        document.getElementById('showcaseProject').style.backgroundImage = 'url(img/test_bg.jpg)';
+    }
+
+    if (full_project.hasOwnProperty('code')) {
+        var code = document.getElementById('showcaseCode');
+        code_container.style.visibility = "visible";
+        code.innerHTML = full_project.code;
+    }
+    if (full_project.hasOwnProperty('full_media')) {
+        image.style.visibility = "visible";
+        image.src = 'img/pxs.png';
+    }
 
 
-
-
-
-    // element.classList.add("fullWidthProject");
 };
 
 
@@ -128,7 +140,7 @@ var all_projects = [
         'name': 'PixelStrings',
         'tags': ['PaaS'],
         'short_desc': 'QD',
-        'bg_img': '',
+        // 'bg_img': '',
         'full_desc': `Currently, I am a core backend developer of PixelStrings,
         a platform by <a class='whiteLink' href="http://cinnafilm.com">Cinnafilm</a> . <a class='whiteLink' href="http://pixelstrings.com"> PixelStrings</a>
             specializes cloud video processing and delivery.
@@ -144,7 +156,7 @@ var all_projects = [
         'name': 'ArtStream',
         'tags': ['SaaS'],
         'short_desc': 'QD',
-        'bg_img': '',
+        // 'bg_img': '',
         'full_desc': `ArtStream is a patform for artists to showcase their work via the ArtStream channel on Roku. I created the
         infrastructure and APIs to take a piece of artwork a user uploaded, and delivery it in video form with 'Ken Burns' style animations applied.`,
         'technologies': ['python', 'javascript', 'MySQL', 'ImageMagik', 'Digital Ocean', 'PIL', 'FFMPEG'],
@@ -155,11 +167,16 @@ var all_projects = [
         'name': 'ImageToVideo',
         'tags': ['Library'],
         'short_desc': 'QD',
-        'bg_img': '',
+        // 'bg_img': '',
         'full_desc': `I created this to make a batteries included way to make an image into a video. ImageToVideo uses OpenCV/Numpy as a 'middle man'. It handles any zoom, resize, rotate functions (and eventually will power the plugin extensibility). All encoding is done via FFMPEG. In the future, I will be adding other imaging libraries. I have preliminary versions of using Pillow and Pyvips.`,
         'technologies': ['FFMPEG', 'PIL', 'Numpy', 'OpenCV'],
-        'full_media': '',
-        'links': ['https://github.com/marcrleonard/ImageToVideo']
+        'links': ['https://github.com/marcrleonard/ImageToVideo'],
+        'code': `
+class Hello(object):
+    def __init__(input_stuff):
+        self.input_stuff = input_stuff
+
+>>> yooy = Hello('asda')`
     },
     {
         'name': 'Photobooth',
@@ -167,8 +184,8 @@ var all_projects = [
         'short_desc': 'QD',
         'bg_img': '',
         'full_desc': 'I created this app to use at my wedding. It was run on a Raspberry Pi, computer screen and a Canon 60d. Resulting photobooth image "strips" are texted to the subject!',
-        'technologies': ['RaspberryPi', 'Twilio', 'TKinter', 'FFMPEG', 'ImageMagik', 'python'],
-        'full_media': '',
+        'technologies': ['RaspberryPi', 'Twilio', 'Tkinter', 'FFMPEG', 'ImageMagik', 'gphoto2', 'python'],
+        'full_media': 'img/pxs.png',
         'links': ['https://github.com/marcrleonard/Photobooth'],
     },
     {
@@ -185,12 +202,17 @@ var all_projects = [
         'name': 'SimpleTimeOffset',
         'tags': ['Library', 'WIP'],
         'short_desc': 'QD',
-        'bg_img': '',
+        // 'bg_img': '',
         'full_desc': `
-        This library provides a very simple way to add hour offsets to a given input time. While doing an iot project with micro python, I found that an internet connected device will get the correct time, but micropython would not give you the ability to add a timezone. So if you know (or figure out) the proper hourly offset, you can use this library to get the correct time. It has no dependencies (except the new_time method, so you can easily use in micro python. This does not do any other 'fancy' calculations like daylight savings time.`,
+        This library provides a very simple way to add hour offsets to a given input time.While doing an iot project with micro python, I found that an internet connected device will get the correct time, but micropython would not give you the ability to add a timezone.So if you know(or figure out) the proper hourly offset, you can use this library to get the correct time.It has no dependencies(except the new_time method, so you can easily use in micro python.This does not do any other 'fancy' calculations like daylight savings time.`,
         'technologies': ['micropython', 'python', 'esp8266'],
-        'full_media': '',
         'links': ['https://github.com/marcrleonard/SimpleTimeOffset'],
+        'code': `
+class Hello(object):
+    def __init__(input_stuff):
+        self.input_stuff = input_stuff
+
+>>> yooy = Hello('asda')`
     },
 ]
 

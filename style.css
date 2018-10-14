@@ -273,6 +273,10 @@ margin:10px;
 
 }
 
+pre::before{
+    height: 0px
+}
+
 .whiteLink {
     color:white;
 }
