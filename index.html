@@ -16,6 +16,17 @@
 
     <script src="prism.js"></script>
 
+    <script>
+
+        function decryptEmail(encoded) {
+
+            var address = atob(encoded);
+            window.location.href = "mailto:" + address;
+
+        }
+
+    </script>
+
 </head>
 
 <div class='container'>
@@ -125,6 +136,7 @@
             <h1 class='backgroundHighlight anchor'>
                 Featured Projects
             </h1>
+            <p>Click a project to see more.</p>
             <div class="projects" id='projectBoxes'>
 
 
@@ -143,15 +155,19 @@
 
 </div>
 
-<div id='showcaseProject' class='showcase'>
+<div id='showcaseProject' class='showcase orange_top_border'>
 
     <a name='showcase'></a>
     <div class='container'>
         <h2>
             <center>
-                <h1 id='showcaseTitle'>
+                <h1 id='showcaseTitle' class='backgroundHighlight'>
                     Showcase Title!
                 </h1>
+                <br>
+                <a target="_blank" class='showcaseLink' id='showcaseLink'></a>
+                <br>
+                <h3 class='whiteText sm-backgroundHighlight showcaseTech' id='showcaseTech'></h3>
             </center>
         </h2>
         <div>
@@ -168,16 +184,14 @@
             <div id='showcaseMedia'>
                 <div>
                     <pre id="showcaseCode-container">
-                        <code id="showcaseCode" class="language-python" alt="PxS" width='400px'>
-class Hello(object):
-    def __init__(input_stuff):
-        self.input_stuff = input_stuff
-
->>> yooy = Hello('asda')
+                        <code id="showcaseCode" class="language-python" alt="PxS" width='800px'>
                         </code>
                     </pre>
                 </div>
-                <img id="showcaseImage" src="" alt="PxS" width='400px'>
+                <center>
+                    <img id="showcaseImage" src="" alt="PxS" width='700px'>
+                </center>
+
             </div>
 
 
@@ -189,9 +203,27 @@ class Hello(object):
 
 
 <div class='container'>
-    <footer class='footer'>
-        Footer!
-    </footer>
+    <div class='footer'>
+        <ul class='backgroundHighlight nav whiteText'>
+            <li>
+                <a rel="nofollow" href="javascript:decryptEmail('bWFyYy5yLmxlb25hcmRAZ21haWwuY29t');">
+                    Email!
+                </a>
+            </li>
+            <li>
+                <a target='_blank' href='https://instagram.com/marcrleonard'>
+                    Instagram!
+                </a>
+            </li>
+            <li>
+                <a target='_blank' href='http://marcrleonard.com'>
+                    More great stuff!
+                </a>
+            </li>
+
+        </ul>
+        <p>Copyright (c) 2018 Marc Leonard - All rights reserved</p>
+    </div>
 </div>
 
 <script src="generic_functions.js"></script>
