@@ -65,7 +65,6 @@ var fullwidth = function (element) {
     console.log(full_project);
 
 
-
     // entrie.classList.add('showcaseContract');
     // await sleep(1500);
 
@@ -145,7 +144,8 @@ var fullwidth = function (element) {
         showCaseOpen = true;
 
     }
-    entire.style.height = "100%";
+
+    entire.style.height = "auto";
 
 };
 
@@ -320,6 +320,9 @@ var project_location = document.getElementById('projectBoxes')
 for (let [idx, project] of all_projects.entries()) {
     console.log(idx)
     var div = document.createElement('div');
+
+    // var link = document.createElement('a');
+    div.href = '#showcase';
 
     var center = document.createElement('center');
     var title = document.createElement('h3');
