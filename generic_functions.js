@@ -307,7 +307,7 @@ print('Offset   {} Days, {} Hours'.format(time_set.day_offset, time_set.hour_rem
         'tags': ['Art'],
         'short_desc': 'QD',
         'bg_img': 'img/topo_bg.svg',
-        'full_desc': 'I love the diea of taking the digital and making it phyical. ',
+        'full_desc': 'I love taking the digital and making it phyical. ',
         'technologies': ['python', 'Inkscape', 'Plotter'],
         'full_media': 'img/plotter.jpg',
         'links': [],
