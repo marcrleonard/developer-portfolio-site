@@ -9,6 +9,12 @@ canvas {
     background-color:white;
 }
 
+.clearfix::after {
+    display: table;
+    content: '';
+    clear: both;
+}
+
  .container {
     min-width:150px;
     max-width:768px;
@@ -153,10 +159,6 @@ p {
     text-decoration: underline;
 }
 
-.projects {
-display: grid;
-grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-}
 
 .fullWidthProject {
     grid-template-columns: repeat(2, 1fr);
@@ -172,11 +174,43 @@ grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
 
 }
 
+.projects {
+    /* display: grid; */
+    /* grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); */
+    display:flex;
+    flex-wrap: wrap;
+
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.halfFlex {
+    width: 40%;
+    /* background-color: #233D4D; */
+    /* border: 2px solid #233D4D; */
+    padding:10px;
+    margin:10px;
+
+    
+    
+    /* width:27%; */
+    
+    /* border: 1px solid rgb(0, 0, 0); */
+    }
+
 .projectBox {
+width: 200px;
 /* background-color: #233D4D; */
 border: 2px solid #233D4D;
 padding:10px;
 margin:10px;
+
+/* width:27%; */
+
 /* border: 1px solid rgb(0, 0, 0); */
 }
 
@@ -192,14 +226,15 @@ background-color: rgb(227, 153, 46);
     /* grid-template-columns: repeat(2, 1fr); */
     /* grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); */
     grid-template-columns: 50% 50%;
+
 }
 
 
 
 @media only screen and (max-width: 550px) {
-    .currently {
+    /* .currently {
         display: block; 
-        } 
+        }  */
 }  
 
 .black_background{
@@ -230,13 +265,13 @@ background-color: rgb(227, 153, 46);
     display:inline-block;
     width:100%;
     margin:0;
-    border-bottom: 2px solid  rgb(227, 153, 46);
+    border-bottom: 2px solid  #e29830;
 
 }
 
 
 .backgroundNav {
-    background-color: rgb(35, 61, 77);
+    background-color: #233d4d;
     
 }
 
@@ -328,6 +363,7 @@ pre::before{
         /* filter: blur(4px); */
     }
   }
+
 
 
   footer{
