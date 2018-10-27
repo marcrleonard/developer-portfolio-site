@@ -2,9 +2,8 @@
 
 # dependencies
 /node_modules
-v2/node_modules
 
-# testing
+# testing 
 /coverage
 
 # production
