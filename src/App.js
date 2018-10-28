@@ -17,13 +17,18 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Header></Header>
+        <div className='container'>
+          <Header></Header>
+        </div>
         <Menu></Menu>
-        <About></About>
-        <Currently></Currently>
-        <Projects></Projects>
-        <Footer></Footer>
+        <div className='container'>
+          <About></About>
+          <Currently></Currently>
+          <Projects></Projects>
+          <Footer></Footer>
+        </div>
       </div>
+
     );
   }
 }

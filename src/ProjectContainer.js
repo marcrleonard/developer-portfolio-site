@@ -5,7 +5,8 @@ import React, { Component } from 'react';
 class ProjectContainer extends Component {
   constructor() {
     super()
-    this.state = {}
+    this.state = {};
+    this.side = 'right';
   }
 
   render() {
@@ -13,11 +14,11 @@ class ProjectContainer extends Component {
     let projects = [
       {
         'name': 'PixelStrings',
-        'tags': ['PaaS'],
+        'tags': 'PaaS',
         'short_desc': 'QD',
         // 'bg_img': '',
         'full_desc': `Currently, I am a core backend developer of PixelStrings,
-          a platform by <a class='whiteLink' href="http://cinnafilm.com">Cinnafilm</a> . <a class='whiteLink' href="http://pixelstrings.com"> PixelStrings</a>
+          a platform by <a class="whiteLink" href="http://cinnafilm.com">Cinnafilm</a> . <a class='whiteLink' href="http://pixelstrings.com"> PixelStrings</a>
               specializes cloud video processing and delivery.
           My job is two fold - automating the allocation and orcehstration cloud compute resources for
           processing and delivery, and creating APIs to enable different type of
@@ -29,7 +30,7 @@ class ProjectContainer extends Component {
       },
       {
         'name': 'ArtStream',
-        'tags': ['Webapp'],
+        'tags': 'Webapp',
         'short_desc': 'QD',
         // 'bg_img': '',
         'full_desc': `ArtStream is a patform for artists to showcase their work via the ArtStream channel on Roku. I created the
@@ -40,12 +41,13 @@ class ProjectContainer extends Component {
       },
       {
         'name': 'ImageToVideo',
-        'tags': ['Library'],
+        'tags': 'Library',
         'short_desc': 'QD',
         // 'bg_img': '',
         'full_desc': `I created this to make a batteries included way to make an image into a video. ImageToVideo uses OpenCV/Numpy as a 'middle man'. It handles any zoom, resize, rotate functions (and eventually will power the plugin extensibility). All encoding is done via FFMPEG. Included in the class is a simple progress monitoring API. In the future, I will be adding other imaging libraries. I have preliminary versions of using Pillow and Pyvips.`,
         'technologies': ['FFMPEG', 'PIL', 'Numpy', 'OpenCV'],
         'links': ['https://github.com/marcrleonard/ImageToVideo'],
+        'full_media': 'img/pxs_screenshot.jpg', // TEMP
         'code': `from ImageToVideo import ImageToVideo
   
   image_video = ImageToVideo(
@@ -82,12 +84,13 @@ class ProjectContainer extends Component {
       },
       {
         'name': 'SimpleTimeOffset',
-        'tags': ['Library', 'WIP'],
+        'tags': 'Library',
         'short_desc': 'QD',
         // 'bg_img': '',
         'full_desc': `
           This library provides a very simple way to add hour offsets to a given input time.While doing an iot project with micro python, I found that an internet connected device will get the correct time, but micropython would not give you the ability to add a timezone.So if you know(or figure out) the proper hourly offset, you can use this library to get the correct time.It has no dependencies(except the new_time method, so you can easily use in micro python.This does not do any other 'fancy' calculations like daylight savings time.`,
         'technologies': ['micropython', 'python', 'esp8266'],
+        'full_media': 'img/pxs_screenshot.jpg', // TEMP
         'links': ['https://github.com/marcrleonard/SimpleTimeOffset'],
         'code': `
   from SimpleTimeOffset import SimpleTimeOffset
@@ -113,7 +116,7 @@ class ProjectContainer extends Component {
       },
       {
         'name': 'Photobooth',
-        'tags': ['Application'],
+        'tags': 'Application',
         'short_desc': 'QD',
         // 'bg_img': '',
         'full_desc': 'I created this app to use at my wedding. It was run on a Raspberry Pi, computer screen and a Canon 60d. Resulting photobooth image "strips" are texted to the subject!',
@@ -123,7 +126,7 @@ class ProjectContainer extends Component {
       },
       {
         'name': 'Topo Plotter',
-        'tags': ['Art'],
+        'tags': 'Art',
         'short_desc': 'QD',
         'bg_img': 'img/topo_bg.svg',
         'full_desc': 'I love taking the digital and making it phyical. ',
@@ -136,10 +139,37 @@ class ProjectContainer extends Component {
     ////////////////////
 
 
+    var side = 'right'
 
-    let listItems = projects.map((project) =>
-      <SingleProject key={project.toString()} project={project} />
-    );
+    let listItems = []
+
+    for (let project of projects) {
+      listItems.push(
+        <SingleProject
+          className='clear'
+          key={project.name.toString()}
+          side={side}
+          project={project}
+        />
+      );
+      // console.log(side)
+      // if (side === 'left') {
+      //   side = 'right'
+      // }
+      // else {
+      //   side = 'left'
+      // };
+      side = ((side == 'right') ? 'left' : 'right');
+    }
+
+    // let listItems = projects.map((project) =>
+    //   <SingleProject
+    //     className='clear'
+    //     key={project.name.toString()}
+    //     side={side ? 'right' : 'left'}
+    //     project={project}
+    //   />
+    // );
 
 
 

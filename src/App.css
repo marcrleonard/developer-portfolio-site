@@ -2,11 +2,6 @@
   text-align: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-}
-
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -18,15 +13,170 @@
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.fullHeight {
+  height: 94vh;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.desc{
+  padding:10px;
+}
+
+body{
+  font-family: 'PT Sans', sans-serif;
+}
+
+p {
+  margin:10px;
+}
+
+.center {
+  display: table-cell; 
+  vertical-align: middle; 
+  text-align: center;
+}
+
+.container {
+  min-width:150px;
+  max-width:768px;
+  text-align:center;
+  margin:0 auto;
+  /* padding-left: 30px; */
+  /* padding-right: 30px; */
+  /* background-color: #e7e7e7 */
+}
+
+h1 {
+  /* color:#233D4D; */
+  /* font-size: 26px; */
   }
-  to {
-    transform: rotate(360deg);
+
+h2 {
+color:#233D4D;
+font-size: 30px;
+}
+
+h3 {
+  color:#233D4D;
+  font-size: 26px;
+  margin:10px;
   }
+
+
+
+
+.backgroundHighlight {
+  color:white;
+  background-color: #233D4D;
+  display: inline-flex;
+
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+
+
+
+.clear{
+  clear:both;
+  padding-top:100px;
+  padding-bottom:100px;
+}
+
+.left {
+  width:40%;
+  float:left;
+  padding: 10px;
+
+}
+.right {
+  width:40%;
+  float:right; 
+  padding: 10px
+
+}
+
+.subHeading {
+  font-size: 20px;
+  padding:10px;
+}
+
+.img_container {
+  width: 400px;
+  height: 300px;
+  /* background-image: url("http://i.stack.imgur.com/2OrtT.jpg"); */
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+
+  /*This should be minus the height of the image */
+  transform: translate(0%, 20%);
+}​
+
+.project {
+  height:500px;
+  /* overflow:auto; */
+  /* display: inline-flex; */
+  /* position: relative; */
+}
+
+.projectImage {
+  
+
+  width: 400px;
+  box-shadow:5px 5px 15px rgba(0, 0, 0, 0.6);
+
+  /* position: relative;
+  top: 50%;
+  transform: perspective(1px) translateY(-50%); */
+}
+
+/* NAV */
+
+.nav {
+  font-family: 'Poppins', sans-serif;
+  text-align:center;
+  display:inline-block;
+  width:100%;
+  margin:0;
+  border-bottom: 2px solid  rgb(227, 153, 46);
+  background-color: rgb(35, 61, 77);
+
+}
+
+.center_vert{   
+  margin: 0;
+  /* width: 100%; */
+  position: absolute;
+  
+  left: 50%;
+  top: 40%;
+  transform: translate(-50%, -50%);
+
+}
+
+
+.nav a {
+  float: left;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  color: white;
+}
+
+.nav li {
+  display:inline-block;
+  *display:inline; /*IE7*/
+  *zoom:1; /*IE7*/
+  margin-right:10px;
+}
+
+.nav li:hover {
+  background-color: grey; 
+}
+
+.nav a.active {
+  background-color: rgb(227, 153, 46);
+  
+
 }

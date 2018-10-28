@@ -8,16 +8,17 @@ class Header extends Component {
 
   render() {
     return (
-      <div className="page_content">
-        <center>
+      <div className="fullHeight">
+        <center className='center_vert'>
           <div className="backgroundHighlight">
             <h1>
               Marc Leonard
                 </h1>
           </div>
-          <h2>
+
+          <div className='subHeading'>
             full stack developer + likes art
-          </h2>
+          </div>
         </center>
       </div>
     );
