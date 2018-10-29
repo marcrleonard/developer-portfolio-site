@@ -22,7 +22,12 @@
 }
 
 body{
+  width:100%;
   font-family: 'PT Sans', sans-serif;
+}
+
+ul {
+  padding-inline-start: 0px;
 }
 
 p {
@@ -62,6 +67,9 @@ h3 {
   }
 
 
+.thickWeight{
+  font-weight: 800;
+}
 
 
 .backgroundHighlight {
@@ -82,16 +90,28 @@ h3 {
   padding-bottom:100px;
 }
 
-.left {
-  width:40%;
+.leftImg {
+  width:44%;
   float:left;
-  padding: 10px;
+  padding: 5px;
+}
+
+.rightText {
+  width:44%;
+  float:right; 
+  padding: 5px
+}
+
+.leftText {
+  width:44%;
+  float:left;
+  padding: 5px;
 
 }
-.right {
-  width:40%;
+.rightImg {
+  width:44%;
   float:right; 
-  padding: 10px
+  padding: 5px
 
 }
 
@@ -106,10 +126,10 @@ h3 {
   /* background-image: url("http://i.stack.imgur.com/2OrtT.jpg"); */
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: 50% 50%;
+  background-position: 0% 50%;
 
   /*This should be minus the height of the image */
-  transform: translate(0%, 20%);
+  transform: translate(0%, 0%);
 }​
 
 .project {
@@ -129,6 +149,16 @@ h3 {
   top: 50%;
   transform: perspective(1px) translateY(-50%); */
 }
+
+.projectLink a {
+  color: rgb(227, 153, 46);
+  font-weight: 600;
+  /* font-size: 20px; */
+}
+
+.projectLink a:visited {
+  color: rgb(227, 153, 46);
+  font-weight: 600;}
 
 /* NAV */
 
@@ -180,3 +210,34 @@ h3 {
   
 
 }
+
+@media screen and (max-width: 750px) {
+  .clear{
+    overflow: hidden;
+  }
+
+  .leftImg {
+    margin-left:-25%;
+    /* margin-left:-160px; */
+    width: 50%;
+  
+  }
+
+  .rightImg {
+    /* margin-right: -10%; */
+    width:30%
+    /* margin-right: -160px; */
+  }
+
+  .rightText{
+    width: 65%;
+  }
+
+  .leftText {
+    margin-left:-10px;
+    width: 65%;
+  }
+  
+  
+ }
+

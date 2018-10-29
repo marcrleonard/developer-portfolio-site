@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-// import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 
 class SingleProject extends Component {
@@ -14,22 +14,14 @@ class SingleProject extends Component {
   render() {
     let pj = this.props.project
 
-    let imgside = 'left'
-    let textside = 'right'
+
+
+    let imgside = 'leftImg'
+    let textside = 'rightText'
 
     if (this.props.side === 'right') {
-      imgside = 'right'
-      textside = 'left'
-    }
-
-    //////////////
-
-    let imgside = 'left'
-    let textside = 'right'
-
-    if (this.props.side === 'right') {
-      imgside = 'right'
-      textside = 'left'
+      textside = 'leftText'
+      imgside = 'rightImg'
     }
 
 
@@ -42,13 +34,18 @@ class SingleProject extends Component {
             {pj.name}
           </h3>
           <div>
-            <p className='backgroundHighlight'>{pj.tags}</p>
+            <p className='backgroundHighlight thickWeight'>
+              {pj.tags}
+            </p>
           </div>
           <div className='desc'>
             <p>{pj.full_desc}</p>
           </div>
-          <div>
-            {pj.technologies}
+          <div className='projectLink'>
+            <a href={`https://${pj.links}`} >
+              {pj.links}
+            </a>
+
           </div>
         </div>
         <div className={`${imgside} img_container projectImage`}

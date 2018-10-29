@@ -23,10 +23,12 @@ class App extends Component {
         <Menu></Menu>
         <div className='container'>
           <About></About>
+
           <Currently></Currently>
           <Projects></Projects>
           <Footer></Footer>
         </div>
+
       </div>
 
     );

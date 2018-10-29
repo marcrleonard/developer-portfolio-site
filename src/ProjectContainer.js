@@ -26,7 +26,7 @@ class ProjectContainer extends Component {
           These services are accesed by the front end UI, as well as our public API.`,
         'technologies': ['python'],
         'full_media': 'img/pxs_screenshot.jpg',
-        'links': ['http://pixelstrings.com']
+        'links': ['pixelstrings.com']
       },
       {
         'name': 'ArtStream',
@@ -37,7 +37,7 @@ class ProjectContainer extends Component {
           infrastructure and APIs to take a piece of artwork a user uploaded, and delivery it in video form with 'Ken Burns' style animations applied.`,
         'technologies': ['python', 'javascript', 'MySQL', 'ImageMagik', 'Digital Ocean', 'PIL', 'FFMPEG'],
         'full_media': 'img/asv_screenshot.jpg',
-        'links': ['https://www.artstreamvideos.com/']
+        'links': ['artstreamvideos.com']
       },
       {
         'name': 'ImageToVideo',
@@ -46,7 +46,7 @@ class ProjectContainer extends Component {
         // 'bg_img': '',
         'full_desc': `I created this to make a batteries included way to make an image into a video. ImageToVideo uses OpenCV/Numpy as a 'middle man'. It handles any zoom, resize, rotate functions (and eventually will power the plugin extensibility). All encoding is done via FFMPEG. Included in the class is a simple progress monitoring API. In the future, I will be adding other imaging libraries. I have preliminary versions of using Pillow and Pyvips.`,
         'technologies': ['FFMPEG', 'PIL', 'Numpy', 'OpenCV'],
-        'links': ['https://github.com/marcrleonard/ImageToVideo'],
+        'links': ['github.com/marcrleonard/ImageToVideo'],
         'full_media': 'img/pxs_screenshot.jpg', // TEMP
         'code': `from ImageToVideo import ImageToVideo
   
@@ -91,7 +91,7 @@ class ProjectContainer extends Component {
           This library provides a very simple way to add hour offsets to a given input time.While doing an iot project with micro python, I found that an internet connected device will get the correct time, but micropython would not give you the ability to add a timezone.So if you know(or figure out) the proper hourly offset, you can use this library to get the correct time.It has no dependencies(except the new_time method, so you can easily use in micro python.This does not do any other 'fancy' calculations like daylight savings time.`,
         'technologies': ['micropython', 'python', 'esp8266'],
         'full_media': 'img/pxs_screenshot.jpg', // TEMP
-        'links': ['https://github.com/marcrleonard/SimpleTimeOffset'],
+        'links': ['github.com/marcrleonard/SimpleTimeOffset'],
         'code': `
   from SimpleTimeOffset import SimpleTimeOffset
   
@@ -122,7 +122,7 @@ class ProjectContainer extends Component {
         'full_desc': 'I created this app to use at my wedding. It was run on a Raspberry Pi, computer screen and a Canon 60d. Resulting photobooth image "strips" are texted to the subject!',
         'technologies': ['RaspberryPi', 'Twilio', 'Tkinter', 'FFMPEG', 'ImageMagik', 'gphoto2', 'python'],
         'full_media': 'img/photobooth_interface.jpg',
-        'links': ['https://github.com/marcrleonard/Photobooth'],
+        'links': ['github.com/marcrleonard/Photobooth'],
       },
       {
         'name': 'Topo Plotter',
