@@ -8,8 +8,8 @@ class About extends Component {
 
   render() {
     return (
-      <div className='fullHeight'>
-        <center>
+      <div className='about'>
+        <center className=''>
           <h2>
             About
           </h2>

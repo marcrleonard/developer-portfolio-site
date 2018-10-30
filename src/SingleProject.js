@@ -16,41 +16,51 @@ class SingleProject extends Component {
 
 
 
-    let imgside = 'leftImg'
-    let textside = 'rightText'
+
+
+
+
+    let innerProject = []
+
+    let text = <div className='projectHalf'>
+      <h3>
+        {pj.name}
+      </h3>
+      <div>
+        <p className='backgroundHighlight thickWeight'>
+          {pj.tags}
+        </p>
+      </div>
+      <div className='desc'>
+        <p>{pj.full_desc}</p>
+      </div>
+      <div className='projectLink'>
+        <a href={`https://${pj.links}`} >
+          {pj.links}
+        </a>
+      </div>
+    </div>
+
+    let image = <div className={`projectHalf img_container projectImage`}
+      style={{ backgroundImage: `url(${pj.full_media})` }}>
+    </div>
 
     if (this.props.side === 'right') {
-      textside = 'leftText'
-      imgside = 'rightImg'
+      innerProject.push(text)
+      innerProject.push(image)
+    }
+
+    if (this.props.side === 'left') {
+      innerProject.push(image)
+      innerProject.push(text)
+
     }
 
 
-
     return (
-      <div className='clear project'>
-        {/* <center> */}
-        <div className={`${textside}`}>
-          <h3>
-            {pj.name}
-          </h3>
-          <div>
-            <p className='backgroundHighlight thickWeight'>
-              {pj.tags}
-            </p>
-          </div>
-          <div className='desc'>
-            <p>{pj.full_desc}</p>
-          </div>
-          <div className='projectLink'>
-            <a href={`https://${pj.links}`} >
-              {pj.links}
-            </a>
+      <div className={`${this.props.side} clear project`}>
 
-          </div>
-        </div>
-        <div className={`${imgside} img_container projectImage`}
-          style={{ backgroundImage: `url(${pj.full_media})` }}>
-        </div>
+        {innerProject}
 
 
       </div>
