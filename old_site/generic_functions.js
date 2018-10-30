@@ -31,7 +31,8 @@ var window_offset = 0
 var container_width = 0
 var columns = 3
 
-
+var y;
+var window_offset = 0;
 var nav;
 var elemRect;
 window.onload = function () {
@@ -172,12 +173,6 @@ window.addEventListener('scroll', function (e) {
         nav.classList.remove("sticky");
         top.style.height = '0px'
     };
-
-
-
-
-    // };
-
 
 
 })
