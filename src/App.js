@@ -21,10 +21,10 @@ class App extends Component {
           <Header></Header>
         </div>
         <Menu></Menu>
-        <div className='container'>
-          <About></About>
+        <div className='container' >
+          <About name='about'></About>
 
-          <Currently></Currently>
+          <Currently name='currently'></Currently>
           <Projects></Projects>
           <Footer></Footer>
         </div>

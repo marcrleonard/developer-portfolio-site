@@ -45,6 +45,7 @@ p {
   max-width:768px;
   text-align:center;
   margin:0 auto;
+  overflow:hidden;
   /* padding-left: 30px; */
   /* padding-right: 30px; */
   /* background-color: #e7e7e7 */
@@ -92,20 +93,20 @@ h3 {
   clear:both;
   padding-top:0px;
   padding-bottom:100px;
+  
 }
 
 
 
 
 .subHeading {
-  font-size: 20px;
+  font-size: 1em;
   padding:10px;
 }
 
 .img_container {
   width: 400px;
   height: 300px;
-  /* background-image: url("http://i.stack.imgur.com/2OrtT.jpg"); */
   background-size: cover;
   background-repeat: no-repeat;
   background-position: 0% 50%;
@@ -114,13 +115,27 @@ h3 {
   transform: translate(0%, 0%);
 }​
 
+
 .project {
-  height:500px;
-
-  display: flex;
-
 
 }
+
+
+.projectHalf {
+  display: inline-block;
+  width:44%;
+  padding: 5px;
+  vertical-align: middle;
+
+
+  
+}
+
+
+.projectImage {
+  box-shadow:5px 5px 15px rgba(0, 0, 0, 0.6);
+}
+
 
 .sticky {
   background-color: rgb(35, 61, 77);
@@ -132,42 +147,46 @@ h3 {
   /* list-style-type: none; */
   /* background-color: rgb(35, 61, 77); */
   z-index: 10;
+  box-shadow:5px 5px 15px rgba(0, 0, 0, 0.6);
   
 }
 
 
 @media screen and (max-width: 750px) {
-
+  
   .left {
-    margin-left: -22em;
+    margin-left: -19em;
   }
 
   .right {
-    margin-right: -22em;
+    margin-right: -19em;
   }
 
  }
 
+@media screen and (max-width: 400px) {
+  body .left {
+    margin-left: -10em;
+  }
 
-
-.projectHalf {
-  display: inline-block;
-  width:44%;
-  /* float:left; */
-  padding: 5px;
+  body .right {
+    margin-right: -10em;
+  }
 }
 
 
-.projectImage {
-  
 
-  width: 400px;
-  box-shadow:5px 5px 15px rgba(0, 0, 0, 0.6);
-
-  /* position: relative;
-  top: 50%;
-  transform: perspective(1px) translateY(-50%); */
+a {
+  color: rgb(227, 153, 46);
+  /* font-weight: 600; */
+  /* font-size: 20px; */
 }
+
+a:visited {
+  color: rgb(227, 153, 46);
+  /* font-weight: 600; */
+}
+
 
 .projectLink a {
   color: rgb(227, 153, 46);
@@ -179,18 +198,6 @@ h3 {
   color: rgb(227, 153, 46);
   font-weight: 600;}
 
-/* NAV */
-
-.nav {
-  font-family: 'Poppins', sans-serif;
-  text-align:center;
-  display:inline-block;
-  width:100%;
-  margin:0;
-  border-bottom: 2px solid  rgb(227, 153, 46);
-  background-color: rgb(35, 61, 77);
-
-}
 
 .center_vert{   
   margin: 0;
@@ -204,16 +211,28 @@ h3 {
 }
 
 .about{   
-  /* margin: 0; */
-  /* width: 100%; */
-  /* position: absolute; */
-  height: 200px;
-  margin-top: 100px;
-  /* left: 50%; */
-  top: 40%;
-  /* transform: translate(-50%, -50%); */
+ 
+  margin-top:50px; /* this is the menu height */
+  padding-top: 50px;
+  padding-bottom: 50px;
 
 }
+
+/* NAV */
+
+.nav {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  text-align:center;
+  display:inline-block;
+  width:100%;
+  height:48px;
+  margin:0;
+  border-bottom: 2px solid  rgb(227, 153, 46);
+  background-color: rgb(35, 61, 77);
+
+}
+
 
 .nav a {
   float: left;
@@ -228,7 +247,8 @@ h3 {
   display:inline-block;
   *display:inline; /*IE7*/
   *zoom:1; /*IE7*/
-  margin-right:10px;
+  margin-right:5px;
+  margin-left:5px;
 }
 
 .nav li:hover {
@@ -237,7 +257,7 @@ h3 {
 
 .nav a.active {
   background-color: rgb(227, 153, 46);
-  
+  /* height:100%; */
 
 }
 

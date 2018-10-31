@@ -58,7 +58,7 @@ class SingleProject extends Component {
 
 
     return (
-      <div className={`${this.props.side} clear project`}>
+      <div className={`${this.props.side} clear`}>
 
         {innerProject}
 

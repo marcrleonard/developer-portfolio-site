@@ -32,7 +32,7 @@ class ProjectContainer extends Component {
         'full_desc': `I created this to make a batteries included way to make an image into a video. ImageToVideo uses OpenCV/Numpy as a 'middle man'. It handles any zoom, resize, rotate functions (and eventually will power the plugin extensibility). All encoding is done via FFMPEG. Included in the class is a simple progress monitoring API. In the future, I will be adding other imaging libraries. I have preliminary versions of using Pillow and Pyvips.`,
         'technologies': ['FFMPEG', 'PIL', 'Numpy', 'OpenCV'],
         'links': ['github.com/marcrleonard/ImageToVideo'],
-        'full_media': 'img/pxs_screenshot.jpg', // TEMP
+        'full_media': 'img/ImageToVideo.png',
         'code': `from ImageToVideo import ImageToVideo
   
   image_video = ImageToVideo(
@@ -75,7 +75,7 @@ class ProjectContainer extends Component {
         'full_desc': `
           This library provides a very simple way to add hour offsets to a given input time.While doing an iot project with micro python, I found that an internet connected device will get the correct time, but micropython would not give you the ability to add a timezone.So if you know(or figure out) the proper hourly offset, you can use this library to get the correct time.It has no dependencies(except the new_time method, so you can easily use in micro python.This does not do any other 'fancy' calculations like daylight savings time.`,
         'technologies': ['micropython', 'python', 'esp8266'],
-        'full_media': 'img/pxs_screenshot.jpg', // TEMP
+        'full_media': 'img/timeOffset.png',
         'links': ['github.com/marcrleonard/SimpleTimeOffset'],
         'code': `
   from SimpleTimeOffset import SimpleTimeOffset
@@ -110,11 +110,13 @@ class ProjectContainer extends Component {
         'links': ['github.com/marcrleonard/Photobooth'],
       },
       {
-        'name': 'Topo Plotter',
+        'name': 'Plotter',
         'tags': 'Art',
         'short_desc': 'QD',
         'bg_img': 'img/topo_bg.svg',
-        'full_desc': 'I love taking the digital and making it phyical. ',
+        'full_desc': `I'm a big believer that being artistic comes in many different forms.
+        This includes taking something digital and making it physical. A recent forray has been making art with code, then using a
+        pen plotter to make it tangible. In this image, I created a topo map of the mountain where I proposed to my wife.`,
         'technologies': ['python', 'Inkscape', 'Plotter'],
         'full_media': 'img/plotter.jpg',
         'links': [],

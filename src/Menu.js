@@ -25,6 +25,7 @@ class Menu extends Component {
 
 
     let getScroll = function () {
+
       if (window.pageYOffset != undefined) {
         return [window.pageXOffset, window.pageYOffset]
       } else {
