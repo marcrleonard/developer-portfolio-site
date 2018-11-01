@@ -18,7 +18,7 @@ class ProjectContainer extends Component {
         'tags': 'Webapp',
         'short_desc': 'QD',
         // 'bg_img': '',
-        'full_desc': `ArtStream is a patform for artists to showcase their work via the ArtStream channel on Roku. I created the
+        'full_desc': `ArtStream is a platform for artists to showcase their work via the ArtStream channel on Roku. I created the
           infrastructure and APIs to take a piece of artwork a user uploaded, and delivery it in video form with 'Ken Burns' style animations applied.`,
         'technologies': ['python', 'javascript', 'MySQL', 'ImageMagik', 'Digital Ocean', 'PIL', 'FFMPEG'],
         'full_media': 'img/asv_screenshot.jpg',
@@ -106,7 +106,7 @@ class ProjectContainer extends Component {
         // 'bg_img': '',
         'full_desc': 'I created this app to use at my wedding. It was run on a Raspberry Pi, computer screen and a Canon 60d. Resulting photobooth image "strips" are texted to the subject!',
         'technologies': ['RaspberryPi', 'Twilio', 'Tkinter', 'FFMPEG', 'ImageMagik', 'gphoto2', 'python'],
-        'full_media': 'img/photobooth_interface.jpg',
+        'full_media': 'img/photobooth_sm_l.jpg',
         'links': ['github.com/marcrleonard/Photobooth'],
       },
       {
@@ -114,9 +114,8 @@ class ProjectContainer extends Component {
         'tags': 'Art',
         'short_desc': 'QD',
         'bg_img': 'img/topo_bg.svg',
-        'full_desc': `I'm a big believer that being artistic comes in many different forms.
-        This includes taking something digital and making it physical. A recent forray has been making art with code, then using a
-        pen plotter to make it tangible. In this image, I created a topo map of the mountain where I proposed to my wife.`,
+        'full_desc': `Like the photobooth above, I love taking the digital and making it physical. Recently, I've been exploring making art with code. In this image, I created a topo map of the mountain where I proposed to my wife.
+        Then, used a pen plotter to draw it.`,
         'technologies': ['python', 'Inkscape', 'Plotter'],
         'full_media': 'img/plotter.jpg',
         'links': [],

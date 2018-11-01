@@ -60,7 +60,7 @@ h2 {
 color:#233D4D;
 font-size: 30px;
 
-text-decoration: underline;
+text-decoration: underline ;
 text-decoration-color: rgb(227, 153, 46);
 
 }
@@ -252,7 +252,7 @@ a:visited {
 }
 
 .nav li:hover {
-  background-color: grey; 
+  background-color: rgb(227, 153, 46); 
 }
 
 .nav a.active {
