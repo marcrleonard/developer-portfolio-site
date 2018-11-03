@@ -52,6 +52,8 @@ p {
 }
 
 h1 {
+  /* font-size:1.9rem; */
+  
   /* color:#233D4D; */
   /* font-size: 26px; */
   }
@@ -91,8 +93,8 @@ h3 {
 
 .clear{
   clear:both;
-  padding-top:0px;
-  padding-bottom:100px;
+  padding-top:20px;
+  padding-bottom:20px;
   
 }
 
@@ -113,6 +115,8 @@ h3 {
 
   /*This should be minus the height of the image */
   transform: translate(0%, 0%);
+
+  
 }​
 
 
@@ -120,13 +124,18 @@ h3 {
 
 }
 
+.rightImage{
+  transform: translateX(5%);
+}
+.leftImage{
+  transform: translateX(-5%);
+}
 
 .projectHalf {
   display: inline-block;
   width:44%;
   padding: 5px;
   vertical-align: middle;
-
 
   
 }
@@ -155,10 +164,12 @@ h3 {
 @media screen and (max-width: 750px) {
   
   .left {
+    /* margin-left: -22%; */
     margin-left: -19em;
   }
 
   .right {
+    /* margin-right: -22%; */
     margin-right: -19em;
   }
 
@@ -191,12 +202,14 @@ a:visited {
 .projectLink a {
   color: rgb(227, 153, 46);
   font-weight: 600;
-  /* font-size: 20px; */
+  font-size: 14px;
 }
 
 .projectLink a:visited {
   color: rgb(227, 153, 46);
-  font-weight: 600;}
+  font-weight: 600;
+
+}
 
 
 .center_vert{   
@@ -261,4 +274,70 @@ a:visited {
 
 }
 
+.slideLeft {
 
+  animation: slideLeft 1.5s forwards;
+  -webkit-animation: slideLeft 1.5s forwards; /* for less modern browsers */
+
+}
+
+.slideRight {
+
+  animation: slideRight 1.5s forwards;
+  -webkit-animation: slideRight 1.5s forwards; /* for less modern browsers */
+
+}
+
+.slideLeftReverse {
+
+  animation: slideLeftReverse 1.5s forwards;
+  -webkit-animation: slideLeftReverse 1.5s forwards; /* for less modern browsers */
+
+}
+
+.slideRightReverse {
+
+  animation: slideRightReverse 1.5s forwards;
+  -webkit-animation: slideRightReverse 1.5s forwards; /* for less modern browsers */
+
+}
+
+@keyframes slideLeft {
+  0% {
+    transform: translateX(5%);
+  }
+
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+@keyframes slideRight {
+  0% {
+    transform: translateX(-5%);
+  }
+
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+@keyframes slideLeftReverse {
+  0% {
+    transform: translateX(0%);
+  }
+
+  100% {
+    transform: translateX(5%);
+  }
+}
+
+@keyframes slideRightReverse {
+  0% {
+    transform: translateX(0%);
+  }
+
+  100% {
+    transform: translateX(-5%);
+  }
+}

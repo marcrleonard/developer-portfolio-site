@@ -56,10 +56,9 @@ class Menu extends Component {
       var blah = getScroll()
 
       window_offset = blah[1]
-      console.log('Absolute: ', window_offset)
+      // console.log('Absolute: ', window_offset)
 
-
-      console.log(elemRect);
+      // console.log(elemRect);
 
       var top = this.document.getElementById('nav_bar');
 

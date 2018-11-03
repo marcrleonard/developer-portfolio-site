@@ -15,12 +15,12 @@ class Currently extends Component {
       'short_desc': 'QD',
       // 'bg_img': '',
       'full_desc': <>Currently, I am a core backend developer of PixelStrings,
-    a platform by {React.createElement('a', { href: 'https://cinnafilm.com' }, 'Cinnafilm')}. {<a class='projectLink' href="http://pixelstrings.com"> PixelStrings</a>} specializes
-            cloud video processing and delivery.
-            My job is two fold - automating the allocation and
-            orchestration cloud compute resources for processing and
-            delivery, and creating APIs to enable different type of video
-            conversion formats. These services are accessed by the front
+    a platform by {React.createElement('a', { href: 'https://cinnafilm.com' }, 'Cinnafilm')}. {<a className='projectLink' href="http://pixelstrings.com"> PixelStrings</a>} specializes
+                cloud video processing and delivery.
+                My job is two fold - automating the allocation and
+                orchestration cloud compute resources for processing and
+                delivery, and creating APIs to enable different type of video
+                conversion formats. These services are accessed by the front
     end UI, as well as our public API.</>,
       'technologies': ['python'],
       'full_media': 'img/pxs_screenshot.jpg',

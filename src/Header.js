@@ -17,7 +17,11 @@ class Header extends Component {
           </div>
 
           <div className='subHeading'>
-            full stack developer + likes art
+            full stack developer
+            <div>
+              +
+            </div>
+            likes art
           </div>
         </center>
       </div>

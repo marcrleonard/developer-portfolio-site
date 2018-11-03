@@ -1,13 +1,58 @@
+
+
 import React, { Component } from 'react';
 
-import { Link } from 'react-router-dom'
+
+// const VisibilitySensor = require('react-visibility-sensor');
+import VisibilitySensor from 'react-visibility-sensor';
+
+
+
 
 
 class SingleProject extends Component {
   constructor() {
     super()
     this.state = {
-      name: 'Project Name!!'
+      name: 'Project Name!!',
+      animationClass: 'asd',
+      imageSide: ''
+    }
+
+  }
+
+  onChange = (isVisible) => {
+
+    if (isVisible) {
+      console.log(`Element is now ${isVisible ? 'visible' : 'hidden'}`);
+
+      if (this.props.side === "right") {
+        this.setState({ animationClass: 'slideLeft' })
+      }
+      if (this.props.side === "left") {
+        this.setState({ animationClass: 'slideRight' })
+      }
+
+    }
+    else {
+      console.log(`Element is now ${isVisible ? 'visible' : 'hidden'}`);
+      if (this.props.side === "right") {
+        this.setState({ animationClass: 'slideLeftReverse' })
+      }
+      if (this.props.side === "left") {
+        this.setState({ animationClass: 'slideRightReverse' })
+      }
+    };
+
+  }
+
+  componentDidMount() {
+    if (this.props.side === 'right') {
+      this.setState({ imageSide: 'rightImage' })
+    }
+
+    if (this.props.side === 'left') {
+      this.setState({ imageSide: 'leftImage' })
     }
   }
 
@@ -39,31 +84,43 @@ class SingleProject extends Component {
           {pj.links}
         </a>
       </div>
+
     </div>
 
-    let image = <div className={`projectHalf img_container projectImage`}
+    let image = <div className={`projectHalf img_container projectImage ${this.state.animationClass} ${this.state.imageSide}`}
       style={{ backgroundImage: `url(${pj.full_media})` }}>
     </div>
 
     if (this.props.side === 'right') {
       innerProject.push(text)
       innerProject.push(image)
+      // this.setState({ imageSide: 'rightImage' })
     }
 
     if (this.props.side === 'left') {
       innerProject.push(image)
       innerProject.push(text)
+      // this.setState({ imageSide: 'leftImage' })
 
     }
 
 
+
     return (
-      <div className={`${this.props.side} clear`}>
+      <VisibilitySensor
+        onChange={this.onChange}
+        partialVisibility={true}
+        offset={{ bottom: 200 }}
+      >
+        <div className={`${this.props.side} clear`}>
 
-        {innerProject}
+          {innerProject}
 
 
-      </div>
+        </div >
+
+      </VisibilitySensor >
+
     );
   }
 }

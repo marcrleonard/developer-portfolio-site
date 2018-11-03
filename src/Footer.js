@@ -9,7 +9,7 @@ class Footer extends Component {
   render() {
     return (
       <div className='clear'>
-        <ul class='backgroundHighlight nav whiteText'>
+        <ul className='backgroundHighlight nav whiteText'>
           <li>
             <a rel="nofollow" href="javascript:decryptEmail('bWFyYy5yLmxlb25hcmRAZ21haWwuY29t');">
               Email!
