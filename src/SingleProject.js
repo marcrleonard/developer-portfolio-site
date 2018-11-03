@@ -80,7 +80,7 @@ class SingleProject extends Component {
         <p>{pj.full_desc}</p>
       </div>
       <div className='projectLink'>
-        <a href={`https://${pj.links}`} >
+        <a href={`https://${pj.links}`}  >
           {pj.links}
         </a>
       </div>
