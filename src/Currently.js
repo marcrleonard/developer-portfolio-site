@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import SingleProject from './SingleProject.js'
+import ScrollableAnchor from "react-scrollable-anchor";
 
 class Currently extends Component {
   constructor() {
@@ -32,6 +33,7 @@ class Currently extends Component {
 
     return (
       <div className='currently'>
+          <ScrollableAnchor id={'currently'}>
         <center>
           <h2>
             Currently
@@ -45,6 +47,7 @@ class Currently extends Component {
             />
           </div>
         </center>
+          </ScrollableAnchor>
       </div>
     );
   }

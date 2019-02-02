@@ -1,6 +1,7 @@
-import SingleProject from './SingleProject.js'
+import SingleProject from './SingleProject.js';
 import React, { Component } from 'react';
 
+import { ScrollableAnchor } from 'react-scrollable-anchor';
 
 class ProjectContainer extends Component {
   constructor() {
@@ -138,25 +139,9 @@ class ProjectContainer extends Component {
           project={project}
         />
       );
-      // console.log(side)
-      // if (side === 'left') {
-      //   side = 'right'
-      // }
-      // else {
-      //   side = 'left'
-      // };
+
       side = ((side == 'right') ? 'left' : 'right');
     }
-
-    // let listItems = projects.map((project) =>
-    //   <SingleProject
-    //     className='clear'
-    //     key={project.name.toString()}
-    //     side={side ? 'right' : 'left'}
-    //     project={project}
-    //   />
-    // );
-
 
 
     return (

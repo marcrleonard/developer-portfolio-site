@@ -1,4 +1,6 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
+import { configureAnchors } from 'react-scrollable-anchor'
+configureAnchors({offset: -160, scrollDuration: 200})
 
 class Menu extends Component {
   constructor() {
@@ -72,19 +74,11 @@ class Menu extends Component {
         top.style.height = '0px'
       };
 
-
     })
-
-
 
   }
 
   render() {
-
-
-
-
-
 
     return (
       <div>
@@ -93,7 +87,7 @@ class Menu extends Component {
             <li><a href="#about" className="active">About</a></li>
             <li><a href="#currently">Currently</a></li>
             <li><a href="#projects">Projects</a></li>
-            <li><a href="https://github.com/marcrleonard">Github</a></li>
+            <li><a href="https://github.com/marcrleonard" target="_blank">Github</a></li>
           </ul>
         </nav>
       </div>

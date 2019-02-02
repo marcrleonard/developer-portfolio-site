@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ScrollableAnchor from "react-scrollable-anchor";
 
 class About extends Component {
   constructor() {
@@ -8,7 +9,9 @@ class About extends Component {
 
   render() {
     return (
+
       <div className='about'>
+        <ScrollableAnchor id={'about'}>
         <center className=''>
           <h2>
             About
@@ -20,8 +23,9 @@ class About extends Component {
           I live in Bozeman, Montana.
           </p>
         </center>
-
+            </ScrollableAnchor>
       </div>
+
     );
   }
 }
