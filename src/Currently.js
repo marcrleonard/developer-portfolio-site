@@ -31,7 +31,7 @@ class Currently extends Component {
 
 
     return (
-      <div>
+      <div className='currently'>
         <center>
           <h2>
             Currently
@@ -45,7 +45,6 @@ class Currently extends Component {
             />
           </div>
         </center>
-
       </div>
     );
   }

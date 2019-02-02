@@ -93,6 +93,7 @@ class Menu extends Component {
             <li><a href="#about" className="active">About</a></li>
             <li><a href="#currently">Currently</a></li>
             <li><a href="#projects">Projects</a></li>
+            <li><a href="https://github.com/marcrleonard">Github</a></li>
           </ul>
         </nav>
       </div>

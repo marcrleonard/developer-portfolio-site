@@ -23,7 +23,8 @@
 
 body{
   width:100%;
-  font-family: 'PT Sans', sans-serif;
+  font-family: 'Work Sans', sans-serif;
+  /*font-family: 'PT Sans', sans-serif;*/
 }
 
 ul {
@@ -32,6 +33,9 @@ ul {
 
 p {
   margin:10px;
+  font-size: 18px;
+  font-weight: lighter;
+  line-height: 1.6;
 }
 
 .center {
@@ -42,7 +46,7 @@ p {
 
 .container {
   min-width:150px;
-  max-width:768px;
+  max-width:1024px;
   text-align:center;
   margin:0 auto;
   overflow:hidden;
@@ -60,7 +64,7 @@ h1 {
 
 h2 {
 color:#233D4D;
-font-size: 30px;
+font-size: 24px;
 
 text-decoration: underline ;
 text-decoration-color: rgb(227, 153, 46);
@@ -68,6 +72,7 @@ text-decoration-color: rgb(227, 153, 46);
 }
 
 h3 {
+
   color:#233D4D;
   font-size: 26px;
   margin:10px;
@@ -93,13 +98,16 @@ h3 {
 
 .clear{
   clear:both;
-  padding-top:20px;
-  padding-bottom:20px;
+  padding-top:40px;
+  padding-bottom:40px;
   
 }
 
 
-
+.currently {
+  padding-top: 20px;
+  padding-bottom: 100px;
+}
 
 .subHeading {
   font-size: 1em;
@@ -115,8 +123,6 @@ h3 {
 
   /*This should be minus the height of the image */
   transform: translate(0%, 0%);
-
-  
 }​
 
 
@@ -142,7 +148,7 @@ h3 {
 
 
 .projectImage {
-  box-shadow:5px 5px 15px rgba(0, 0, 0, 0.6);
+  box-shadow:5px 5px 15px rgba(0, 0, 50, 0.25);
 }
 
 
@@ -202,7 +208,7 @@ a:visited {
 .projectLink a {
   color: rgb(227, 153, 46);
   font-weight: 600;
-  font-size: 14px;
+  font-size: 16px;
 }
 
 .projectLink a:visited {
@@ -225,9 +231,9 @@ a:visited {
 
 .about{   
  
-  margin-top:50px; /* this is the menu height */
-  padding-top: 50px;
-  padding-bottom: 50px;
+  margin-top:20px; /* this is the menu height */
+  padding-top: 100px;
+  padding-bottom: 20px;
 
 }
 
