@@ -45,3 +45,6 @@ chrome-user-data
 .vscode
 *.swp
 *.swo
+
+# this is the file that contains any server side keys/pws/stuff
+services/secrets.py
