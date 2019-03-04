@@ -47,4 +47,5 @@ chrome-user-data
 *.swo
 
 # this is the file that contains any server side keys/pws/stuff
-services/secrets.py
+api_services/secrets.py
+api_services/stores/*
