@@ -5,6 +5,7 @@
   "dependencies": {
     "@types/react-visibility-sensor": "^3.11.0",
     "ajv": "^6.5.4",
+    "p5": "^0.7.3",
     "react": "^16.6.0",
     "react-dom": "^16.6.0",
     "react-router-dom": "^4.3.1",
