@@ -2097,7 +2097,8 @@ h6 { font-size:  0.75em; font-weight: 200  }
 	.cavani_tm_modalbox .description_wrap{padding: 30px;}
 	.cavani_tm_modalbox .close .svg{width: 40px;height: 40px;}
 }
-@media (max-width: 1040px) {
+
+@media (max-width: 730px) {
 	.mouse-cursor{display: none;}
 	#preloader{display: none;}
 	.cavani_tm_topbar{display: block;}
@@ -2144,7 +2145,7 @@ h6 { font-size:  0.75em; font-weight: 200  }
 	.cavani_tm_modalbox .close .svg{width: 35px;height: 35px;}
 	.cavani_tm_modalbox .news_popup_informations .details h3{font-size: 20px;}
 }
-@media (max-width: 768px) {
+@media (max-width: 400px) {
 	.cavani_tm_home .name{font-size: 40px;}
 	.cavani_tm_home .job{font-size: 20px;}
 	.cavani_tm_home .line{height: 3px;width: 40px;}
