@@ -572,7 +572,8 @@ h6 { font-size:  0.75em; font-weight: 200  }
 	align-items: center;
 }
 .cavani_tm_home .content{
-	padding-left: 100px;
+	padding-left: 50px;
+	padding-right: 50px;
 }
 .cavani_tm_home .name{
 	font-size: 72px;
