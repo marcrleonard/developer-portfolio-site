@@ -983,7 +983,7 @@ h6 { font-size:  0.75em; font-weight: 200  }
 	position: relative;
 }
 .cavani_tm_about .univ ul li .time{
-	width: 25%;
+	width: 130px;
 	padding-right: 20px;
 }
 .cavani_tm_about .univ ul li .time span{
@@ -2085,7 +2085,7 @@ h6 { font-size:  0.75em; font-weight: 200  }
 	.circular_progress_bar .list_inner:after{width: 100px;height: 100px;}
 	.circular_progress_bar .title{max-width: 100px;}
 	.progress_inner{margin-bottom: 18px;}
-	.cavani_tm_about .univ ul li .time span{padding: 3px 12px;}
+	/*.cavani_tm_about .univ ul li .time span{padding: 3px 12px;}*/
 	.cavani_tm_about .univ ul li .place{padding-left: 0px;}
 	.cavani_tm_portfolio .portfolio_filter ul li{margin-right: 30px;}
 	.cavani_tm_about .testimonials .list ul li .text{padding: 30px;}
