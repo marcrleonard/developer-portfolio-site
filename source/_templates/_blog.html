@@ -94,13 +94,13 @@
         </div>
         <div class="menu">
             <ul class="transition_link">
-                <li class="active"><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#experience">Experience</a></li>
+<!--                <li class="active"><a href="#home">Home</a></li>-->
+                <li><a href="/#about">About</a></li>
+                <li><a href="/#experience">Experience</a></li>
                 {% if news_items %}
-                <li><a href="#news">Blog</a></li>
+                <li><a href="/#news">Blog</a></li>
                 {% endif %}
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="/#contact">Contact</a></li>
             </ul>
             <span class="ccc"></span>
         </div>
@@ -163,13 +163,13 @@
     <!-- MAINPART -->
     <div class="cavani_tm_mainpart">
         <div class="author_image">
-            <div class="main" data-img-url="img/about/me_2.jpg"></div>
+            <div class="main" data-img-url="{{ url }}img/about/me_2.jpg"></div>
 <!--            <div class="main" data-img-url="img/about/me.jpg"></div>-->
         </div>
         <div class="main_content">
 
             <!-- NEWS -->
-            <div class="cavani_tm_section" id="news">
+            <div style="padding:30px">
                 <div class="section_inner">
                     <div class="cavani_tm_news">
                         <div class="cavani_tm_title">

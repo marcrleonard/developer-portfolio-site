@@ -7,7 +7,7 @@ cloud_build = str(os.environ.get('CF_PAGES')) == "1"
 
 print(f"Cloud Build: {cloud_build}")
 
-full_url = ""
+full_url = "/build/"
 if cloud_build:
 	full_url = "https://marcrleonard.com/"
 
