@@ -1,5 +1,5 @@
 import os
-import jinja2
+from jinja2 import Environment, PackageLoader, FileSystemLoader, select_autoescape
 import pathlib
 import shutil
 
@@ -17,18 +17,52 @@ NEWS_ITEMS = [
 	# }
 ]
 
+from pelican.readers import MarkdownReader
+from pelican.tests.support import get_settings
 
 BUILD_FOLDER = 'build'
 SOURCE_FOLDER = 'source'
-
-os.makedirs(BUILD_FOLDER, exist_ok=True)
-
-from jinja2 import Environment, PackageLoader, FileSystemLoader, select_autoescape
 env = Environment(
     loader = PackageLoader(SOURCE_FOLDER, '_templates'),
     # loader = FileSystemLoader(t_path),
     autoescape=select_autoescape()
 )
+os.makedirs(BUILD_FOLDER, exist_ok=True)
+
+md = MarkdownReader(settings=get_settings())
+
+blog_dir = "source/blog"
+for file in os.listdir("source/blog"):
+
+	html_text, metadata = md.read(f"{blog_dir}/{file}")
+
+	news_item = {
+			'thumbnail': 'img/thumbs/4-3.jpg',
+			'full_image': 'img/news/1.jpg',
+			'title': metadata['title'],
+			'date': metadata['date'],
+			'category': metadata['category'],
+			'tags': metadata['tags'],
+			'slug': metadata['slug'],
+			'text': html_text,
+	}
+
+	blog_location = f"{BUILD_FOLDER}/blog/{metadata['slug']}"
+	os.makedirs(blog_location, exist_ok=True)
+
+	with open(f'{blog_location}/index.html', 'w') as f:
+		f.write(env.get_template('_blog.html').render({
+			'news_item': news_item
+		}))
+
+	NEWS_ITEMS.append(news_item)
+
+NEWS_ITEMS.sort(key = lambda x:x['date'])
+NEWS_ITEMS.reverse()
+
+
+
+
 
 template_obj = env.get_template('index.html')
 

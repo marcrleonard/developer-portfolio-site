@@ -2100,7 +2100,7 @@ h6 { font-size:  0.75em; font-weight: 200  }
 	.cavani_tm_modalbox .close .svg{width: 40px;height: 40px;}
 }
 
-@media (max-width: 730px) {
+@media (max-width: 750px) {
 	.mouse-cursor{display: none;}
 	#preloader{display: none;}
 	.cavani_tm_topbar{display: block;}
