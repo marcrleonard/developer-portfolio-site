@@ -3,6 +3,13 @@ from jinja2 import Environment, PackageLoader, FileSystemLoader, select_autoesca
 import pathlib
 import shutil
 
+cloud_build = str(os.environ.get('CF_PAGES')) == 1
+
+
+full_url = ""
+if cloud_build:
+	full_url = "https://marcrleonard.com/"
+
 NEWS_ITEMS = [
 	# {
 	# 	'thumbnail': 'img/thumbs/4-3.jpg',
@@ -52,7 +59,8 @@ for file in os.listdir("source/blog"):
 
 	with open(f'{blog_location}/index.html', 'w') as f:
 		f.write(env.get_template('_blog.html').render({
-			'news_item': news_item
+			'news_item': news_item,
+			'url': full_url
 		}))
 
 	NEWS_ITEMS.append(news_item)
