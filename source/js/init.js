@@ -16,7 +16,7 @@ jQuery(document).ready(function(){
 	cavani_tm_my_progress();
 	cavani_tm_circular_progress();
 	cavani_tm_portfolio_popup();
-	cavani_tm_news_popup();
+	//cavani_tm_news_popup();
 	cavani_tm_cursor();
 	cavani_tm_imgtosvg();
 	cavani_tm_popup();
