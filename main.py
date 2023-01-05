@@ -42,6 +42,9 @@ md = MarkdownReader(settings=get_settings())
 blog_dir = "source/blog"
 for file in os.listdir("source/blog"):
 
+	if str(file).startswith("_"):
+		continue
+
 	html_text, metadata = md.read(f"{blog_dir}/{file}")
 
 	news_item = {
