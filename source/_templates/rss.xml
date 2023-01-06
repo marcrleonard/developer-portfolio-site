@@ -10,7 +10,7 @@
   {% for post in news_items %}
   <item>
   <title>{{ post.title }}</title>
-  <link>https://marcrleonard.com/blog/{{ post.slug }}.html</link>
+  <link>https://marcrleonard.com/blog/{{ post.slug }}</link>
   <description>{{ post.summary }}</description>
   <pubDate>{{ post.date.strftime('%a, %d %b %Y %T') }} MST</pubDate>
   </item>
