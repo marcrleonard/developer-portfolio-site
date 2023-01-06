@@ -13,6 +13,7 @@
   <link>https://marcrleonard.com/blog/{{ post.slug }}</link>
   <description>{{ post.summary }}</description>
   <pubDate>{{ post.date.strftime('%a, %d %b %Y %T') }} GMT</pubDate>
+  <guid>https://marcrleonard.com/blog/{{ post.slug }}</guid>
   </item>
   {% endfor %}
 </channel>
