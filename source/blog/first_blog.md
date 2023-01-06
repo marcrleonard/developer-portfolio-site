@@ -1,5 +1,5 @@
 Title: Django Is Awesome
-Date: 2023-01-05 10:20
+Date: 2023-01-05 10:20:00
 Category: Python
 Tags: python, django
 Slug: django-is-awesome
