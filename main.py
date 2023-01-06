@@ -52,7 +52,7 @@ for file in os.listdir("source/blog"):
 			'thumbnail': 'img/thumbs/4-3.jpg',
 			'full_image': 'img/news/1.jpg',
 			'title': metadata['title'],
-			'date': metadata['date'],
+			'date': datetime.datetime.fromisoformat(metadata['date'].isoformat()),
 			'category': metadata['category'],
 			'tags': metadata['tags'],
 			'slug': metadata['slug'],
