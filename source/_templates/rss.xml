@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+  <title>Marc Leonard – Developer</title>
+  <atom:link href="https://marcrleonard.com/rss.xml" rel="self" type="application/rss+xml" />
+  <link>https://marcrleonard.com</link>
+  <description>Thoughts around software and life provided to you free of charge.</description>
+  <lastBuildDate>{{ build_date.strftime('%a, %d %b %Y %T') }} MST</lastBuildDate>
+  <language>en-US</language>
+  {% for post in news_items %}
+  <item>
+  <title>{{ post.title }}</title>
+  <link>https://marcrleonard.com/blog/{{ post.slug }}.html</link>
+  <description>{{ post.summary }}</description>
+  <pubDate>{{ post.date.strftime('%a, %d %b %Y %T') }} MST</pubDate>
+  </item>
+  {% endfor %}
+</channel>
+</rss>

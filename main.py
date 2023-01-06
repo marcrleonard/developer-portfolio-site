@@ -1,3 +1,4 @@
+import datetime
 import os
 from jinja2 import Environment, PackageLoader, FileSystemLoader, select_autoescape
 import pathlib
@@ -55,6 +56,7 @@ for file in os.listdir("source/blog"):
 			'category': metadata['category'],
 			'tags': metadata['tags'],
 			'slug': metadata['slug'],
+			'summary': metadata['summary'],
 			'text': html_text,
 	}
 
@@ -72,7 +74,12 @@ for file in os.listdir("source/blog"):
 NEWS_ITEMS.sort(key = lambda x:x['date'])
 NEWS_ITEMS.reverse()
 
-
+# Create rss
+with open(f'{BUILD_FOLDER}/rss.xml', 'w') as f:
+	f.write(env.get_template('rss.xml').render({
+		'news_items': NEWS_ITEMS,
+		'build_date': datetime.datetime.now()
+	}))
 
 
 
