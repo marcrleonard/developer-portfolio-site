@@ -4,7 +4,7 @@ from jinja2 import Environment, PackageLoader, FileSystemLoader, select_autoesca
 import pathlib
 import shutil
 
-cloud_build = str(os.environ.get('CF_PAGES')) == "1"
+cloud_build = str(os.environ.get('CF_PAGES', "1")) == "1"
 
 print(f"Cloud Build: {cloud_build}")
 
@@ -76,6 +76,9 @@ for file in os.listdir("source/blog"):
 			'news_item': news_item,
 			'url': full_url
 		}))
+
+	with open(f'{blog_location}/index.html', 'r') as f:
+		print(f.read())
 
 	NEWS_ITEMS.append(news_item)
 
