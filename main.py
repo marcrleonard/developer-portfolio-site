@@ -6,7 +6,6 @@ import shutil
 
 cloud_build = str(os.environ.get('CF_PAGES')) == "1"
 
-cloud_build = True
 print(f"Cloud Build: {cloud_build}")
 
 full_url = "/"
