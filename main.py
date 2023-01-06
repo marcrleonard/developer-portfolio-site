@@ -50,12 +50,16 @@ for file in os.listdir("source/blog"):
 
 	post_date = datetime.datetime.fromisoformat(metadata['date'].isoformat())
 
-	url = f'{post_date.year}/{post_date.month}/{metadata["slug"]}'
+	title = metadata['title']
+	default_slug = title.lower().replace(" ","-")
+	slug = metadata.get('slug', default_slug)
+
+	url = f'{post_date.year}/{post_date.month}/{slug}'
 
 	news_item = {
 			'thumbnail': 'img/thumbs/4-3.jpg',
 			'full_image': 'img/news/1.jpg',
-			'title': metadata['title'],
+			'title': title,
 			'date': post_date,
 			'category': metadata['category'],
 			'tags': metadata['tags'],
