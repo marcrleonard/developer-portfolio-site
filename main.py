@@ -48,14 +48,18 @@ for file in os.listdir("source/blog"):
 
 	html_text, metadata = md.read(f"{blog_dir}/{file}")
 
+	post_date = datetime.datetime.fromisoformat(metadata['date'].isoformat())
+
+	url = f'{post_date.year}/{post_date.month}/{metadata["slug"]}'
+
 	news_item = {
 			'thumbnail': 'img/thumbs/4-3.jpg',
 			'full_image': 'img/news/1.jpg',
 			'title': metadata['title'],
-			'date': datetime.datetime.fromisoformat(metadata['date'].isoformat()),
+			'date': post_date,
 			'category': metadata['category'],
 			'tags': metadata['tags'],
-			'slug': metadata['slug'],
+			'slug': url,
 			'summary': metadata['summary'],
 			'text': html_text,
 	}
