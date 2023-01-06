@@ -5,14 +5,14 @@
   <atom:link href="https://marcrleonard.com/rss.xml" rel="self" type="application/rss+xml" />
   <link>https://marcrleonard.com</link>
   <description>Thoughts around software and life provided to you free of charge.</description>
-  <lastBuildDate>{{ build_date.strftime('%a, %d %b %Y %T') }} MST</lastBuildDate>
+  <lastBuildDate>{{ build_date.strftime('%a, %d %b %Y %T') }} GMT</lastBuildDate>
   <language>en-US</language>
   {% for post in news_items %}
   <item>
   <title>{{ post.title }}</title>
   <link>https://marcrleonard.com/blog/{{ post.slug }}</link>
   <description>{{ post.summary }}</description>
-  <pubDate>{{ post.date.strftime('%a, %d %b %Y %T') }} MST</pubDate>
+  <pubDate>{{ post.date.strftime('%a, %d %b %Y %T') }} GMT</pubDate>
   </item>
   {% endfor %}
 </channel>
