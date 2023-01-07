@@ -1,235 +1,46 @@
-<!DOCTYPE html>
-<!--[if lt IE 7 ]>
-<html class="ie ie6" lang="en"> <![endif]-->
-<!--[if IE 7 ]>
-<html class="ie ie7" lang="en"> <![endif]-->
-<!--[if IE 8 ]>
-<html class="ie ie8" lang="en"> <![endif]-->
-<!--[if (gte IE 9)|!(IE)]><!-->
-<html lang="en"> <!--<![endif]-->
 
-<head>
+{% extends "page_template.html" %}
+{% block content %}
 
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-
-    <meta name="description" content="Personal Site">
-    <meta name="author" content="Marc R Leonard">
-
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-
-    <title>Marc R Leonard | Developer</title>
-
-    <!-- STYLES -->
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap"
-          rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-          rel="stylesheet">
-
-    <link rel="stylesheet" type="text/css" href="{{ url }}css/plugins.css"/>
-    <link rel="stylesheet" type="text/css" href="{{ url }}css/style.css"/>
-
-    <style>
-        .univ a {
-            color: black;
-        }
-
-        .sub-job {
-            font-size: 22px;
-            font-weight: 300;
-        }
-
-        .logo a {
-            text-decoration: none
-        }
-
-        .place {
-            width: 67%;
-        }
-
-        a {
-            color:black
-        }
-
-        .cavani_tm_mobile_menu .inner {
-            padding: 20px 20px 20px 20px;
-        }
-
-
-    </style>
-    <!--[if lt IE 9]>
-    <script type="text/javascript" src="{{ url }}js/modernizr.custom.js"></script> <![endif]-->
-    <!-- /STYLES -->
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-C2F6FPRGES"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'G-C2F6FPRGES');
-    </script>
-
-</head>
-
-<body>
-
-<!-- WRAPPER ALL -->
-<div class="cavani_tm_all_wrap" data-enter="fadeInUp" data-exit="">
-
-    <!-- MODALBOX -->
-    <div class="cavani_tm_modalbox">
-        <div class="box_inner">
-            <div class="close">
-                <a href="#"><img class="svg" src="img/svg/cancel.svg" alt=""/></a>
-            </div>
-            <div class="description_wrap"></div>
-        </div>
-    </div>
-    <!-- /MODALBOX -->
-
-    <!-- HEADER -->
-    <div class="cavani_tm_header">
-        <div class="logo">
-            <h2><a href="#">MARC LEONARD</a></h2>
-        </div>
-        <div class="menu">
-            <ul class="transition_link">
-<!--                <li class="active"><a href="#home">Home</a></li>-->
-                <li><a href="/#about">About</a></li>
-                <li><a href="/#experience">Experience</a></li>
-                <li><a href="/#news">Blog</a></li>
-                <li><a href="/#contact">Contact</a></li>
-            </ul>
-            <span class="ccc"></span>
-        </div>
-    </div>
-    <!-- /HEADER -->
-
-    <div class="cavani_tm_left_border"></div>
-    <div class="cavani_tm_right_border"></div>
-
-    <!-- MOBILE MENU -->
-    <div class="cavani_tm_topbar">
-        <div class="topbar_inner">
-            <div class="logo">
-                <a href="#">MARC LEONARD</a>
-            </div>
-            <div class="trigger">
-                <div class="hamburger hamburger--slider">
-                    <div class="hamburger-box">
-                        <div class="hamburger-inner"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="cavani_tm_mobile_menu">
-        <div class="inner">
-            <div class="wrapper">
-<!--                <div class="avatar">-->
-<!--                    <div class="image" data-img-url="img/about/1.jpg"></div>-->
-<!--                </div>-->
-                <div class="menu_list">
-                    <ul class="transition_link">
-                        <li class="active"><a href="#home">Home</a></li>
-                        <li><a href="#about">About</a></li>
-                        <li><a href="#experience">Experience</a></li>
-                        {% if news_items %}
-                        <li><a href="#news">Blog</a></li>
-                        {% endif %}
-                        <li><a href="#contact">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="social">
-                    <ul>
-<!--                        <li><a href="#"><img class="svg" src="img/svg/social/facebook.svg" alt=""/></a></li>-->
-<!--                        <li><a href="#"><img class="svg" src="img/svg/social/twitter.svg" alt=""/></a></li>-->
-<!--                        <li><a href="#"><img class="svg" src="img/svg/social/instagram.svg" alt=""/></a></li>-->
-<!--                        <li><a href="#"><img class="svg" src="img/svg/social/dribbble.svg" alt=""/></a></li>-->
-<!--                        <li><a href="#"><img class="svg" src="img/svg/social/tik-tok.svg" alt=""/></a></li>-->
-                    </ul>
-                </div>
-                <div class="copyright">
-                    <p>Copyright &copy; 2021</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- /MOBILE MENU -->
-
-    <!-- MAINPART -->
-    <div class="cavani_tm_mainpart">
-        <div class="author_image">
-            <div class="main" data-img-url="{{ url }}img/about/me_2.jpg"></div>
+<!-- MAINPART -->
+<div class="cavani_tm_mainpart">
+    <div class="author_image">
+        <div class="main" data-img-url="{{ url }}img/about/me_2.jpg"></div>
 <!--            <div class="main" data-img-url="img/about/me.jpg"></div>-->
-        </div>
-        <div class="main_content">
-        <div class="experience">
+    </div>
+    <div class="main_content">
+    <div class="experience">
 
-            <!-- NEWS -->
-            <div class="section_inner">
-                <div style="padding:50px">
-                    <div class="cavani_tm_news">
-                        <div class="cavani_tm_title">
-                            <span>{{news_item.title}}</span>
-                        </div>
-                        <div class="news_list">
-                            <div class="list_inner">
-                                <div class="details">
-                                    <div class="metabox">
-                                        <div class="info">
-                                            <span class="category"><a
-                                                    href="#">{{ news_item.category }}</a></span>
-                                            <span class="date">{{ news_item.date }}</span>
-                                        </div>
+        <!-- NEWS -->
+        <div class="section_inner">
+            <div style="padding:50px">
+                <div class="cavani_tm_news">
+                    <div class="cavani_tm_title">
+                        <span>{{news_item.title}}</span>
+                    </div>
+                    <div class="news_list">
+                        <div class="list_inner">
+                            <div class="details">
+                                <div class="metabox">
+                                    <div class="info">
+                                        <span class="category"><a
+                                                href="#">{{ news_item.category }}</a></span>
+                                        <span class="date">{{ news_item.date }}</span>
                                     </div>
                                 </div>
-                                <div class="text">
-                                   {{news_item.text|safe}}
-                                </div>
+                            </div>
+                            <div class="text">
+                               {{news_item.text|safe}}
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <!-- NEWS -->
-
         </div>
-            </div>
+        <!-- NEWS -->
+
     </div>
-    <!-- /MAINPART -->
-
-    <!-- FOOTER -->
-    <div class="cavani_tm_footer">
-        <div class="copyright">
-            <p>Copyright &copy; 2021</p>
         </div>
-        <div class="social">
-            <ul>
-<!--                <li><a href="#"><img class="svg" src="img/svg/social/facebook.svg" alt=""/></a></li>-->
-<!--                <li><a href="#"><img class="svg" src="img/svg/social/twitter.svg" alt=""/></a></li>-->
-<!--                <li><a href="#"><img class="svg" src="img/svg/social/instagram.svg" alt=""/></a></li>-->
-<!--                <li><a href="#"><img class="svg" src="img/svg/social/dribbble.svg" alt=""/></a></li>-->
-<!--                <li><a href="#"><img class="svg" src="img/svg/social/tik-tok.svg" alt=""/></a></li>-->
-            </ul>
-        </div>
-    </div>
-    <!-- /FOOTER -->
-
-
 </div>
-<!-- / WRAPPER ALL -->
-
-<!-- SCRIPTS -->
-<script src="{{ url }}js/jquery.js"></script>
-<!--[if lt IE 10]>
-<script type="text/javascript" src="{{ url }}js/ie8.js"></script> <![endif]-->
-<script src="{{ url }}js/plugins.js"></script>
-<script src="{{ url }}js/init.js"></script>
-<script async defer
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA5bpEs3xlB8vhxNFErwoo3MXR64uavf6Y&callback=initMap"></script>
-<!-- /SCRIPTS -->
-
-</body>
-</html>
+<!-- /MAINPART -->
+{% endblock %}
