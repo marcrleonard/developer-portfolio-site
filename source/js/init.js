@@ -30,6 +30,19 @@ jQuery(document).ready(function(){
 	jQuery(window).load('body', function(){
 		cavani_tm_my_load();
 	});
+
+	if(window.location.hash) {
+		console.log(window.location.hash)
+
+		var element = jQuery( `a[href*="${window.location.hash}"]` );
+		// var element			= jQuery('.transition_link a');
+
+		// var element 	= jQuery(this);
+  		page_view(window.location.hash, element)
+	}
+	// var element 	= jQuery(this);
+	// var href		= element.attr('href');
+	// page_view(href, element)
 	
 });
 
@@ -45,42 +58,55 @@ function cavani_tm_page_transition(){
 	
 	"use strict";
 	
-	var section 		= jQuery('.cavani_tm_section');
-	var allLi 			= jQuery('.transition_link li');
+
 	var button			= jQuery('.transition_link a');
-	var wrapper 		= jQuery('.cavani_tm_all_wrap');
-	var enter	 		= wrapper.data('enter');
-	var exit		 	= wrapper.data('exit');
-	
 	button.on('click',function(){
 		var element 	= jQuery(this);
 		var href		= element.attr('href');
-		if(element.parent().hasClass('cavani_tm_button')){
-			jQuery('.menu .transition_link a[href="'+href+'"]').trigger('click');
-			hashtag();
-			return false;
-		}
-		var sectionID 	= jQuery(href);
-		var parent	 	= element.closest('li');
-			if(!parent.hasClass('active')) {
-				allLi.removeClass('active');
-				wrapper.find(section).removeClass('animated '+enter);
-				if(wrapper.hasClass('opened')) {
-					wrapper.find(section).addClass('animated '+exit);
-				}
-				parent.addClass('active');
-				wrapper.addClass('opened');
-				wrapper.find(sectionID).removeClass('animated '+exit).addClass('animated '+enter);
-				jQuery(section).addClass('hidden');
-				jQuery(sectionID).removeClass('hidden').addClass('active');
-			}
-		return false;
+		page_view(href, element)
+
 	});
 }
 
 // -----------------------------------------------------
 // ---------------   TRIGGER MENU    -------------------
 // -----------------------------------------------------
+
+function page_view(href, element) {
+
+	var section 		= jQuery('.cavani_tm_section');
+	var allLi 			= jQuery('.transition_link li');
+	var wrapper 		= jQuery('.cavani_tm_all_wrap');
+	var enter	 		= wrapper.data('enter');
+	var exit		 	= wrapper.data('exit');
+
+
+	if (href.startsWith("/")) {
+		href = href.replace("/", "")
+	}
+
+
+	if(element.parent().hasClass('cavani_tm_button')){
+		jQuery('.menu .transition_link a[href="'+href+'"]').trigger('click');
+		hashtag();
+		return false;
+	}
+	var sectionID 	= jQuery(href);
+	var parent	 	= element.closest('li');
+	if(!parent.hasClass('active')) {
+		allLi.removeClass('active');
+		wrapper.find(section).removeClass('animated '+enter);
+		if(wrapper.hasClass('opened')) {
+			wrapper.find(section).addClass('animated '+exit);
+		}
+		parent.addClass('active');
+		wrapper.addClass('opened');
+		wrapper.find(sectionID).removeClass('animated '+exit).addClass('animated '+enter);
+		jQuery(section).addClass('hidden');
+		jQuery(sectionID).removeClass('hidden').addClass('active');
+	}
+	return false;
+}
 
 function cavani_tm_trigger_menu(){
 	
