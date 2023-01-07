@@ -4,7 +4,8 @@ from jinja2 import Environment, PackageLoader, FileSystemLoader, select_autoesca
 import pathlib
 import shutil
 
-cloud_build = str(os.environ.get('CF_PAGES', "1")) == "1"
+cloud_build = str(os.environ.get('CF_PAGES')) == "1"
+cloud_build = False
 
 print(f"Cloud Build: {cloud_build}")
 
@@ -68,7 +69,7 @@ for file in os.listdir("source/blog"):
 			'text': html_text,
 	}
 
-	blog_location = f"{BUILD_FOLDER}/blog/{slug}"
+	blog_location = f"{BUILD_FOLDER}/blog/{url}"
 	os.makedirs(blog_location, exist_ok=True)
 
 	with open(f'{blog_location}/index.html', 'w') as f:
@@ -77,8 +78,8 @@ for file in os.listdir("source/blog"):
 			'url': full_url
 		}))
 
-	with open(f'{blog_location}/index.html', 'r') as f:
-		print(f.read())
+	# with open(f'{blog_location}/index.html', 'r') as f:
+	# 	print(f.read())
 
 	NEWS_ITEMS.append(news_item)
 
@@ -91,8 +92,6 @@ with open(f'{BUILD_FOLDER}/rss.xml', 'w') as f:
 		'news_items': NEWS_ITEMS,
 		'build_date': datetime.datetime.now()
 	}))
-
-
 
 template_obj = env.get_template('index.html')
 
