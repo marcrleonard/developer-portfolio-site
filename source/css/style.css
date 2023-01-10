@@ -2092,7 +2092,6 @@ h6 { font-size:  0.75em; font-weight: 200  }
 	.cavani_tm_modalbox .news_popup_informations .details h3{font-size: 20px;}
 }
 @media (max-width: 400px) {
-	.name {margin-top: 0px;}
 	.cavani_tm_home .name{font-size: 40px;}
 	.cavani_tm_home .job{font-size: 20px;}
 	.cavani_tm_home .line{height: 3px;width: 40px;}
