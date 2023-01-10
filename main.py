@@ -13,6 +13,8 @@ full_url = "/"
 if cloud_build:
 	full_url = "https://marcrleonard.com/"
 
+
+
 NEWS_ITEMS = [
 	# {
 	# 	'thumbnail': 'img/thumbs/4-3.jpg',
@@ -39,7 +41,7 @@ env = Environment(
 )
 os.makedirs(BUILD_FOLDER, exist_ok=True)
 
-md = MarkdownReader(settings=get_settings())
+md = MarkdownReader(settings=get_settings(), )
 
 blog_dir = "source/blog"
 for file in os.listdir("source/blog"):
@@ -48,6 +50,8 @@ for file in os.listdir("source/blog"):
 		continue
 
 	html_text, metadata = md.read(f"{blog_dir}/{file}")
+
+	# html_text = html_text.replace("<code>", "<code class='highlight'>")
 
 	post_date = datetime.datetime.fromisoformat(metadata['date'].isoformat())
 
@@ -75,7 +79,8 @@ for file in os.listdir("source/blog"):
 	with open(f'{blog_location}/index.html', 'w') as f:
 		f.write(env.get_template('_blog.html').render({
 			'news_item': news_item,
-			'url': full_url
+			'url': full_url,
+			"fixed_footer": True
 		}))
 
 	# with open(f'{blog_location}/index.html', 'r') as f:

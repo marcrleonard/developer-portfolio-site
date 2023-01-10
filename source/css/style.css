@@ -473,7 +473,7 @@ h6 { font-size:  0.75em; font-weight: 200  }
 	bottom: 70px;
 	left: 70px;
 	right: 70px;
-	overflow: hidden;
+	/*overflow: hidden;*/
 }
 .cavani_tm_mainpart .author_image{
 	position: absolute;
@@ -1000,7 +1000,8 @@ h6 { font-size:  0.75em; font-weight: 200  }
 	padding-left: 20px;
 }
 .cavani_tm_about .univ ul li .place h3{
-	padding-top: 8px;
+	padding-top: 0;
+	margin-top: 6px;
 	font-size: 16px;
     margin-bottom: 2px;
     font-weight: 600;
@@ -2003,63 +2004,6 @@ h6 { font-size:  0.75em; font-weight: 200  }
 }
 
 /*---------------------------------------------------*/
-/*	12) CAVANI GLITCH EFFECT
-/*---------------------------------------------------*/
-
-.cavani_tm_mainpart .author_image .glitch_wrap{
-	position: relative;
-	width: 100%;
-	height:100%;
-	float: left;
-	overflow: hidden;
-}
-.glitch{
-	position: absolute;
- 	width: 100%;
- 	height: 100%;
-	top: 0;
- 	left: 0;
-	background-image: url("..//img/about/2.jpg");
-	background-size: cover;
-	-webkit-background-size: cover;
-	background-position: center;
-	z-index: -1 !important;
-	opacity: 1;
-	transform: scale(1);
-}
-
-/*---------------------------------------------------*/
-/*	13) CAVANI PARTICLE EFFECT
-/*---------------------------------------------------*/
-
-.cavani_tm_mainpart .author_image .particle_wrapper{
-	position: relative;
-	float: left;
-	width: 100%;
-	height: 100%;
-}
-#particles-js {
-	width: 100%;
-	height: 100%;
-  	position: relative;
-  	z-index: 2;
-}
-
-/*---------------------------------------------------*/
-/*	14) CAVANI RIPPLE EFFECT
-/*---------------------------------------------------*/
-
-.cavani_tm_mainpart .author_image .ripple{
-	width: 100%;
-	height: 100%;
-	position: relative;
-	background-repeat: no-repeat;
-	background-size: cover;
-	background-position: center;
-	background-image: url("..//img/about/3.jpg");
-}
-
-/*---------------------------------------------------*/
 /*	15) CAVANI MEDIA QUERIES (FOR SMALL DEVICES)
 /*---------------------------------------------------*/
 
@@ -2148,6 +2092,7 @@ h6 { font-size:  0.75em; font-weight: 200  }
 	.cavani_tm_modalbox .news_popup_informations .details h3{font-size: 20px;}
 }
 @media (max-width: 400px) {
+	.name {margin-top: 0px;}
 	.cavani_tm_home .name{font-size: 40px;}
 	.cavani_tm_home .job{font-size: 20px;}
 	.cavani_tm_home .line{height: 3px;width: 40px;}

@@ -1,46 +1,36 @@
-
 {% extends "page_template.html" %}
 {% block content %}
 
 <!-- MAINPART -->
-<div class="cavani_tm_mainpart">
-    <div class="author_image">
-        <div class="main" data-img-url="{{ url }}img/about/me_2.jpg"></div>
-<!--            <div class="main" data-img-url="img/about/me.jpg"></div>-->
-    </div>
-    <div class="main_content">
-    <div class="experience">
-
-        <!-- NEWS -->
-        <div class="section_inner">
-            <div style="padding:50px">
-                <div class="cavani_tm_news">
-                    <div class="cavani_tm_title">
-                        <span>{{news_item.title}}</span>
-                    </div>
-                    <div class="news_list">
-                        <div class="list_inner">
-                            <div class="details">
-                                <div class="metabox">
-                                    <div class="info">
-                                        <span class="category"><a
-                                                href="#">{{ news_item.category }}</a></span>
-                                        <span class="date">{{ news_item.date }}</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="text">
-                               {{news_item.text|safe}}
-                            </div>
-                        </div>
+<style>
+    p {
+        color: black;
+    }
+</style>
+<div class="section_inner">
+    <div style="padding:50px">
+        <div class="">
+                <h1>{{news_item.title}}</h1>
+            <div class="details">
+                <div class="metabox">
+                    <div class="info">
+                                <span class="category"><a
+                                        href="#">{{ news_item.category }}</a></span>
+                        <span class="date">{{ news_item.date }}</span>
                     </div>
                 </div>
             </div>
+            <hr style="margin-bottom: 30px">
+
+
+            <div class="markdown-body">
+                {{news_item.text|safe}}
+            </div>
         </div>
-        <!-- NEWS -->
 
     </div>
-        </div>
 </div>
+
+
 <!-- /MAINPART -->
 {% endblock %}
