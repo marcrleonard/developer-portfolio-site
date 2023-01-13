@@ -1,6 +1,6 @@
 Title: Full blog
 Date: 2023-01-07 10:20:01 MST
-Category: Python
+Category: Python, Another
 Tags: python, django
 Slug: test-blog
 Authors: Marc Leonard

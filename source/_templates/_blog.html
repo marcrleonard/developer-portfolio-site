@@ -14,9 +14,13 @@
             <div class="details">
                 <div class="metabox">
                     <div class="info">
-                                <span class="category"><a
-                                        href="#">{{ news_item.category }}</a></span>
                         <span class="date">{{ news_item.date }}</span>
+                        <br>
+                        <span>Categories: </span>
+                        {% for c in news_item.category %}
+                            <span class="category"><a
+                                href="#">{{ c }}</a></span>
+                        {% endfor %}
                     </div>
                 </div>
             </div>

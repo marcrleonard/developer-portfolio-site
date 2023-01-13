@@ -3,6 +3,7 @@ import os
 from jinja2 import Environment, PackageLoader, FileSystemLoader, select_autoescape
 import pathlib
 import shutil
+import pygments
 
 cloud_build = str(os.environ.get('CF_PAGES')) == "1"
 cloud_build = False
@@ -61,12 +62,14 @@ for file in os.listdir("source/blog"):
 
 	url = f'{post_date.year}/{post_date.month}/{slug}'
 
+	cats = [ str(c).lstrip().rstrip().lower() for c in  str(metadata['category']).split(",")]
+
 	news_item = {
 			'thumbnail': 'img/thumbs/4-3.jpg',
 			'full_image': 'img/news/1.jpg',
 			'title': title,
 			'date': post_date,
-			'category': metadata['category'],
+			'category': cats,
 			'tags': metadata['tags'],
 			'slug': url,
 			'summary': metadata['summary'],
