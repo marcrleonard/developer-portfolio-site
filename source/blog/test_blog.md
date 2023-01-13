@@ -6,9 +6,11 @@ Slug: test-blog
 Authors: Marc Leonard
 Summary: This is a test blog.
 
-## Otter Wiki 🦦
+## Test blog 🦦
 
-**Otters** are really great. So are **Wikis**.
+**Blogs** are really great.
+
+This is a test of the styling
 
 You may use common markdown highlighting like *Italic*, **bold**, and `monospace`. Itemized lists
 look like:
@@ -20,13 +22,13 @@ look like:
 
 ### Pictures
 
-Here is a cute picture of an otter:
+Here is a picture:
 
 ![](/img/logo/dark.png)
 
-### Other great things about Otterwiki
+### Other great things about MD
 
-Otterwiki supports these great features:
+MD supports these great features:
 
  1. Wiki pages are stored in .md files
  2. All pages are backed by git
