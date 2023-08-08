@@ -57,6 +57,7 @@ function cavani_tm_page_transition(){
 
 	var button			= jQuery('.transition_link a');
 	button.on('click',function(){
+		debugger;
 		var element 	= jQuery(this);
 		var href		= element.attr('href');
 		page_view(href, element)
