@@ -294,7 +294,7 @@ h6 { font-size:  0.75em; font-weight: 200  }
 	color: #333;
 	font-family: "Poppins";
 	font-weight: 500;
-	padding: 0px 30px;
+	padding: 0px 15px;
 	display: inline-block;
 	
 	-webkit-transition: all .3s ease;
@@ -2022,7 +2022,7 @@ h6 { font-size:  0.75em; font-weight: 200  }
 	.cavani_tm_right_border{width: 60px;}
 	.cavani_tm_mainpart{top: 60px;left: 60px;right: 60px;bottom: 60px;}
 	.cavani_tm_footer .social ul li{margin-right: 10px;}
-	.cavani_tm_header .menu ul li a{padding: 0px 22px;}
+	.cavani_tm_header .menu ul li a{padding: 0px 15px;}
 	.cavani_tm_home .content{padding-left: 50px;}
 	.cavani_tm_home .name{font-size: 55px;margin-bottom: 25px;}
 	.cavani_tm_home .line{width: 60px;height: 4px;margin-bottom: 25px;}
