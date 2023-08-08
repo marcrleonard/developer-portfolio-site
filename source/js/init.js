@@ -22,7 +22,7 @@ jQuery(document).ready(function(){
 	cavani_tm_popup();
 	cavani_tm_portfolio();
 	cavani_tm_data_images();
-	cavani_tm_contact_form();
+//	cavani_tm_contact_form();
 	cavani_tm_mycarousel();
 	hashtag();
 	cavani_tm_ripple();
