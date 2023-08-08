@@ -26,10 +26,6 @@ jQuery(document).ready(function(){
 	cavani_tm_mycarousel();
 	hashtag();
 	cavani_tm_ripple();
-	
-	jQuery(window).load('body', function(){
-		cavani_tm_my_load();
-	});
 
 	if(window.location.hash) {
 		console.log(window.location.hash)
@@ -259,30 +255,6 @@ function cavani_tm_news_popup(){
 		modalBox.find('.description_wrap').html('');
 		return false;
 	});
-}
-
-// -----------------------------------------------------
-// ---------------   PRELOADER   -----------------------
-// -----------------------------------------------------
-
-function cavani_tm_preloader(){
-	
-	"use strict";
-	
-	var isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ? true : false;
-	var preloader = $('#preloader');
-	
-	if (!isMobile) {
-		setTimeout(function() {
-			preloader.addClass('preloaded');
-		}, 800);
-		setTimeout(function() {
-			preloader.remove();
-		}, 2000);
-
-	} else {
-		preloader.remove();
-	}
 }
 
 // -----------------------------------------------------
