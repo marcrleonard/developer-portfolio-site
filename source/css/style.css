@@ -774,7 +774,7 @@ h6 { font-size:  0.75em; font-weight: 200  }
 	width: 100%;
 	float: left;
 	position: relative;
-	padding-left: 25px;
+	padding-left: 0px;
 }
 .cavani_tm_about .services .service_list ul li:last-child,
 .cavani_tm_about .services .interests ul li:last-child{
