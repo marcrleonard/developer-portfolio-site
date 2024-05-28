@@ -1,6 +1,6 @@
 Title: Mirroring Terraform Code Between Development and Production
 Date: 2024-05-23 10:20
-Category: Python
+Category: DevOps, Terraform
 Tags: terraform, devops, aws, cloud, iac, infrastructure as code
 Slug: mirroring-terraform-dev-prod
 Authors: Marc Leonard
