@@ -11,18 +11,15 @@ Summary: Running a CPU heavy task, asyncronously, in FastAPI
     import time
     import asyncio
     import uuid
+    from concurrent.futures.process import ProcessPoolExecutor
+    from concurrent.futures.thread import ThreadPoolExecutor
     
     import fastapi
     from fastapi import HTTPException, Depends
     from fastapi.security import APIKeyHeader
     from fastapi import Security
     from pydantic import BaseModel, Field
-    from concurrent.futures.process import ProcessPoolExecutor
-    from concurrent.futures.thread import ThreadPoolExecutor
-    
     import uvicorn
-    
-    
     
     app = fastapi.FastAPI()
     
@@ -52,6 +49,7 @@ Summary: Running a CPU heavy task, asyncronously, in FastAPI
     
     class WorkPayload(BaseModel):
         num_cps:int = Field(1, description="The amount of CPUs to saturate while doing work.")
+        
     @app.post("/do-work", description="Work will be done to saturate a CPU.")
     async def do_work(work_payload:WorkPayload):
         work_id = str(uuid.uuid4())
