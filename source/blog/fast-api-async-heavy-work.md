@@ -12,12 +12,9 @@ Summary: Running a CPU heavy task, asyncronously, in FastAPI
     import asyncio
     import uuid
     from concurrent.futures.process import ProcessPoolExecutor
-    from concurrent.futures.thread import ThreadPoolExecutor
     
     import fastapi
-    from fastapi import HTTPException, Depends
     from fastapi.security import APIKeyHeader
-    from fastapi import Security
     from pydantic import BaseModel, Field
     import uvicorn
     
@@ -33,9 +30,11 @@ Summary: Running a CPU heavy task, asyncronously, in FastAPI
             if time.time() - s > NUM_SECONDS_TO_WORK:
                 print(f"[{name}] - {NUM_SECONDS_TO_WORK} seconds of work has completed.")
                 return True
+    
     class DB:
         def __init__(self):
             self.work = {}
+    
         async def get_work(self):
             return self.work
     
@@ -48,16 +47,15 @@ Summary: Running a CPU heavy task, asyncronously, in FastAPI
         return resp
     
     class WorkPayload(BaseModel):
-        num_cps:int = Field(1, description="The amount of CPUs to saturate while doing work.")
-        
+        num_cps: int = Field(1, description="The amount of CPUs to saturate while doing work.")
+    
     @app.post("/do-work", description="Work will be done to saturate a CPU.")
-    async def do_work(work_payload:WorkPayload):
+    async def do_work(work_payload: WorkPayload):
         work_id = str(uuid.uuid4())
         db.work[work_id] = "Working!"
         event_loop = asyncio.get_event_loop()
     
         with ProcessPoolExecutor() as p:
-    
             workers = []
             for work_num in range(work_payload.num_cps):
                 working_proc = event_loop.run_in_executor(p, saturate_cpu, work_num)
