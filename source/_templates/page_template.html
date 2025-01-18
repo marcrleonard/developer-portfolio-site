@@ -132,12 +132,12 @@
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA5bpEs3xlB8vhxNFErwoo3MXR64uavf6Y&callback=initMap"></script>
 <!-- /SCRIPTS -->
 
-   <script>
+<script>
     document.addEventListener('DOMContentLoaded', () => {
         const buttons = document.querySelectorAll('.nav-item');
         const pages = document.querySelectorAll('.page');
 
-        function activatePage(targetPageId) {
+        function activatePage(targetPageId, updateHash = true) {
             // Hide all pages
             pages.forEach(page => page.classList.remove('active-page'));
 
@@ -146,29 +146,35 @@
             if (targetPage) {
                 targetPage.classList.add('active-page');
 
-                // Scroll to top
-                window.scrollTo(0, 0);
+                // Scroll to the top AFTER rendering
+                setTimeout(() => window.scrollTo(0, 0), 0);
+            }
+
+            // Update URL hash without triggering default scroll
+            if (updateHash) {
+                history.pushState(null, '', `#${targetPageId}`);
             }
         }
 
         // Handle navigation clicks
         buttons.forEach(button => {
-            button.addEventListener('click', () => {
+            button.addEventListener('click', (event) => {
+                event.preventDefault(); // Prevent anchor default behavior
                 const targetPageId = button.dataset.target;
                 activatePage(targetPageId);
-
-                // Update URL hash
-                history.pushState(null, '', `#${targetPageId}`);
             });
         });
 
         // Handle page load with hash
         if (window.location.hash) {
             const targetPageId = window.location.hash.substring(1); // Remove the '#' symbol
-            activatePage(targetPageId);
+
+            // Delay activation to prevent browser's default hash scrolling
+            setTimeout(() => activatePage(targetPageId, false), 0);
         }
     });
 </script>
+
 
 
 </body>
