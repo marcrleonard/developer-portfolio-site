@@ -10,7 +10,8 @@ cloud_build = str(os.environ.get('CF_PAGES')) == "1"
 
 print(f"Cloud Build: {cloud_build}")
 
-full_url = "/"
+full_url = "http://localhost:63342/developer-portfolio-site/build/"
+# full_url = "/"
 if cloud_build:
 	full_url = "https://marcrleonard.com/"
 
@@ -76,7 +77,7 @@ for file in os.listdir("source/blog"):
 			'text': html_text,
 	}
 
-	blog_location = f"{BUILD_FOLDER}/blog/{url}"
+	blog_location = f"{full_url}/blog/{url}"
 	os.makedirs(blog_location, exist_ok=True)
 
 	with open(f'{blog_location}/index.html', 'w') as f:
