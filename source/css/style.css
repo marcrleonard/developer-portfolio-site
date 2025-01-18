@@ -371,7 +371,7 @@ a {
 
 
 .page-padding {
-    padding: 1em;
+    /*padding: 1em;*/
 }
 
 .container {
@@ -426,7 +426,7 @@ h2.page-title {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 3rem;
+    padding: 0 2.2rem;
 }
 
 .cavani_tm_header .logo img {
