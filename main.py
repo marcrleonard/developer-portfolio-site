@@ -80,7 +80,7 @@ for file in os.listdir("source/blog"):
 			'text': html_text,
 	}
 
-	blog_location = f"{full_url}/blog/{url}"
+	blog_location = f"{BUILD_FOLDER}/blog/{url}"
 	os.makedirs(blog_location, exist_ok=True)
 
 	with open(f'{blog_location}/index.html', 'w') as f:
