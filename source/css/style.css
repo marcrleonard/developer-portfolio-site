@@ -1995,8 +1995,12 @@ ul li .list_inner:hover {
         display: none;
     }
 
+    /* Since the left item is gone, the right needs no padding*/
     .left-item {
         display: none;
+    }
+    .right-item {
+        padding: 0;
     }
 
     .cavani_tm_topbar {
