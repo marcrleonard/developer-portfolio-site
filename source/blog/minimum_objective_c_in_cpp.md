@@ -6,7 +6,7 @@ Slug: minimum_objective_c_in_cpp.md
 Authors: Marc Leonard
 Summary: Calling Objective-C from C++ and CMake
 
-## Calling Objective C from C++
+
 
 Asset Veranda, the media asset manager I'm working on, uses largely platform-independent code. However, there are some specific functions that need to be called that are platform-specific.
 

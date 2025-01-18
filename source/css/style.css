@@ -320,6 +320,9 @@ h6 {
     padding: 1rem;
 }
 
+.highlight pre {
+    margin: 0;
+}
 
 strong  {
     font-weight: 800;

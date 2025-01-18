@@ -6,7 +6,6 @@ Slug: fast-api-async-heavy-work
 Authors: Marc Leonard
 Summary: Running a CPU heavy task, asyncronously, in FastAPI
 
-## Running a CPU heavy task, asyncronously, in FastAPI
 
     import time
     import asyncio
