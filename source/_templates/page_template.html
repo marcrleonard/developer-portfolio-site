@@ -159,7 +159,7 @@
         // Handle navigation clicks
         buttons.forEach(button => {
             button.addEventListener('click', (event) => {
-                event.preventDefault(); // Prevent anchor default behavior
+                // event.preventDefault(); // Prevent anchor default behavior
                 const targetPageId = button.dataset.target;
                 activatePage(targetPageId);
             });

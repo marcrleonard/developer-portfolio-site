@@ -12,11 +12,10 @@ print(os.environ)
 
 print(f"Cloud Build: {cloud_build}")
 
-full_url = "http://localhost:63342/developer-portfolio-site/build/"
+full_url = "http://localhost:63342/developer-portfolio-site/build"
 # full_url = "/"
 if cloud_build:
 	full_url = os.environ.get("CF_PAGES_URL")
-	# full_url = "https://marcrleonard.com/"
 
 
 
