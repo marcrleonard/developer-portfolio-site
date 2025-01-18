@@ -6,9 +6,6 @@ Slug: Python-Object-Scope
 Authors: Marc Leonard
 Summary: Using Object scope to your advantage.
 
-
-# Understanding Python Object Scope Lifecycle
-
 In Python, understanding how objects are managed in memory can be crucial for writing efficient and bug-free code. One aspect of this management involves the lifecycle of objects—specifically, when they are created, used, and deleted. Using the object lifetime in regards to it's scope can be incredibly useful, but also comes with a pitfall.
 
 ## Example: Timing Execution with a Class
