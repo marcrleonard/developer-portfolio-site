@@ -20,9 +20,13 @@
     <title>Marc R Leonard | Developer</title>
 
     <!-- STYLES -->
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap"
-          rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    <!--    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap"-->
+    <!--          rel="stylesheet">-->
+    <!--    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"-->
+    <!--          rel="stylesheet">-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
           rel="stylesheet">
 
     <link rel="stylesheet" type="text/css" href="{{ url }}css/style.css"/>
@@ -30,19 +34,13 @@
     <link rel="stylesheet" type="text/css" href="{{ url }}css/custom.css"/>
 
     <style>
-    /*    .markdown-body {*/
-	/*	box-sizing: border-box;*/
-	/*	min-width: 200px;*/
-	/*	max-width: 980px;*/
-	/*	margin: 0 auto;*/
-	/*	padding: 45px;*/
-	/*}*/
+        .page {
+            display: none;
+        }
 
-	/*@media (max-width: 767px) {*/
-	/*	.markdown-body {*/
-	/*		padding: 15px;*/
-	/*	}*/
-	/*}*/
+        .active-page {
+            display: block;
+        }
     </style>
 
     <style>
@@ -64,7 +62,7 @@
         }
 
         a {
-            color:black
+            color: black
         }
 
         .cavani_tm_mobile_menu .inner {
@@ -73,18 +71,20 @@
 
 
     </style>
-    <!--[if lt IE 9]>
-    <script type="text/javascript" src="{{ url }}js/modernizr.custom.js"></script> <![endif]-->
-    <!-- /STYLES -->
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-C2F6FPRGES"></script>
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
+        window.dataLayer = window.dataLayer || [];
 
-      gtag('config', 'G-C2F6FPRGES');
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+        gtag('config', 'G-C2F6FPRGES');
     </script>
+
 
 </head>
 
@@ -93,119 +93,70 @@
 <!-- WRAPPER ALL -->
 <div class="cavani_tm_all_wrap" data-enter="fadeInUp" data-exit="">
 
-    <!-- MODALBOX -->
-    <div class="cavani_tm_modalbox">
-        <div class="box_inner">
-            <div class="close">
-                <a href="#"><img class="svg" src="img/svg/cancel.svg" alt=""/></a>
-            </div>
-            <div class="description_wrap"></div>
-        </div>
-    </div>
-    <!-- /MODALBOX -->
 
     <!-- HEADER -->
     <div class="cavani_tm_header">
         <div class="logo">
-            <h2><a href="/">MARC LEONARD</a></h2>
+            <h2 style="font-weight: 400"><a href="/">marc leonard</a></h2>
         </div>
         <div class="menu">
-            <ul class="transition_link">
-                <li class="active"><a href="/#home">Home</a></li>
-                <li> <a href="/#about">About</a></li>
-                <li><a href="/#experience">Experience</a></li>
-                <li><a href="/#news">Blog</a></li>
-            </ul>
-            <span class="ccc"></span>
-        </div>
+    <input type="checkbox" id="menu-toggle" class="menu-checkbox">
+    <label for="menu-toggle" class="hamburger">&#9776;</label>
+    <ul class="nav-links">
+        <li><a class="nav-item" data-target="home" href="#">home</a></li>
+        <li><a class="nav-item" data-target="about" href="#">about</a></li>
+        <li><a class="nav-item" data-target="experience" href="#">experience</a></li>
+        <li><a class="nav-item" data-target="ponderings" href="#">ponderings</a></li>
+    </ul>
+</div>
     </div>
     <!-- /HEADER -->
 
-    <div class="cavani_tm_left_border"></div>
-    <div class="cavani_tm_right_border"></div>
+    <section class="page-padding">
+        <div class="cavani_tm_mainpart">
+            {% block content %}{% endblock %}
 
-    <!-- MOBILE MENU -->
-    <div class="cavani_tm_topbar">
-        <div class="topbar_inner">
-            <div class="logo">
-                <a href="#">MARC LEONARD</a>
-            </div>
-            <div class="trigger">
-                <div class="hamburger hamburger--slider" onmouseover="this.style.cursor='pointer';" onmouseout="this.style.cursor='default';">
-                    Menu
-                    <div class="hamburger-box">
-                        <div class="hamburger-inner">
+        </div>
 
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="cavani_tm_mobile_menu">
-        <div class="inner">
-            <div class="wrapper">
-<!--                <div class="avatar">-->
-<!--                    <div class="image" data-img-url="img/about/1.jpg"></div>-->
-<!--                </div>-->
-                <div class="menu_list">
-                    <ul class="transition_link">
-                        <li class="active"><a href="/#home">Home</a></li>
-                        <li><a href="/#about">About</a></li>
-                        <li><a href="/#experience">Experience</a></li>
-                        <li><a href="/#news">Blog</a></li>
-                    </ul>
-                </div>
-                <div class="social">
-                    <ul>
-<!--                        <li><a href="#"><img class="svg" src="img/svg/social/facebook.svg" alt=""/></a></li>-->
-<!--                        <li><a href="#"><img class="svg" src="img/svg/social/twitter.svg" alt=""/></a></li>-->
-<!--                        <li><a href="#"><img class="svg" src="img/svg/social/instagram.svg" alt=""/></a></li>-->
-<!--                        <li><a href="#"><img class="svg" src="img/svg/social/dribbble.svg" alt=""/></a></li>-->
-<!--                        <li><a href="#"><img class="svg" src="img/svg/social/tik-tok.svg" alt=""/></a></li>-->
-                    </ul>
-                </div>
-                <div class="copyright">
-                    <p>Copyright &copy; 2021</p>
-                </div>
-            </div>
-        </div>
-    </div>
 
-    <!-- /MOBILE MENU -->
-    <div class="cavani_tm_mainpart">
-        {% block content %}{% endblock %}
-    </div>
-    <!-- FOOTER -->
-    <div class="cavani_tm_footer">
-        <div class="copyright">
-            <p>Copyright &copy; 2021</p>
-        </div>
-        <div class="social">
-            <ul>
-<!--                <li><a href="#"><img class="svg" src="img/svg/social/facebook.svg" alt=""/></a></li>-->
-<!--                <li><a href="#"><img class="svg" src="img/svg/social/twitter.svg" alt=""/></a></li>-->
-<!--                <li><a href="#"><img class="svg" src="img/svg/social/instagram.svg" alt=""/></a></li>-->
-<!--                <li><a href="#"><img class="svg" src="img/svg/social/dribbble.svg" alt=""/></a></li>-->
-<!--                <li><a href="#"><img class="svg" src="img/svg/social/tik-tok.svg" alt=""/></a></li>-->
-            </ul>
-        </div>
-    </div>
-    <!-- /FOOTER -->
-
+        <!-- /FOOTER -->
+    </section>
 
 </div>
+
+
 <!-- / WRAPPER ALL -->
 
 <!-- SCRIPTS -->
-<script src="{{ url }}js/jquery.js"></script>
-<!--[if lt IE 10]>
-<script type="text/javascript" src="{{ url }}js/ie8.js"></script> <![endif]-->
-<script src="{{ url }}js/plugins.js"></script>
-<script src="{{ url }}js/init.js"></script>
 <script async defer
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA5bpEs3xlB8vhxNFErwoo3MXR64uavf6Y&callback=initMap"></script>
 <!-- /SCRIPTS -->
+
+    <script>
+
+        const buttons = document.querySelectorAll('.nav-item');
+        const pages = document.querySelectorAll('.page');
+        // debugger;
+        buttons.forEach(button => {
+            button.addEventListener('click', () => {
+
+
+                const targetPageId = button.dataset.target;
+                // debugger;
+
+                // Hide all pages
+                pages.forEach(page => {
+                    page.classList.remove('active-page');
+                });
+
+                // Show the target page
+                const targetPage = document.getElementById(targetPageId);
+                targetPage.classList.add('active-page');
+
+                // button.classList.add('active')
+            });
+        });
+    </script>
 
 </body>
 </html>

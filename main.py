@@ -91,8 +91,8 @@ for file in os.listdir("source/blog"):
 
 	NEWS_ITEMS.append(news_item)
 
-NEWS_ITEMS.sort(key = lambda x:x['date'])
-NEWS_ITEMS.reverse()
+# NEWS_ITEMS.sort(key = lambda x:x['date'])
+# NEWS_ITEMS.reverse()
 
 # Create rss
 with open(f'{BUILD_FOLDER}/rss.xml', 'w') as f:
