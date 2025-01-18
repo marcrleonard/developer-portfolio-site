@@ -2,25 +2,28 @@
 {% block content %}
 
 <!-- MAINPART -->
-<style>
-    p {
-        color: black;
-    }
-</style>
 <div class="section_inner">
     <div style="padding:50px">
         <div class="">
-            <h1>{{news_item.title}}</h1>
+<!--            <h1>{{news_item.title}}</h1>-->
+            <h2 class="page-title">
+                        <span>{{news_item.title}}</span>
+                    </h2>
+                    <div class="lines">
+                        <div class="line"></div>
+                        <div class="line"></div>
+                        <div class="line"></div>
+                    </div>
             <div class="details">
                 <div class="metabox">
                     <div class="info">
                         <span class="date">{{ news_item.date }}</span>
                         <br>
-                        <span>Categories: </span>
-                        {% for c in news_item.category %}
-                        <span class="category"><a
-                                href="#">{{ c }}</a></span>
-                        {% endfor %}
+<!--                        <span>Categories: </span>-->
+<!--                        {% for c in news_item.category %}-->
+<!--                        <span class="category"><a-->
+<!--                                href="#">{{ c }}</a></span>-->
+<!--                        {% endfor %}-->
                     </div>
                 </div>
             </div>
