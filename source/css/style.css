@@ -316,7 +316,7 @@ h6 {
 /*--------------------MARC----------------------*/
 
 .highlight {
-    background: oldlace;
+    background: rgba(224, 48, 48, 0.1);
     padding: 1rem;
 }
 
