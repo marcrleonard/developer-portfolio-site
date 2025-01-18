@@ -145,6 +145,9 @@
             const targetPage = document.getElementById(targetPageId);
             if (targetPage) {
                 targetPage.classList.add('active-page');
+
+                // Scroll to top
+                window.scrollTo(0, 0);
             }
         }
 
@@ -166,6 +169,7 @@
         }
     });
 </script>
+
 
 </body>
 </html>
