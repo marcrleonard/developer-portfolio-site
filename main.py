@@ -120,6 +120,10 @@ folders_to_copy = [
 ]
 
 def recurse_make_folders(source_dir, target_dir):
+
+	if not pathlib.Path(source_dir).exists():
+		return
+
 	file_names = os.listdir(source_dir)
 
 	os.makedirs(target_dir, exist_ok=True)
