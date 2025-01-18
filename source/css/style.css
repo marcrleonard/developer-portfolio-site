@@ -441,7 +441,7 @@ h2.page-title {
 .cavani_tm_header .menu ul {
     margin: 0px;
     list-style-type: none;
-    margin-left: -54px;
+    margin-left: -78px;
 }
 
 .cavani_tm_header .menu ul li {
@@ -2013,6 +2013,10 @@ ul li .list_inner:hover {
 
     .cavani_tm_home .job {
         font-size: 22px;
+    }
+
+    .cavani_tm_about .univ ul li .list_inner {
+        display: block;
     }
 
     .cavani_tm_about .biography .wrapper {
