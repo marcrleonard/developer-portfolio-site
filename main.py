@@ -8,6 +8,8 @@ import pygments
 cloud_build = str(os.environ.get('CF_PAGES')) == "1"
 # cloud_build = True
 
+print(os.environ)
+
 print(f"Cloud Build: {cloud_build}")
 
 full_url = "http://localhost:63342/developer-portfolio-site/build/"
