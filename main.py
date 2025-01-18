@@ -6,7 +6,7 @@ import shutil
 import pygments
 
 cloud_build = str(os.environ.get('CF_PAGES')) == "1"
-cloud_build = False
+# cloud_build = True
 
 print(f"Cloud Build: {cloud_build}")
 
@@ -82,7 +82,7 @@ for file in os.listdir("source/blog"):
 	with open(f'{blog_location}/index.html', 'w') as f:
 		f.write(env.get_template('_blog.html').render({
 			'news_item': news_item,
-			'url': full_url,
+			'full_url': full_url,
 			"fixed_footer": True
 		}))
 
@@ -98,7 +98,8 @@ for file in os.listdir("source/blog"):
 with open(f'{BUILD_FOLDER}/rss.xml', 'w') as f:
 	f.write(env.get_template('rss.xml').render({
 		'news_items': NEWS_ITEMS,
-		'build_date': datetime.datetime.now()
+		'build_date': datetime.datetime.now(),
+		'full_url': full_url,
 	}))
 
 template_obj = env.get_template('index.html')
@@ -106,7 +107,8 @@ template_obj = env.get_template('index.html')
 with open(f'{BUILD_FOLDER}/index.html', 'w') as f:
 	f.write(template_obj.render({
 		'my_name': 'Marc Leonard',
-		'news_items': NEWS_ITEMS
+		'news_items': NEWS_ITEMS,
+		'full_url': full_url,
 	}))
 
 
