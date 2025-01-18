@@ -32,9 +32,9 @@ Below, I've outlined the simplest way to do this using the CMake build system.
 
 ## `ApplePlatformOps.h`
 
-  #include <string>
-
-  void ASelectFolder(std::string& filePath);
+    #include <string>
+    
+    void ASelectFolder(std::string& filePath);
 
 ## `ApplePlatformOps.mm`
 
