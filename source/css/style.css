@@ -1979,7 +1979,11 @@ ul li .list_inner:hover {
 /*	15) CAVANI MEDIA QUERIES (FOR SMALL DEVICES)
 /*---------------------------------------------------*/
 .cavani_tm_header .logo img{max-width: 95px;}
-.cavani_tm_header{height: 60px;line-height: 60px;padding: 0px 60px;}
+.cavani_tm_header{
+    height: 60px;
+    line-height: 60px;
+    /*padding: 0px 60px;*/
+}
 .cavani_tm_header .menu ul li {padding: 0px 15px;}
 
 @media (max-width: 768px) {
