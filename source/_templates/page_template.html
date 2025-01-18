@@ -132,31 +132,40 @@
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA5bpEs3xlB8vhxNFErwoo3MXR64uavf6Y&callback=initMap"></script>
 <!-- /SCRIPTS -->
 
-    <script>
-
+   <script>
+    document.addEventListener('DOMContentLoaded', () => {
         const buttons = document.querySelectorAll('.nav-item');
         const pages = document.querySelectorAll('.page');
-        // debugger;
+
+        function activatePage(targetPageId) {
+            // Hide all pages
+            pages.forEach(page => page.classList.remove('active-page'));
+
+            // Show the target page
+            const targetPage = document.getElementById(targetPageId);
+            if (targetPage) {
+                targetPage.classList.add('active-page');
+            }
+        }
+
+        // Handle navigation clicks
         buttons.forEach(button => {
             button.addEventListener('click', () => {
-
-
                 const targetPageId = button.dataset.target;
-                // debugger;
+                activatePage(targetPageId);
 
-                // Hide all pages
-                pages.forEach(page => {
-                    page.classList.remove('active-page');
-                });
-
-                // Show the target page
-                const targetPage = document.getElementById(targetPageId);
-                targetPage.classList.add('active-page');
-
-                // button.classList.add('active')
+                // Update URL hash
+                history.pushState(null, '', `#${targetPageId}`);
             });
         });
-    </script>
+
+        // Handle page load with hash
+        if (window.location.hash) {
+            const targetPageId = window.location.hash.substring(1); // Remove the '#' symbol
+            activatePage(targetPageId);
+        }
+    });
+</script>
 
 </body>
 </html>
