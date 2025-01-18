@@ -5,6 +5,8 @@ import pathlib
 import shutil
 import pygments
 
+asd = {'SHELL': '/bin/bash', 'PIPENV_VENV_IN_PROJECT': '1', 'NVM_INC': '/opt/buildhome/.nvm/versions/node/v12.18.0/include/node', 'SUDO_GID': '0', 'rvm_delete_flag': '0', 'rvm_prefix': '/opt/buildhome', 'PYTHON_VERSION': '3.7', 'LANGUAGE': 'en_US:en', 'NODE_OPTIONS': '--max_old_space_size=4096', 'ELM_VERSION': '0.19.0-bugfix6', 'HUGO_VERSION': '0.54.0', 'REPO_DIR': '/opt/buildhome/repo', 'MY_RUBY_HOME': '/opt/buildhome/.rvm/rubies/ruby-2.7.1', 'SUDO_COMMAND': '/opt/build/bin/build python3 main.py', 'GIMME_NO_ENV_ALIAS': 'true', 'YARN_VERSION': '1.22.4', 'SUDO_USER': 'root', 'install_flag': '1', 'RUBY_VERSION': 'ruby-2.7.1', 'NVM_VERSION': '0.35.3', 'PWD': '/opt/buildhome/repo', 'LOGNAME': 'buildbot', 'rvm_version': '1.29.12 (latest)', 'GIMME_CGO_ENABLED': 'true', 'NF_IMAGE_TAG': 'latest', 'HOME': '/opt/buildhome', 'LANG': 'en_US.UTF-8', 'VIRTUAL_ENV': '/opt/buildhome/python3.7', 'LZ4_VERSION': '1.8.0', 'GOROOT': '/opt/buildhome/.gimme/versions/go1.14.4.linux.amd64', 'BINRC_VERSION': '0.2.9', 'GIMME_TYPE': 'binary', 'NVM_DIR': '/opt/buildhome/.nvm', 'NETLIFY': 'true', 'rvm_bin_path': '/opt/buildhome/.rvm/bin', 'GEM_PATH': '/opt/buildhome/.rvm/gems/ruby-2.7.1:/opt/buildhome/.rvm/gems/ruby-2.7.1@global', 'GIMME_ENV_PREFIX': '/opt/buildhome/.gimme/env', 'GEM_HOME': '/opt/buildhome/.rvm/gems/ruby-2.7.1', 'CUSTOM_SWIFT': '0', 'TERM': 'unknown', 'CF_PAGES': '1', 'USER': 'buildbot', 'RVM_DIR': '/opt/buildhome/.rvm', 'SHLVL': '2', 'NVM_CD_FLAGS': '', 'GIMME_GO_VERSION': '1.14.4', 'rvm_ruby_string': 'ruby-2.7.1', 'PANDOC_VERSION': '2.4', 'GOCACHE': '/opt/buildhome/.gimme_cache/gocache', 'PIPENV_DEFAULT_PYTHON_VERSION': '2.7', 'CF_PAGES_URL': 'https://266b9b5a.portfolio-site-d6m.pages.dev', 'SWIFTENV_ROOT': '/opt/buildhome/.swiftenv', 'PS1': '(python3.7) ', 'LC_ALL': 'en_US.UTF-8', 'CF_PAGES_COMMIT_SHA': '18e8fd0b206be29c46f72c06ca8116986e10a7f6', 'PIPENV_RUNTIME': '2.7', 'PATH': '/opt/buildhome/.wasmer/bin:/opt/buildhome/.gimme/versions/go1.14.4.linux.amd64/bin:/opt/buildhome/cache/.binrc-a5679f71f5966d1b3450c8dcd52d4743ec08e632/binaries/gohugoio/hugo/v0.54.0:/opt/buildhome/.rvm/gems/ruby-2.7.1/bin:/opt/buildhome/.rvm/gems/ruby-2.7.1@global/bin:/opt/buildhome/.rvm/rubies/ruby-2.7.1/bin:/opt/buildhome/.rvm/bin:/opt/buildhome/.nvm/versions/node/v12.18.0/bin:/opt/buildhome/python3.7/bin:/opt/buildhome/.asdf/shims:/opt/buildhome/.asdf/bin:/opt/buildhome/.swiftenv/bin:/opt/buildhome/.swiftenv/shims:/opt/buildhome/.php:/opt/buildhome/.binrc/bin:/usr/local/rvm/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/opt/buildhome/.cask/bin:/opt/buildhome/.gimme/bin:/opt/buildhome/.dotnet/tools:/opt/buildhome/.dotnet:/opt/buildhome/.local/bin', 'ROOT_DIR': '/', 'SUDO_UID': '0', 'CF_PAGES_BRANCH': 'master', 'NF_IMAGE_VERSION': 'latest', 'NETLIFY_NODE_VERSION': '12.18.0', 'NVM_BIN': '/opt/buildhome/.nvm/versions/node/v12.18.0/bin', 'NODE_VERSION': 'v12.18.0', 'WASMER_CACHE_DIR': '/opt/buildhome/.wasmer/cache', 'IRBRC': '/opt/buildhome/.rvm/rubies/ruby-2.7.1/.irbrc', 'rvm_path': '/opt/buildhome/.rvm', 'WASMER_DIR': '/opt/buildhome/.wasmer', 'OLDPWD': '/opt/buildhome', 'GOPATH': '/opt/buildhome/.gimme_cache/gopath', 'JAVA_VERSION': 'default_sdk', '_': '/opt/buildhome/python3.7/bin/python3'}
+
 cloud_build = str(os.environ.get('CF_PAGES')) == "1"
 # cloud_build = True
 
@@ -16,6 +18,9 @@ full_url = "http://localhost:63342/developer-portfolio-site/build"
 # full_url = "/"
 if cloud_build:
 	full_url = os.environ.get("CF_PAGES_URL")
+	if os.environ.get("CF_PAGES_BRANCH") == "master":
+		# if this isn't set, full_url will be the 'internal' url
+		full_url = "https://marcrleonard.com"
 
 
 
