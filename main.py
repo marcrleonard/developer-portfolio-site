@@ -153,6 +153,7 @@ for url, title, html_file in pages_nav:
 	os.makedirs(output_location, exist_ok=True)
 	with open(f'{output_location}/index.html', 'w') as f:
 		f.write(env.get_template(html_file).render({
+			"nav_items": pages_nav,
 			'full_url': full_url,
 			"fixed_footer": True,
 			'news_items': NEWS_ITEMS

@@ -98,10 +98,13 @@
     <input type="checkbox" id="menu-toggle" class="menu-checkbox">
     <label for="menu-toggle" class="hamburger">&#9776;</label>
     <ul class="nav-links">
-        <li><a class="nav-item" data-target="home" href="{{full_url}}/">home</a></li>
-        <li><a class="nav-item" data-target="about" href="{{full_url}}/about">about</a></li>
-        <li><a class="nav-item" data-target="experience" href="{{full_url}}/experience">experience</a></li>
-        <li><a class="nav-item" data-target="ponderings" href="{{full_url}}/ponderings">ponderings</a></li>
+        {% for nav_item in nav_items %}
+                <li><a class="nav-item" data-target="home" href="{{full_url}}{{nav_item[0]}}">{{nav_item[1]}}</a></li>
+        {% endfor %}
+<!--        <li><a class="nav-item" data-target="home" href="{{full_url}}/">home</a></li>-->
+<!--        <li><a class="nav-item" data-target="about" href="{{full_url}}/about">about</a></li>-->
+<!--        <li><a class="nav-item" data-target="experience" href="{{full_url}}/experience">experience</a></li>-->
+<!--        <li><a class="nav-item" data-target="ponderings" href="{{full_url}}/ponderings">ponderings</a></li>-->
     </ul>
 </div>
     </div>
