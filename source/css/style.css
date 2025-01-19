@@ -367,24 +367,24 @@ a {
     background-color: #ff2600; /* Line color */
     /*width: 5000px; !* Length of lines *!*/
     margin-bottom: 10px; /* Spacing between lines */
-    width: 24rem;
+    width: 20rem;
 }
 
 .line:nth-child(1) {
     height: 6px; /* First line thickness */
-    width: 18rem;
+    width: 14rem;
 }
 
 .line:nth-child(2) {
     height: 4px; /* Second line thickness */
-    width: 20rem;
+    width: 16rem;
 }
 
 .line:nth-child(3) {
     height: 2px; /* Third line thickness */
     margin-bottom: 0; /* Remove margin after last line */
 
-    width: 22rem;
+    width: 18rem;
 }
 
 
