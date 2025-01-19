@@ -768,6 +768,7 @@ h2.page-title {
 }
 
 .cavani_tm_home .name {
+    margin-top: 20px;
     font-size: 42px;
     font-weight: 700;
     text-transform: uppercase;
@@ -2038,6 +2039,7 @@ ul li .list_inner:hover {
     }
 
     .cavani_tm_home .name {
+        margin-top: 10px;
         font-size: 60px;
     }
 
