@@ -123,13 +123,10 @@ for file in os.listdir("source/blog"):
 			"fixed_footer": True
 		}))
 
-	# with open(f'{blog_location}/index.html', 'r') as f:
-	# 	print(f.read())
-
 	NEWS_ITEMS.append(news_item)
 
-# NEWS_ITEMS.sort(key = lambda x:x['date'])
-# NEWS_ITEMS.reverse()
+NEWS_ITEMS.sort(key = lambda x:x['date'])
+NEWS_ITEMS.reverse()
 
 # Create rss
 with open(f'{BUILD_FOLDER}/rss.xml', 'w') as f:
@@ -139,7 +136,9 @@ with open(f'{BUILD_FOLDER}/rss.xml', 'w') as f:
 		'full_url': full_url,
 	}))
 
-# Make main pages
+# Make main pages in the nav
+# the order of this is the order
+# the items show up in the nav
 pages_nav = [
 	# url, title, html file
 	("/", "home", "pages/home.html"),
@@ -168,7 +167,7 @@ folders_to_copy = [
 ]
 
 
-def recurse_make_folders(source_dir, target_dir):
+def recursivly_copy_folders(source_dir, target_dir):
 	if not pathlib.Path(source_dir).exists():
 		return
 
@@ -187,8 +186,8 @@ def recurse_make_folders(source_dir, target_dir):
 		else:
 			os.makedirs(new_path, exist_ok=True)
 
-			recurse_make_folders(original_file, new_path)
+			recursivly_copy_folders(original_file, new_path)
 
 
 for source_dir, target_dir in folders_to_copy:
-	recurse_make_folders(source_dir, target_dir)
+	recursivly_copy_folders(source_dir, target_dir)

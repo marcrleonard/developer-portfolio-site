@@ -1,5 +1,5 @@
 Title: Mirroring Terraform Code Between Development and Production
-Date: 2024-05-23 10:20
+Date: 2024-05-23 10:20:00 MST
 Category: DevOps, Terraform
 Tags: terraform, devops, aws, cloud, iac, infrastructure as code
 Slug: mirroring-terraform-dev-prod
