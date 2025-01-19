@@ -80,6 +80,25 @@ os.makedirs(BUILD_FOLDER, exist_ok=True)
 
 md = MarkdownReader(settings=get_settings(), )
 
+# Make main pages
+pages_nav = [
+	# url, title, html file
+	("/", "home", "pages/home.html"),
+	("/about", "about", "pages/about.html"),
+	("/experience", "experience", "pages/experience.html"),
+	("/ponderings", "ponderings", "pages/ponderings.html"),
+]
+
+for url, title, html_file in pages_nav:
+	output_location = f"{BUILD_FOLDER}{url}"
+	os.makedirs(output_location, exist_ok=True)
+	with open(f'{output_location}/index.html', 'w') as f:
+		f.write(env.get_template(html_file).render({
+			'full_url': full_url,
+			"fixed_footer": True
+		}))
+
+# Make blog pages
 blog_dir = "source/blog"
 for file in os.listdir("source/blog"):
 
@@ -138,14 +157,14 @@ with open(f'{BUILD_FOLDER}/rss.xml', 'w') as f:
 		'full_url': full_url,
 	}))
 
-template_obj = env.get_template('index.html')
-
-with open(f'{BUILD_FOLDER}/index.html', 'w') as f:
-	f.write(template_obj.render({
-		'my_name': 'Marc Leonard',
-		'news_items': NEWS_ITEMS,
-		'full_url': full_url,
-	}))
+# template_obj = env.get_template('index.html')
+#
+# with open(f'{BUILD_FOLDER}/index.html', 'w') as f:
+# 	f.write(template_obj.render({
+# 		'my_name': 'Marc Leonard',
+# 		'news_items': NEWS_ITEMS,
+# 		'full_url': full_url,
+# 	}))
 
 folders_to_copy = [
 	(f'{SOURCE_FOLDER}/css/', f'{BUILD_FOLDER}/css/'),
