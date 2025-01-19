@@ -100,10 +100,10 @@
     <input type="checkbox" id="menu-toggle" class="menu-checkbox">
     <label for="menu-toggle" class="hamburger">&#9776;</label>
     <ul class="nav-links">
-        <li><a class="nav-item" data-target="home" href="{{full_url}}/#home">home</a></li>
-        <li><a class="nav-item" data-target="about" href="{{full_url}}/#about">about</a></li>
-        <li><a class="nav-item" data-target="experience" href="{{full_url}}/#experience">experience</a></li>
-        <li><a class="nav-item" data-target="ponderings" href="{{full_url}}/#ponderings">ponderings</a></li>
+        <li><a class="nav-item" data-target="home" href="{{full_url}}/">home</a></li>
+        <li><a class="nav-item" data-target="about" href="{{full_url}}/about">about</a></li>
+        <li><a class="nav-item" data-target="experience" href="{{full_url}}/experience">experience</a></li>
+        <li><a class="nav-item" data-target="ponderings" href="{{full_url}}/ponderings">ponderings</a></li>
     </ul>
 </div>
     </div>
@@ -131,46 +131,46 @@
 <!-- /SCRIPTS -->
 
 <script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const buttons = document.querySelectorAll('.nav-item');
-        const pages = document.querySelectorAll('.page');
-
-        function activatePage(targetPageId, updateHash = true) {
-            // Hide all pages
-            pages.forEach(page => page.classList.remove('active-page'));
-
-            // Show the target page
-            const targetPage = document.getElementById(targetPageId);
-            if (targetPage) {
-                targetPage.classList.add('active-page');
-
-                // Scroll to the top AFTER rendering
-                setTimeout(() => window.scrollTo(0, 0), 0);
-            }
-
-            // Update URL hash without triggering default scroll
-            if (updateHash) {
-                history.pushState(null, '', `#${targetPageId}`);
-            }
-        }
-
-        // Handle navigation clicks
-        buttons.forEach(button => {
-            button.addEventListener('click', (event) => {
-                // event.preventDefault(); // Prevent anchor default behavior
-                const targetPageId = button.dataset.target;
-                activatePage(targetPageId);
-            });
-        });
-
-        // Handle page load with hash
-        if (window.location.hash) {
-            const targetPageId = window.location.hash.substring(1); // Remove the '#' symbol
-            // debugger;
-            // Delay activation to prevent browser's default hash scrolling
-            setTimeout(() => activatePage(targetPageId, false), 0);
-        }
-    });
+    // document.addEventListener('DOMContentLoaded', () => {
+    //     const buttons = document.querySelectorAll('.nav-item');
+    //     const pages = document.querySelectorAll('.page');
+    //
+    //     function activatePage(targetPageId, updateHash = true) {
+    //         // Hide all pages
+    //         pages.forEach(page => page.classList.remove('active-page'));
+    //
+    //         // Show the target page
+    //         const targetPage = document.getElementById(targetPageId);
+    //         if (targetPage) {
+    //             targetPage.classList.add('active-page');
+    //
+    //             // Scroll to the top AFTER rendering
+    //             setTimeout(() => window.scrollTo(0, 0), 0);
+    //         }
+    //
+    //         // Update URL hash without triggering default scroll
+    //         if (updateHash) {
+    //             history.pushState(null, '', `#${targetPageId}`);
+    //         }
+    //     }
+    //
+    //     // Handle navigation clicks
+    //     buttons.forEach(button => {
+    //         button.addEventListener('click', (event) => {
+    //             // event.preventDefault(); // Prevent anchor default behavior
+    //             const targetPageId = button.dataset.target;
+    //             activatePage(targetPageId);
+    //         });
+    //     });
+    //
+    //     // Handle page load with hash
+    //     if (window.location.hash) {
+    //         const targetPageId = window.location.hash.substring(1); // Remove the '#' symbol
+    //         // debugger;
+    //         // Delay activation to prevent browser's default hash scrolling
+    //         setTimeout(() => activatePage(targetPageId, false), 0);
+    //     }
+    // });
 </script>
 
 
