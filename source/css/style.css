@@ -315,6 +315,24 @@ h6 {
 
 /*--------------------MARC----------------------*/
 
+.jumbo-text {
+    line-height: 1.2;
+    font-family: "Inter", serif;
+    color: #333;
+    font-size: 1.5em;
+    font-weight: 400;
+    padding-bottom: 15px;
+}
+
+.jumbo-text-sm {
+    font-size: 1.17em;
+    font-weight: 300;
+    line-height: 1.2;
+    font-family: "Inter", serif;
+    color: #333;
+    padding-bottom: 15px;
+}
+
 .highlight {
     background: rgba(224, 48, 48, 0.1);
     padding: 1rem;
