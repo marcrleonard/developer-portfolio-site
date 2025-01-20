@@ -315,6 +315,28 @@ h6 {
 
 /*--------------------MARC----------------------*/
 
+.active-page {
+    display: block;
+}
+
+.univ a {
+    color: black;
+}
+
+.sub-job {
+    font-size: 22px;
+    font-weight: 300;
+}
+
+.logo a {
+    text-decoration: none
+}
+
+
+.cavani_tm_mobile_menu .inner {
+    padding: 20px 20px 20px 20px;
+}
+
 .jumbo-text {
     line-height: 1.2;
     font-family: "Inter", serif;
@@ -342,7 +364,7 @@ h6 {
     margin: 0;
 }
 
-strong  {
+strong {
     font-weight: 800;
     /*text-transform: lowercase;*/
 }
@@ -350,7 +372,7 @@ strong  {
 a {
     text-decoration: none; /* Removes default underline */
     border-bottom: 2px dotted #ff2600; /* Adds a dotted underline with color */
-    color: #ff2600; /* Sets link text color */
+    color: black; /* Sets link text color */
 }
 
 .lines {
@@ -371,17 +393,17 @@ a {
 }
 
 .line:nth-child(1) {
-    height: 6px; /* First line thickness */
+    height: 4px; /* First line thickness */
     width: 14rem;
 }
 
 .line:nth-child(2) {
-    height: 4px; /* Second line thickness */
+    height: 2px; /* Second line thickness */
     width: 16rem;
 }
 
 .line:nth-child(3) {
-    height: 2px; /* Third line thickness */
+    height: 1px; /* Third line thickness */
     margin-bottom: 0; /* Remove margin after last line */
 
     width: 18rem;
@@ -414,7 +436,7 @@ a {
 }
 
 .right-item {
-    padding: 20px;
+    padding: 0 0 0 20px;
     flex: 2; /* Makes the right item wider */
     /*background-color: lightcoral;*/
 }
@@ -556,7 +578,6 @@ h2.page-title {
 }
 
 
-
 .cavani_tm_mobile_menu {
     position: fixed;
     top: 50px;
@@ -668,8 +689,6 @@ h2.page-title {
 
 .cavani_tm_mainpart {
 }
-
-
 
 
 .main_content {
@@ -945,8 +964,6 @@ h2.page-title {
 }
 
 
-
-
 .cavani_progress {
     width: 100%;
     height: auto;
@@ -1135,17 +1152,17 @@ h2.page-title {
     padding-left: 0px;
 }
 
-.cavani_tm_about .univ ul:before {
+.univ ul:before {
     content: "";
     position: absolute;
-    width: 2px;
+    width: 1px;
     height: 100%;
     top: 0;
     left: 0;
     background-color: #ff2600;
 }
 
-.cavani_tm_about .univ ul li {
+.univ ul li {
     margin: 0px;
     width: 100%;
     float: left;
@@ -1154,11 +1171,11 @@ h2.page-title {
     padding-bottom: 45px;
 }
 
-.cavani_tm_about .univ ul li:last-child {
+.univ ul li:last-child {
     padding-bottom: 0px;
 }
 
-.cavani_tm_about .univ ul li:before {
+.univ ul li:before {
     content: "";
     position: absolute;
     height: 18px;
@@ -1170,7 +1187,19 @@ h2.page-title {
     top: 8px;
 }
 
-.cavani_tm_about .univ ul li .list_inner {
+.univ ul li.current:before {
+    content: "";
+    position: absolute;
+    height: 18px;
+    width: 18px;
+    background: #f6fbff;
+    border-radius: 100%;
+    border: solid 1px #ff2600;
+    left: -9px;
+    top: 8px;
+}
+
+.univ ul li .list_inner {
     width: 100%;
     height: auto;
     clear: both;
@@ -1178,12 +1207,12 @@ h2.page-title {
     position: relative;
 }
 
-.cavani_tm_about .univ ul li .time {
+.univ ul li .time {
     width: 155px;
     padding-right: 20px;
 }
 
-.cavani_tm_about .univ ul li .time span {
+.univ ul li .time span {
     display: inline-block;
     padding: 5px 25px;
     background-color: rgba(0, 0, 0, .05);
@@ -1192,7 +1221,7 @@ h2.page-title {
     white-space: nowrap;
 }
 
-.cavani_tm_about .univ ul li .time span.current {
+.univ ul li.current .time span {
     display: inline-block;
     padding: 5px 25px;
     background-color: rgba(224, 48, 48, 0.1);
@@ -1201,16 +1230,16 @@ h2.page-title {
     white-space: nowrap;
 }
 
-        .place {
-            width: 67%;
-        }
+.place {
+    width: 67%;
+}
 
-.cavani_tm_about .univ ul li .place {
+.univ ul li .place {
     /*width: 50%;*/
     padding-left: 20px;
 }
 
-.cavani_tm_about .univ ul li .place h3 {
+.univ ul li .place h3 {
     padding-top: 0;
     margin-top: 6px;
     font-size: 16px;
@@ -1218,7 +1247,7 @@ h2.page-title {
     font-weight: 600;
 }
 
-.cavani_tm_about .univ ul li .place span {
+.univ ul li .place span {
     font-size: 14px;
 }
 
@@ -1997,13 +2026,19 @@ ul li .list_inner:hover {
 /*---------------------------------------------------*/
 /*	15) CAVANI MEDIA QUERIES (FOR SMALL DEVICES)
 /*---------------------------------------------------*/
-.cavani_tm_header .logo img{max-width: 95px;}
-.cavani_tm_header{
+.cavani_tm_header .logo img {
+    max-width: 95px;
+}
+
+.cavani_tm_header {
     height: 60px;
     line-height: 60px;
     /*padding: 0px 60px;*/
 }
-.cavani_tm_header .menu ul li {padding: 0px 15px;}
+
+.cavani_tm_header .menu ul li {
+    padding: 0px 15px;
+}
 
 @media (max-width: 768px) {
     .mouse-cursor {
@@ -2018,6 +2053,7 @@ ul li .list_inner:hover {
     .left-item {
         display: none;
     }
+
     .right-item {
         padding: 0;
     }

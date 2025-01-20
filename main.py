@@ -71,6 +71,19 @@ from pelican.tests.support import get_settings
 
 BUILD_FOLDER = 'build'
 SOURCE_FOLDER = 'source'
+
+# Make main pages in the nav
+# the order of this is the order
+# the items show up in the nav
+pages_nav = [
+	# url, title, html file
+	("/", "home", "pages/home.html"),
+	("/about", "about", "pages/about.html"),
+	("/experience", "experience", "pages/experience.html"),
+	("/ponderings", "ponderings", "pages/ponderings.html"),
+]
+
+
 env = Environment(
 	loader=PackageLoader(SOURCE_FOLDER, '_templates'),
 	# loader = FileSystemLoader(t_path),
@@ -118,9 +131,11 @@ for file in os.listdir("source/blog"):
 
 	with open(f'{blog_location}/index.html', 'w') as f:
 		f.write(env.get_template('_blog.html').render({
+			"full_url": full_url,
 			'news_item': news_item,
-			'full_url': full_url,
-			"fixed_footer": True
+			"fixed_footer": True,
+			"nav_items": pages_nav,
+			"page_slug": url
 		}))
 
 	NEWS_ITEMS.append(news_item)
@@ -136,16 +151,11 @@ with open(f'{BUILD_FOLDER}/rss.xml', 'w') as f:
 		'full_url': full_url,
 	}))
 
-# Make main pages in the nav
-# the order of this is the order
-# the items show up in the nav
-pages_nav = [
-	# url, title, html file
-	("/", "home", "pages/home.html"),
-	("/about", "about", "pages/about.html"),
-	("/experience", "experience", "pages/experience.html"),
-	("/ponderings", "ponderings", "pages/ponderings.html"),
-]
+from collections import defaultdict
+news_items_by_year = defaultdict(list)
+for i in NEWS_ITEMS:
+	date = i['date']
+	news_items_by_year[str(date.year)].append(i)
 
 for url, title, html_file in pages_nav:
 	output_location = f"{BUILD_FOLDER}{url}"
@@ -153,9 +163,11 @@ for url, title, html_file in pages_nav:
 	with open(f'{output_location}/index.html', 'w') as f:
 		f.write(env.get_template(html_file).render({
 			"nav_items": pages_nav,
+			"page_slug": url, # used to determine if the nav link should be active or not
 			'full_url': full_url,
 			"fixed_footer": True,
-			'news_items': NEWS_ITEMS
+			'news_items': NEWS_ITEMS,
+			"news_items_by_year": news_items_by_year
 		}))
 
 

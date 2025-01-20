@@ -15,6 +15,8 @@
                     <div class="line"></div>
                 </div>
                 <div class="news_list" style="padding-top: 10px">
+                    {% for year, news_items in news_items_by_year.items() %}
+                    <h3><strong>{{year}}</strong></h3>
                     <ul>
                         {% for news_item in news_items %}
                         <li>
@@ -27,7 +29,7 @@
                                 <div class="details">
                                     <div class="metabox">
                                         <div class="title">
-                                            <h3><a href="{{full_url}}/blog/{{news_item.slug}}">{{ news_item.title }}</a> <strong>{{ news_item.date.strftime('%Y-%m-%d') }}</strong></h3>
+                                            <a href="{{full_url}}/blog/{{news_item.slug}}">{{ news_item.title }}</a> - {{ news_item.date.strftime('%Y-%m-%d') }}
                                         </div>
 <!--                                        <div class="info">-->
 <!--                                            <p class="date">{{ news_item.date.strftime('%Y-%m-%d') }}</p>-->
@@ -49,6 +51,7 @@
                         </li>
                         {% endfor %}
                     </ul>
+                    {% endfor %}
                 </div>
             </div>
         </div>

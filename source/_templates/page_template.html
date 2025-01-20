@@ -18,12 +18,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
     <title>Marc R Leonard | Developer</title>
-
-    <!-- STYLES -->
-    <!--    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap"-->
-    <!--          rel="stylesheet">-->
-    <!--    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"-->
-    <!--          rel="stylesheet">-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
@@ -33,39 +27,6 @@
     <link rel="stylesheet" type="text/css" href="{{ full_url }}/css/pygment.css"/>
     <link rel="stylesheet" type="text/css" href="{{ full_url }}/css/custom.css"/>
 
-    <style>
-
-
-        .active-page {
-            display: block;
-        }
-    </style>
-
-    <style>
-        .univ a {
-            color: black;
-        }
-
-        .sub-job {
-            font-size: 22px;
-            font-weight: 300;
-        }
-
-        .logo a {
-            text-decoration: none
-        }
-
-
-        a {
-            color: black
-        }
-
-        .cavani_tm_mobile_menu .inner {
-            padding: 20px 20px 20px 20px;
-        }
-
-
-    </style>
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-C2F6FPRGES"></script>
     <script>
@@ -88,33 +49,32 @@
 <!-- WRAPPER ALL -->
 <div class="cavani_tm_all_wrap" data-enter="fadeInUp" data-exit="">
 
-
     <!-- HEADER -->
     <div class="cavani_tm_header">
         <div class="logo">
             <h2 style="font-weight: 400"><a href="{{full_url}}">marc leonard</a></h2>
         </div>
         <div class="menu">
-    <input type="checkbox" id="menu-toggle" class="menu-checkbox">
-    <label for="menu-toggle" class="hamburger">&#9776;</label>
-    <ul class="nav-links">
-        {% for nav_item in nav_items %}
-                <li><a class="nav-item" data-target="home" href="{{full_url}}{{nav_item[0]}}">{{nav_item[1]}}</a></li>
-        {% endfor %}
-<!--        <li><a class="nav-item" data-target="home" href="{{full_url}}/">home</a></li>-->
-<!--        <li><a class="nav-item" data-target="about" href="{{full_url}}/about">about</a></li>-->
-<!--        <li><a class="nav-item" data-target="experience" href="{{full_url}}/experience">experience</a></li>-->
-<!--        <li><a class="nav-item" data-target="ponderings" href="{{full_url}}/ponderings">ponderings</a></li>-->
-    </ul>
-</div>
+            <input type="checkbox" id="menu-toggle" class="menu-checkbox">
+            <label for="menu-toggle" class="hamburger">&#9776;</label>
+            <ul class="nav-links">
+                {% for nav_item in nav_items %}
+                {% if nav_item[0] != page_slug %}
+                   <li><a class="nav-item" data-target="home" href="{{full_url}}{{nav_item[0]}}">{{nav_item[1]}}</a></li>
+                {% else %}
+                   <li>{{nav_item[1]}}</li>
+                {% endif %}
+                {% endfor %}
+            </ul>
+        </div>
     </div>
     <!-- /HEADER -->
 
     <section class="page-padding">
         <div class="cavani_tm_mainpart">
             <div class="main_content">
-            {% block content %}{% endblock %}
-        </div>
+                {% block content %}{% endblock %}
+            </div>
         </div>
 
 
@@ -132,48 +92,7 @@
 <!-- /SCRIPTS -->
 
 <script>
-    // document.addEventListener('DOMContentLoaded', () => {
-    //     const buttons = document.querySelectorAll('.nav-item');
-    //     const pages = document.querySelectorAll('.page');
-    //
-    //     function activatePage(targetPageId, updateHash = true) {
-    //         // Hide all pages
-    //         pages.forEach(page => page.classList.remove('active-page'));
-    //
-    //         // Show the target page
-    //         const targetPage = document.getElementById(targetPageId);
-    //         if (targetPage) {
-    //             targetPage.classList.add('active-page');
-    //
-    //             // Scroll to the top AFTER rendering
-    //             setTimeout(() => window.scrollTo(0, 0), 0);
-    //         }
-    //
-    //         // Update URL hash without triggering default scroll
-    //         if (updateHash) {
-    //             history.pushState(null, '', `#${targetPageId}`);
-    //         }
-    //     }
-    //
-    //     // Handle navigation clicks
-    //     buttons.forEach(button => {
-    //         button.addEventListener('click', (event) => {
-    //             // event.preventDefault(); // Prevent anchor default behavior
-    //             const targetPageId = button.dataset.target;
-    //             activatePage(targetPageId);
-    //         });
-    //     });
-    //
-    //     // Handle page load with hash
-    //     if (window.location.hash) {
-    //         const targetPageId = window.location.hash.substring(1); // Remove the '#' symbol
-    //         // debugger;
-    //         // Delay activation to prevent browser's default hash scrolling
-    //         setTimeout(() => activatePage(targetPageId, false), 0);
-    //     }
-    // });
 </script>
-
 
 
 </body>

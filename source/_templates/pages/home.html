@@ -1,6 +1,43 @@
 {% extends "page_template.html" %}
 {% block content %}
 <!-- HOME -->
+<style>
+    .timeline {
+  list-style: none;
+  padding: 0;
+  position: relative;
+  margin-left: 15px; /* Indents the whole block including circles and lines */
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 5px; /* Centers the line in the circles */
+  top: 10px;
+  bottom: 10px;
+  width: 1px;
+  background-color: black;
+}
+
+.timeline li {
+  position: relative;
+  padding-left: 25px;
+  margin-bottom: 5px;
+}
+
+.timeline li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 5px;
+  width: 10px;
+  height: 10px;
+  border: 1px solid black;
+  border-radius: 50%;
+  background-color: white;
+}
+
+</style>
 <div class="active-page page" id="home">
     <div class="cavani_tm_home">
         <div class="container">
@@ -33,7 +70,8 @@
                             <div class="jumbo-text-sm" style="padding-bottom: 0">
                                 I've always got a handful of side projects in the hopper:
                             </div>
-                            <ul>
+                            <div style="">
+                               <ul class="timeline">
                                 <li>
                                     <strong><a target="_blank"
                                                href="https://linedream.marcrleonard.com">LineDream</a></strong> -
@@ -49,6 +87,8 @@
                                     CLI for validation and calculations
                                 </li>
                             </ul>
+                            </div>
+
                             <div class="jumbo-text-sm">
                                 Before diving into code, I was a video director and wore many hats in
                                 post-production. Curious about my past life as a video director? Check out my portfolio <strong><a
