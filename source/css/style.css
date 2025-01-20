@@ -1259,7 +1259,9 @@ h2.page-title {
 .univ ul li.current .time span {
     display: inline-block;
     padding: 5px 25px;
-    background-color: rgba(224, 48, 48, 0.1);
+    background-color: #ff2600;
+    /*background-color: rgba(224, 48, 48, 0.1);*/
+    color:white;
     border-radius: 50px;
     font-size: 14px;
     white-space: nowrap;
