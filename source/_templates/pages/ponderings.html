@@ -17,7 +17,7 @@
                 <div class="news_list" style="padding-top: 10px">
                     {% for year, news_items in news_items_by_year.items() %}
                     <h3><strong>{{year}}</strong></h3>
-                    <ul>
+                    <ul class="timeline">
                         {% for news_item in news_items %}
                         <li>
                             <div class="list_inner">

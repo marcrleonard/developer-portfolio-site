@@ -315,6 +315,41 @@ h6 {
 
 /*--------------------MARC----------------------*/
 
+    .timeline {
+  list-style: none;
+  padding: 0;
+  position: relative;
+  margin-left: 15px; /* Indents the whole block including circles and lines */
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 5px; /* Centers the line in the circles */
+  top: 10px;
+  bottom: 10px;
+  width: 1px;
+  background-color: black;
+}
+
+.timeline li {
+  position: relative;
+  padding-left: 25px;
+  margin-bottom: 5px;
+}
+
+.timeline li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 8px;
+  width: 10px;
+  height: 10px;
+  border: 1px solid black;
+  border-radius: 50%;
+  background-color: white;
+}
+
 .active-page {
     display: block;
 }
@@ -1660,31 +1695,6 @@ h2.page-title {
     clear: both;
     float: left;
     /*margin-top: 62px;*/
-}
-
-.news_list ul {
-    /*margin: 0px 0px 0px -30px;*/
-    /*list-style-type: none;*/
-    padding-left: 10px;
-}
-
-
-.news_list ul li .image .main {
-    position: absolute;
-    top: 0px;
-    bottom: 0px;
-    left: 0px;
-    right: 0px;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    transform: scale(1) translateZ(0);
-
-    -webkit-transition: all .3s ease;
-    -moz-transition: all .3s ease;
-    -ms-transition: all .3s ease;
-    -o-transition: all .3s ease;
-    transition: all .3s ease;
 }
 
 ul li .list_inner:hover {

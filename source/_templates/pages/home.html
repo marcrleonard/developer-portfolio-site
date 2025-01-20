@@ -2,40 +2,7 @@
 {% block content %}
 <!-- HOME -->
 <style>
-    .timeline {
-  list-style: none;
-  padding: 0;
-  position: relative;
-  margin-left: 15px; /* Indents the whole block including circles and lines */
-}
 
-.timeline::before {
-  content: "";
-  position: absolute;
-  left: 5px; /* Centers the line in the circles */
-  top: 10px;
-  bottom: 10px;
-  width: 1px;
-  background-color: black;
-}
-
-.timeline li {
-  position: relative;
-  padding-left: 25px;
-  margin-bottom: 5px;
-}
-
-.timeline li::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 8px;
-  width: 10px;
-  height: 10px;
-  border: 1px solid black;
-  border-radius: 50%;
-  background-color: white;
-}
 
 </style>
 <div class="active-page page" id="home">
