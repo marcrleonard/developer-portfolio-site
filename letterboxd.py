@@ -55,12 +55,6 @@ def get_watched_films_from_rss():
 			date_obj = datetime.strptime(film['watched_date'], '%Y-%m-%d')
 			films_by_year[date_obj.year].append(film)
 
-		# Print the results (or return if you want to use it elsewhere)
-		for year, films in films_by_year.items():
-			print(f"\nYear: {year}")
-			for film in films:
-				print(
-					f"{film['title']} - Watched on: {film['watched_date']}")
 	else:
 		print(f"Error: {response.status_code} - {response.text}")
 

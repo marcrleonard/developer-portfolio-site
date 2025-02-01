@@ -80,7 +80,7 @@ pages_nav = [
 	("/", "home", "pages/home.html"),
 	("/about", "about", "pages/about.html"),
 	("/experience", "experience", "pages/experience.html"),
-	("/ponderings", "ponderings", "pages/ponderings.html"),
+	("/odds-ends", "odds & ends", "pages/ponderings.html"),
 ]
 
 
