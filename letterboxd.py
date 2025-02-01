@@ -4,8 +4,10 @@ from collections import defaultdict
 from datetime import datetime
 import xml.etree.ElementTree as ET
 
+USERNAME = "marcrleonard"
+
 # Replace with your actual Letterboxd RSS feed URL
-RSS_FEED_URL = "https://letterboxd.com/marcrleonard/rss/"
+RSS_FEED_URL = f"https://letterboxd.com/{USERNAME}/rss/"
 
 
 def get_watched_films_from_rss():
@@ -26,6 +28,11 @@ def get_watched_films_from_rss():
 			pub_date = item.find("pubDate").text
 			description = item.find("description").text
 			link = item.find("link").text
+
+			if link == f"https://letterboxd.com/{USERNAME}/list/favorites/":
+				# This is the 'favorites' list, which, actually is nicely displayed in html
+				# as as a ul with links. this could be used in the future. But for now, ignore.
+				continue
 
 			str_item = ET.tostring(item, encoding='utf8').decode()
 
