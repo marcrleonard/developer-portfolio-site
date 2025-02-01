@@ -1,20 +1,41 @@
 {% extends "page_template.html" %}
 {% block content %}
 
+<style>
+    .ponderings-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+        gap: 20px;
+        /*padding: 20px;*/
+    }
 
-    <!-- NEWS -->
-    <div class="page" id="ponderings">
-        <div class="section_inner">
-            <div class="">
-                <h2 class="page-title">
-                    <span>ponderings</span>
-                </h2>
-                <div class="lines">
-                    <div class="line"></div>
-                    <div class="line"></div>
-                    <div class="line"></div>
-                </div>
-                <div class="news_list" style="padding-top: 10px">
+    .column {
+        /*padding-right: 20px;*/
+        box-sizing: border-box;
+    }
+
+    .column:nth-child(1) {
+        /*background-color: lightblue;*/
+    }
+
+    .column:nth-child(2) {
+        /*background-color: lightgreen;*/
+    }
+</style>
+<!-- NEWS -->
+<div class="page" id="ponderings">
+    <div class="section_inner">
+        <div class="">
+            <h2 class="page-title">
+                <span>ponderings</span>
+            </h2>
+            <div class="lines">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
+            <div class="ponderings-container">
+                <div class="news_list column" style="padding-top: 10px">
                     {% for year, news_items in news_items_by_year.items() %}
                     <h3><strong>{{year}}</strong></h3>
                     <ul class="timeline">
@@ -29,33 +50,60 @@
                                 <div class="details">
                                     <div class="metabox">
                                         <div class="title">
-                                            <a href="{{full_url}}/blog/{{news_item.slug}}">{{ news_item.title }}</a> - {{ news_item.date.strftime('%Y-%m-%d') }}
+                                            <a href="{{full_url}}/blog/{{news_item.slug}}">{{ news_item.title }}</a> -
+                                            {{ news_item.date.strftime('%Y-%m-%d') }}
                                         </div>
-<!--                                        <div class="info">-->
-<!--                                            <p class="date">{{ news_item.date.strftime('%Y-%m-%d') }}</p>-->
-<!--                                            <p class="icon-plus-outline">-->
-<!--                                                <a href="#">{{ news_item.category }}</a>-->
-<!--                                            </p>-->
-<!--                                        </div>-->
+                                        <!--                                        <div class="info">-->
+                                        <!--                                            <p class="date">{{ news_item.date.strftime('%Y-%m-%d') }}</p>-->
+                                        <!--                                            <p class="icon-plus-outline">-->
+                                        <!--                                                <a href="#">{{ news_item.category }}</a>-->
+                                        <!--                                            </p>-->
+                                        <!--                                        </div>-->
                                     </div>
                                 </div>
-<!--                                <div class="news_hidden_details">-->
-<!--                                    <div class="news_popup_informations">-->
-<!--                                        <div class="">-->
-<!--                                            {{news_item.text|safe}}-->
+                                <!--                                <div class="news_hidden_details">-->
+                                <!--                                    <div class="news_popup_informations">-->
+                                <!--                                        <div class="">-->
+                                <!--                                            {{news_item.text|safe}}-->
 
-<!--                                        </div>-->
-<!--                                    </div>-->
-<!--                                </div>-->
+                                <!--                                        </div>-->
+                                <!--                                    </div>-->
+                                <!--                                </div>-->
                             </div>
                         </li>
                         {% endfor %}
                     </ul>
                     {% endfor %}
                 </div>
+                <div class="movies column">
+                    <h3 class="">
+                        <strong>movies</strong>
+                    </h3>
+                    <div class="news_list column" style="padding-top: 10px">
+                        {% for year, movies in movies_by_year.items() %}
+                        <h3><strong>{{year}}</strong></h3>
+                        <ul class="timeline">
+                            {% for movie in movies %}
+                            <li>
+                                <div class="list_inner">
+                                    <div class="details">
+                                        <div class="metabox">
+                                            <div class="title">
+                                                <a href="{{movie.link}}">{{ movie.title }}</a> - {{ movie.watched_date
+                                                }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                        {% endfor %}
+                    </div>
+                </div>
             </div>
         </div>
     </div>
     <!-- NEWS -->
 
-{% endblock %}
+    {% endblock %}

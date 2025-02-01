@@ -157,6 +157,10 @@ for i in NEWS_ITEMS:
 	date = i['date']
 	news_items_by_year[str(date.year)].append(i)
 
+import letterboxd
+
+movies_by_year = letterboxd.get_watched_films_from_rss()
+
 for url, title, html_file in pages_nav:
 	output_location = f"{BUILD_FOLDER}{url}"
 	os.makedirs(output_location, exist_ok=True)
@@ -167,7 +171,8 @@ for url, title, html_file in pages_nav:
 			'full_url': full_url,
 			"fixed_footer": True,
 			'news_items': NEWS_ITEMS,
-			"news_items_by_year": news_items_by_year
+			"news_items_by_year": news_items_by_year,
+			"movies_by_year": movies_by_year
 		}))
 
 
