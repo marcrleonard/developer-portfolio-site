@@ -2,7 +2,8 @@ name: Touch File Hourly
 
 on:
   schedule:
-    - cron: "0 * * * *" # Runs every hour
+    - cron: "0 0 * * *" # Runs once a day
+#    - cron: "0 * * * *" # Runs every hour
   workflow_dispatch: # Allows manual triggering
 
 jobs:
