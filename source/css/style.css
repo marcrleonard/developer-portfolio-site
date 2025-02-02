@@ -528,7 +528,7 @@ h2.page-title {
 .cavani_tm_header .menu ul {
     margin: 0px;
     list-style-type: none;
-    margin-left: -78px;
+    margin-left: -93px;
 }
 
 .cavani_tm_header .menu ul li {
@@ -556,7 +556,7 @@ h2.page-title {
         top: 50px;
         left: 0;
         background: #fff;
-        /*width: 100%;*/
+        width: 150px;
         padding: 10px;
         margin-left: -20px;
     }
