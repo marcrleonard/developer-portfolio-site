@@ -4,14 +4,18 @@
 <style>
     .ponderings-container {
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+        /*grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));*/
+        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
         gap: 20px;
         padding-top: 10px;
+        box-sizing: border-box;
+        max-width: 100%;
     }
 
     .column {
         /*padding-right: 20px;*/
         box-sizing: border-box;
+        max-width: 100%;
     }
 
     .column:nth-child(1) {
@@ -21,6 +25,14 @@
     .column:nth-child(2) {
         /*background-color: lightgreen;*/
     }
+
+    /* this is kinda a specific fix... but it works */
+    @media (max-width: 450px) {
+    .ponderings-container {
+        grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
+    }
+}
+
 </style>
 <!-- NEWS -->
 <div class="page" id="ponderings">
@@ -36,7 +48,7 @@
             </div>
             <div class="ponderings-container">
                 <div class="news_list column" style="padding-top: 10px">
-                    <h3 style="display: inline">notes</h3> that are less than a blog more than a twitter post.
+                    <h3 style="display: inline">notes</h3> that are less than a blog post but more than a twitter post.
                     <div class="" style="padding-top: 10px">
                     {% for year, news_items in news_items_by_year.items() %}
                     <div class="year">{{year}}</div>
