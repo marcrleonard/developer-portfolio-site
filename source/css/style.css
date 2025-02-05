@@ -355,7 +355,7 @@ h6 {
 }
 
 .univ a {
-    color: black;
+    color: #333;
 }
 
 .sub-job {
@@ -390,7 +390,7 @@ h6 {
 .year {
     font-size: 1.17em;
     font-weight: 800;
-    color: black;
+    color: #333;
 }
 
 .jumbo-text-sm {
