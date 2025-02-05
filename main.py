@@ -208,3 +208,6 @@ def recursivly_copy_folders(source_dir, target_dir):
 
 for source_dir, target_dir in folders_to_copy:
 	recursivly_copy_folders(source_dir, target_dir)
+
+# copy ico
+shutil.copy2(f'{SOURCE_FOLDER}/img/favicon.ico', f'{BUILD_FOLDER}/')
