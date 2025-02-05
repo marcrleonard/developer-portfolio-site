@@ -403,8 +403,14 @@ h6 {
 }
 
 .highlight {
-    background: rgba(224, 48, 48, 0.1);
+    background: rgb(224 48 48 / 5%);
     padding: 1rem;
+    font-size: 14px;
+}
+
+code {
+    background-color: rgb(224 48 48 / 5%);
+    padding: .2rem;
 }
 
 .highlight pre {
