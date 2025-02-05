@@ -408,10 +408,10 @@ h6 {
     font-size: 14px;
 }
 
-code {
-    background-color: rgb(224 48 48 / 5%);
-    padding: .2rem;
-}
+/*code {*/
+/*    background-color: rgb(224 48 48 / 5%);*/
+/*    padding: .2rem;*/
+/*}*/
 
 .highlight pre {
     margin: 0;
