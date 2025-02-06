@@ -1,5 +1,5 @@
 Title: Django Is Awesome
-Date: 2023-01-03 10:20:00 MST
+Date: 2025-02-03 10:20:00 MST
 Category: Python
 Tags: python, django
 Slug: django-is-awesome

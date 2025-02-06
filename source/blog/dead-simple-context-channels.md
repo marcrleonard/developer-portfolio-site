@@ -1,5 +1,5 @@
 Title: A Dead Simple Example of Goroutines, Contexts, and Channels
-Date: 2023-02-06 16:30:00 MST
+Date: 2025-02-06 16:30:00 MST
 Category: Go
 Tags: go
 Slug: dead-simple-goroutines-contexts-channels
