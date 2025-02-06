@@ -1,5 +1,5 @@
 Title: Understanding CPU-Specific Compilation Flags and Intrinsics
-Date: 2025-12-15 10:20:00 MST
+Date: 2025-01-15 10:20:00 MST
 Category: TIL
 Tags: cpu flags, intrinsics, optimizations
 Slug: understanding-cpu-specific-compilation-flags-and-intrinsics
