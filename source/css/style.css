@@ -35,6 +35,11 @@ html {
 table, th, td {
     border: 1px solid black;
     border-collapse: collapse;
+    padding: 5px;
+}
+
+thead {
+        background-color: rgb(224 48 48 / 5%);
 }
 
 body {
