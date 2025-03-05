@@ -45,7 +45,7 @@ thead {
 body {
     overflow-x: hidden;
     /*width: 100%;*/
-    padding: 2rem;
+    /*padding: 2rem;*/
     /*font-family: "Open Sans";*/
     font-family: "Inter", serif;
     font-size: 16px;
@@ -55,6 +55,7 @@ body {
     font-weight: 400;
     background-color: #f6fbff;
     color: #7d7789;
+    margin:0;
 }
 
 svg {
@@ -506,11 +507,24 @@ a {
     /*background-color: lightcoral;*/
 }
 
+
+.full-width-page-title{
+    padding-top: 4rem;
+    padding-left: 2rem;
+    /*background-color: red;*/
+    background-color: rgb(212 48 48 / 62%);
+
+    display: flex;
+    align-items: flex-end; /* Align items to the bottom */
+    height: 90px; /* Set a height for the div */
+
+}
+
 h2.page-title {
-    margin-top: 0;
+    margin: -16px 0;
     font-weight: 800;
-    font-size: 2rem;
-    margin-bottom: 11px;
+    font-size: 4rem;
+    color: #f6fbff;
 }
 
 /*---------------------------------------------------*/
@@ -531,7 +545,7 @@ h2.page-title {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 2.2rem;
+    padding: 0 2rem;
 }
 
 .cavani_tm_header .logo img {
@@ -567,6 +581,7 @@ h2.page-title {
 }
 
 @media screen and (max-width: 768px) {
+
     .nav-links {
         display: none; /* Hide by default */
         flex-direction: column;
@@ -753,6 +768,9 @@ h2.page-title {
 /*---------------------------------------------------*/
 
 .cavani_tm_mainpart {
+    padding: 2rem;
+    /*padding-right: 2rem;*/
+    /*padding-bottom: 2rem;*/
 }
 
 
@@ -761,7 +779,7 @@ h2.page-title {
     z-index: 0;
     /*float: right;*/
     /*width: 100%;*/
-    padding-top: 3rem;
+    /*padding-top: 3rem;*/
     padding-bottom: 3rem;
     /*left: 2rem;*/
     /*padding-right: 3rem;*/
@@ -2278,6 +2296,9 @@ ul li .list_inner:hover {
 }
 
 @media (max-width: 400px) {
+        h2.page-title {
+    font-size: 3.2rem;
+}
     .cavani_tm_home .name {
         font-size: 40px;
     }
