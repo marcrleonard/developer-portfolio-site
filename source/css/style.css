@@ -2296,9 +2296,10 @@ ul li .list_inner:hover {
 }
 
 @media (max-width: 400px) {
-        h2.page-title {
-    font-size: 3.2rem;
-}
+    h2.page-title {
+        font-size: 3.2rem;
+        margin: -13px 0;
+    }
     .cavani_tm_home .name {
         font-size: 40px;
     }
