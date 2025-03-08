@@ -26,6 +26,12 @@
 /*	01) CAVANI BASE
 /*---------------------------------------------------*/
 
+:root {
+    /*previous #ff2600 */
+  --main-color: #DA291C;
+}
+
+
 html {
     overflow-x: hidden;
     padding: 0px;
@@ -437,7 +443,7 @@ strong {
 
 a {
     text-decoration: none; /* Removes default underline */
-    border-bottom: 2px dotted #ff2600; /* Adds a dotted underline with color */
+    border-bottom: 2px dotted var(--main-color); /* Adds a dotted underline with color */
     color: black; /* Sets link text color */
 }
 
@@ -452,7 +458,7 @@ a {
 }
 
 .line {
-    background-color: #ff2600; /* Line color */
+    background-color: var(--main-color); /* Line color */
     /*width: 5000px; !* Length of lines *!*/
     margin-bottom: 10px; /* Spacing between lines */
     width: 20rem;
@@ -512,7 +518,7 @@ a {
     padding-top: 4rem;
     padding-left: 2rem;
     /*background-color: red;*/
-    background-color: rgb(212 48 48 / 62%);
+    background-color: var(--main-color);
 
     display: flex;
     align-items: flex-end; /* Align items to the bottom */
@@ -881,7 +887,7 @@ h2.page-title {
     display: inline-block;
     width: 70px;
     height: 5px;
-    background-color: #ff2600;
+    background-color: var(--main-color);
     margin-bottom: 20px;
 }
 
@@ -1242,7 +1248,7 @@ h2.page-title {
     height: 100%;
     top: 0;
     left: 0;
-    background-color: #ff2600;
+    background-color: var(--main-color);
 }
 
 .univ ul li {
@@ -1277,7 +1283,7 @@ h2.page-title {
     width: 18px;
     background: #f6fbff;
     border-radius: 100%;
-    border: solid 1px #ff2600;
+    border: solid 1px var(--main-color);
     left: -9px;
     top: 8px;
 }
@@ -1307,7 +1313,7 @@ h2.page-title {
 .univ ul li.current .time span {
     display: inline-block;
     padding: 5px 18px;
-    background-color: #ff2600;
+    background-color: var(--main-color);
     /*background-color: rgba(224, 48, 48, 0.1);*/
     color:white;
     border-radius: 50px;
@@ -1948,7 +1954,7 @@ ul li .list_inner:hover {
 }
 
 .cavani_tm_contact .form .empty_notice {
-    color: #F52225;
+    color: var(--main-color);
     margin-bottom: 7px;
     display: none;
     text-align: left;
@@ -1956,7 +1962,7 @@ ul li .list_inner:hover {
 }
 
 .cavani_tm_contact .form .contact_error {
-    color: #F52225;
+    color: var(--main-color);
     text-align: left;
     font-weight: 500;
 }
