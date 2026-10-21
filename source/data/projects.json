@@ -1,0 +1,29 @@
+{
+  "_comment": "Side project cards on the home page. art picks the little illustration on top of the card: timecode | bins | plot | none.",
+  "projects": [
+    {
+      "name": "TimecodeTool",
+      "url": "https://timecodetool.com/",
+      "kind": "cli",
+      "since": 2024,
+      "desc": "My timecode CLI for validation and calculations.",
+      "art": "timecode"
+    },
+    {
+      "name": "Asset Veranda",
+      "url": "https://assetveranda.com",
+      "kind": "web app",
+      "since": 2023,
+      "desc": "A media asset management tool for producers and editors.",
+      "art": "bins"
+    },
+    {
+      "name": "LineDream",
+      "url": "https://linedream.marcrleonard.com",
+      "kind": "python",
+      "since": 2020,
+      "desc": "My generative art library for Python.",
+      "art": "plot"
+    }
+  ]
+}

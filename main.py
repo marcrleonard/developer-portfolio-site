@@ -1,4 +1,5 @@
 import datetime
+import json
 import os
 from jinja2 import Environment, PackageLoader, FileSystemLoader, select_autoescape
 import pathlib
@@ -99,6 +100,27 @@ env = Environment(
 # every deployment URL (production, branch alias, or per-commit preview).
 # Locally they keep the full_url prefix so the build folder works when opened directly.
 env.globals['root'] = "" if cloud_build else full_url
+
+# Site content that isn't a blog post lives in source/data/*.json and is
+# available to every template as data.<file name>, e.g. data.experience.
+data = {}
+for path in sorted(pathlib.Path(SOURCE_FOLDER, 'data').glob('*.json')):
+	with open(path) as f:
+		data[path.stem] = json.load(f)
+
+# The experience timeline runs from axis_start to the end of this year, with a
+# tick every 5 years. Current jobs (end: null) run up to today.
+today = datetime.date.today()
+for job in data['experience']['jobs']:
+	job['until'] = job['end'] if job['end'] is not None else today.year + (today.month - 1) / 12
+axis_start = data['experience']['axis_start']
+axis_end = today.year + 1
+data['experience']['axis'] = {
+	'start': axis_start,
+	'span': axis_end - axis_start,
+	'ticks': list(range(axis_start, axis_end, 5)),
+}
+env.globals['data'] = data
 os.makedirs(BUILD_FOLDER, exist_ok=True)
 
 md = MarkdownReader(settings=get_settings(), )

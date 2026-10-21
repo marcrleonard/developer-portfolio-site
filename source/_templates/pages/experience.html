@@ -4,21 +4,23 @@
 {% block content %}
 <section class="page-top" aria-labelledby="h-exp">
     <div class="wrap">
-        <div class="sect-head"><h1 class="page-title" id="h-exp">experience</h1><a href="{{ root }}/resume">PDF résumé</a></div>
-        {% include "_timeline.html" %}
+        <div class="panel">
+            <div class="sect-head"><h1 class="page-title" id="h-exp">experience</h1><a href="{{ root }}/resume">PDF résumé</a></div>
+            {% include "_timeline.html" %}
+        </div>
     </div>
 </section>
 
 <section aria-labelledby="h-skills">
     <div class="wrap">
-        <div class="sect-head"><h2 id="h-skills">professional skills</h2></div>
-        <ul class="skills">
-            <li><span class="k">Languages</span><span class="v">Python, JavaScript, TypeScript, HTML/CSS, C++, C# (working knowledge)</span></li>
-            <li><span class="k">Frameworks</span><span class="v">Flask, Django, FastAPI, SQLAlchemy, Pydantic, Pytest, boto3, Angular, Vue, HTMX</span></li>
-            <li><span class="k">Audio/Video Libraries</span><span class="v">MainConcept, SRT, FFmpeg, gstreamer, miniaudio, Blackmagic RAW SDK</span></li>
-            <li><span class="k">Tools</span><span class="v">Terraform, Ansible, Docker, Linux, Nginx, AWS, Azure</span></li>
-            <li><span class="k">Databases</span><span class="v">MySQL, PostgreSQL, SQLite, MongoDB, Redis</span></li>
-        </ul>
+        <div class="panel">
+            <div class="sect-head"><h2 id="h-skills">professional skills</h2></div>
+            <ul class="skills">
+                {%- for s in data.skills.skills %}
+                <li><span class="sk-name">{{ s.name }}</span><span class="sk-items">{{ s['items']|join(', ') }}</span></li>
+                {%- endfor %}
+            </ul>
+        </div>
     </div>
 </section>
 {% endblock %}

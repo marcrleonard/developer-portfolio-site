@@ -57,8 +57,10 @@ a:focus-visible { outline: 2px solid var(--red); outline-offset: 3px; border-rad
 .site-head nav { display: flex; gap: clamp(14px, 2.4vw, 28px); flex-wrap: wrap; }
 .site-head nav span { color: var(--muted); }
 
-section { padding-block: clamp(48px, 7vw, 96px); }
-section + section { border-top: 1px solid var(--line); }
+section { padding-block: clamp(28px, 4vw, 48px); }
+section.hero { padding-block: clamp(40px, 7vw, 96px) clamp(32px, 5vw, 64px); }
+/* the white panel: used for experience, skills, odds & ends and movies; side projects are their own cards */
+.panel { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: clamp(22px, 4.5vw, 56px); }
 .sect-head { display: flex; justify-content: space-between; align-items: end; gap: 16px; flex-wrap: wrap; margin-bottom: clamp(28px, 4vw, 48px); }
 .sect-head h2 { font-size: clamp(34px, 4.6vw, 60px); font-weight: 700; letter-spacing: -0.045em; line-height: .95; }
 .sect-sub { margin-top: 14px; color: var(--muted); font-size: clamp(17px, 1.5vw, 19px); max-width: 48ch; }
@@ -76,9 +78,8 @@ section + section { border-top: 1px solid var(--line); }
 .hello .links { display: flex; gap: 22px; flex-wrap: wrap; margin-top: 24px; font-weight: 500; }
 
 .portrait { view-transition-name: portrait; position: relative; max-width: 480px; margin: 0 0 0 auto; width: 100%; }
-.photo-card { margin: 0; background: var(--card); padding: 10px 10px 14px; border-radius: 8px; box-shadow: var(--shadow); }
+.photo-card { margin: 0; background: var(--card); padding: 10px; border-radius: 8px; box-shadow: var(--shadow); }
 .photo-card img { width: 100%; aspect-ratio: 1 / 1.05; object-fit: cover; object-position: 50% 28%; border-radius: 4px; }
-.photo-card figcaption { display: flex; justify-content: space-between; gap: 12px; padding: 12px 4px 0; }
 /* one small card laid over the corner: the only overlap in the hero */
 .now-card { position: absolute; left: -28px; bottom: 72px; background: var(--card); border-radius: 8px; box-shadow: var(--shadow); padding: 14px 18px; display: grid; gap: 4px; max-width: 250px; }
 .now-card .label { color: var(--red); }
@@ -120,14 +121,14 @@ section + section { border-top: 1px solid var(--line); }
 
 .tl ol { list-style: none; margin: 0; padding: 0; }
 .tl-row { padding-block: 18px; border-bottom: 1px solid var(--line); align-items: center; transition: background-color .25s; }
-.tl-row:hover { background: color-mix(in srgb, var(--card) 70%, transparent); }
+.tl-row:hover { background: color-mix(in srgb, var(--paper) 80%, transparent); }
 .tl-label { display: grid; grid-template-columns: 112px minmax(0, 1fr); column-gap: 16px; row-gap: 2px; align-items: baseline; }
 .tl-label .yr { font-family: var(--mono); font-size: 13px; color: var(--muted); font-variant-numeric: tabular-nums; grid-row: span 2; }
 .tl-label h3 { font-size: 19px; font-weight: 650; letter-spacing: -0.02em; }
 .tl-label p { color: var(--muted); font-size: 15px; grid-column: 2; }
 .tl-row.now .yr { color: var(--red); }
 
-.tl-track { position: relative; height: 28px; background: repeating-linear-gradient(to right, var(--line) 0 1px, transparent 1px calc(100% * 5 / 22)); }
+.tl-track { position: relative; height: 28px; background: repeating-linear-gradient(to right, var(--line) 0 1px, transparent 1px calc(100% * 5 / var(--span))); }
 .tl-bar { position: absolute; top: 50%; height: 8px; margin-top: -4px; border-radius: 4px; background: var(--bar);
   left: calc((var(--s) - var(--d0)) / var(--span) * 100%); width: calc((var(--e) - var(--s)) / var(--span) * 100%); transition: background-color .25s; }
 .tl-row:hover .tl-bar { background: var(--ink); }
@@ -137,11 +138,10 @@ section + section { border-top: 1px solid var(--line); }
 .tl-row.edu:hover .tl-bar { border-color: var(--ink); background: none; }
 
 
-/* ---------- odds & ends: Stack's writing panel ---------- */
-.writing { display: grid; grid-template-columns: 200px minmax(0, 1fr); gap: clamp(24px, 5vw, 80px); background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: clamp(24px, 4.5vw, 64px); }
-.writing > * { min-width: 0; }
-.writing .side { display: flex; flex-direction: column; justify-content: space-between; gap: 16px; padding-top: 6px; }
+/* ---------- odds & ends: the writing panel, everything from the left edge ---------- */
+.writing > .label { display: block; margin-bottom: 18px; }
 .writing h2 { font-size: clamp(36px, 5.4vw, 76px); font-weight: 750; letter-spacing: -0.05em; line-height: .95; }
+.writing .sect-sub { margin-top: 16px; }
 .posts { list-style: none; margin: clamp(28px, 4vw, 48px) 0 0; padding: 0; }
 .posts li { border-top: 1px solid var(--line); }
 .posts li:last-child { border-bottom: 1px solid var(--line); }
@@ -150,11 +150,12 @@ section + section { border-top: 1px solid var(--line); }
 .posts a:hover::after, .posts a:focus-visible::after { width: 100%; }
 .posts .d { font-family: var(--mono); font-size: 14px; color: var(--muted); padding-top: 3px; font-variant-numeric: tabular-nums; }
 .posts .t { font-size: 19px; font-weight: 550; letter-spacing: -0.01em; line-height: 1.35; }
-.writing .all { display: inline-block; margin-top: 24px; font-weight: 500; }
+.writing .more { display: flex; gap: 24px; flex-wrap: wrap; margin-top: 24px; font-weight: 500; }
+.writing .empty { margin-top: 28px; color: var(--muted); }
 
-.foot { padding-block: 40px 48px; border-top: 1px solid var(--line); }
-.foot .wrap { display: flex; justify-content: space-between; align-items: baseline; gap: 16px 32px; flex-wrap: wrap; }
-.foot .big { font-size: clamp(26px, 3.4vw, 40px); font-weight: 700; letter-spacing: -0.04em; }
+.foot { padding-block: 32px 40px; border-top: 1px solid var(--line); margin-top: clamp(16px, 3vw, 40px); }
+.foot .wrap { display: flex; justify-content: space-between; align-items: baseline; gap: 12px 32px; flex-wrap: wrap; }
+.foot .who { color: var(--muted); }
 .foot nav { display: flex; gap: 24px; flex-wrap: wrap; }
 
 /* ---------- inner pages ---------- */
@@ -173,8 +174,8 @@ section.page-top { padding-top: clamp(32px, 6vw, 80px); }
 /* experience: skills line up with the timeline columns */
 .skills { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); }
 .skills li { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); column-gap: clamp(20px, 3vw, 40px); padding-block: 16px; border-bottom: 1px solid var(--line); }
-.skills .k { font-weight: 650; letter-spacing: -0.01em; }
-.skills .v { color: var(--muted); }
+.skills .sk-name { font-weight: 650; letter-spacing: -0.01em; }
+.skills .sk-items { color: var(--muted); }
 
 /* résumé */
 .resume-frame { background: var(--card); border-radius: 10px; box-shadow: var(--shadow); padding: 10px; }
@@ -224,8 +225,6 @@ section.page-top { padding-top: clamp(32px, 6vw, 80px); }
   .projects .proj:last-child .art { aspect-ratio: 16 / 6; }
   .tl-axis, .tl-row { grid-template-columns: 1fr; row-gap: 12px; }
   .tl-axis .legend { order: 2; }
-  .writing { grid-template-columns: 1fr; gap: 20px; }
-  .writing .side { flex-direction: row; padding-top: 0; }
 }
 @media (max-width: 700px) {
   .hero .wrap { grid-template-columns: 1fr; }

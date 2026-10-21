@@ -6,3 +6,25 @@
     {%- endfor %}
 </ol>
 {%- endmacro %}
+
+{# Side project cards, from source/data/projects.json. #}
+{% macro project_cards(projects) -%}
+<div class="projects">
+    {%- for p in projects %}
+    <a class="proj" href="{{ p.url }}">
+        {%- if p.art == 'timecode' %}
+        <div class="art art-tct" aria-hidden="true"><div>01:00:00:00<br>+ 00:00:10:12<br><span class="sum">= 01:00:10:12</span></div></div>
+        {%- elif p.art == 'bins' %}
+        <div class="art art-av" aria-hidden="true"><span class="fname">A001_C003.mov</span><div class="bins"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div></div>
+        {%- elif p.art == 'plot' %}
+        <div class="art art-ld" aria-hidden="true"><canvas class="ld-plot"></canvas></div>
+        {%- endif %}
+        <div class="body">
+            <h3>{{ p.name }}</h3>
+            <p>{{ p.desc }}</p>
+            <div class="meta"><span class="label">{{ p.kind }}</span><span class="label">{{ p.since }} —</span></div>
+        </div>
+    </a>
+    {%- endfor %}
+</div>
+{%- endmacro %}

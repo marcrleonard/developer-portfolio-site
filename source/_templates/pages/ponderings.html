@@ -5,32 +5,30 @@
 {% block content %}
 <section class="page-top" aria-labelledby="h-notes">
     <div class="wrap">
-        <div class="writing">
-            <div class="side"><span class="label">odds &amp; ends</span><span class="label">notes &amp; posts</span></div>
-            <div>
-                <h1 id="h-notes">Less than a blog, more than a tweet.</h1>
-                {{ post_list(news_items) }}
-            </div>
+        <div class="panel writing">
+            <span class="label">odds &amp; ends</span>
+            <h1 id="h-notes">Less than a blog, more than a tweet.</h1>
+            {{ post_list(news_items) }}
         </div>
     </div>
 </section>
 
-{% if movies_by_year %}
-<section aria-labelledby="h-movies">
+<section id="movies" aria-labelledby="h-movies">
     <div class="wrap">
-        <div class="writing">
-            <div class="side"><span class="label">movies</span><span class="label">via letterboxd</span></div>
-            <div>
-                <h2 id="h-movies">movies</h2>
-                <p class="sect-sub">Taken from my <a href="https://letterboxd.com/marcrleonard/">letterboxd</a> feed. Click the movie to get a quick burst of my thoughts.</p>
-                <ol class="posts">
-                    {%- for year, movies in movies_by_year.items() %}{% for movie in movies %}
-                    <li><a href="{{ movie.link }}"><span class="d">{{ movie.watched_date }}</span><span class="t">{{ movie.title }}</span></a></li>
-                    {%- endfor %}{% endfor %}
-                </ol>
-            </div>
+        <div class="panel writing">
+            <span class="label">via letterboxd</span>
+            <h2 id="h-movies">movies</h2>
+            <p class="sect-sub">Taken from my <a href="https://letterboxd.com/marcrleonard/">letterboxd</a> feed. Click the movie to get a quick burst of my thoughts.</p>
+            {% if movies_by_year %}
+            <ol class="posts">
+                {%- for year, movies in movies_by_year.items() %}{% for movie in movies %}
+                <li><a href="{{ movie.link }}"><span class="d">{{ movie.watched_date }}</span><span class="t">{{ movie.title }}</span></a></li>
+                {%- endfor %}{% endfor %}
+            </ol>
+            {% else %}
+            <p class="empty">The Letterboxd feed couldn't be loaded when this page was built. They're all on <a href="https://letterboxd.com/marcrleonard/">letterboxd.com/marcrleonard</a>.</p>
+            {% endif %}
         </div>
     </div>
 </section>
-{% endif %}
 {% endblock %}

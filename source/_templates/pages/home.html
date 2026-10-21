@@ -1,5 +1,5 @@
 {% extends "page_template.html" %}
-{% from "_macros.html" import post_list %}
+{% from "_macros.html" import post_list, project_cards %}
 
 {% block content %}
 <section class="hero">
@@ -20,8 +20,10 @@
 
 <section id="experience" aria-labelledby="h-exp">
     <div class="wrap">
-        <div class="sect-head"><h2 id="h-exp">experience</h2><a href="{{ root }}/experience">Skills &amp; more</a></div>
-        {% include "_timeline.html" %}
+        <div class="panel">
+            <div class="sect-head"><h2 id="h-exp">experience</h2><a href="{{ root }}/resume">PDF résumé</a></div>
+            {% include "_timeline.html" %}
+        </div>
     </div>
 </section>
 
@@ -29,37 +31,18 @@
     <div class="wrap">
         <div class="sect-head">
             <div><h2 id="h-build">in the hopper</h2><p class="sect-sub">I've always got a handful of side projects going.</p></div>
-            <span class="label">side projects</span>
         </div>
-        <div class="projects">
-            <a class="proj" href="https://timecodetool.com/">
-                <div class="art art-tct" aria-hidden="true"><div>01:00:00:00<br>+ 00:00:10:12<br><span class="sum">= 01:00:10:12</span></div></div>
-                <div class="body"><h3>TimecodeTool</h3><p>My timecode CLI for validation and calculations.</p><div class="meta"><span class="label">cli</span><span class="label">2024 —</span></div></div>
-            </a>
-            <a class="proj" href="https://assetveranda.com">
-                <div class="art art-av" aria-hidden="true">
-                    <span class="fname">A001_C003.mov</span>
-                    <div class="bins"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
-                </div>
-                <div class="body"><h3>Asset Veranda</h3><p>A media asset management tool for producers and editors.</p><div class="meta"><span class="label">web app</span><span class="label">2023 —</span></div></div>
-            </a>
-            <a class="proj" href="https://linedream.marcrleonard.com">
-                <div class="art art-ld" aria-hidden="true"><canvas id="ld"></canvas></div>
-                <div class="body"><h3>LineDream</h3><p>My generative art library for Python.</p><div class="meta"><span class="label">python</span><span class="label">2020 —</span></div></div>
-            </a>
-        </div>
+        {{ project_cards(data.projects.projects) }}
     </div>
 </section>
 
 <section id="notes" aria-labelledby="h-notes">
     <div class="wrap">
-        <div class="writing">
-            <div class="side"><span class="label">odds &amp; ends</span><span class="label">notes &amp; posts</span></div>
-            <div>
-                <h2 id="h-notes">Less than a blog, more than a tweet.</h2>
-                {{ post_list(news_items[:6]) }}
-                <a class="all" href="{{ root }}/odds-ends">All notes</a>
-            </div>
+        <div class="panel writing">
+            <span class="label">odds &amp; ends</span>
+            <h2 id="h-notes">Less than a blog, more than a tweet.</h2>
+            {{ post_list(news_items[:6]) }}
+            <div class="more"><a href="{{ root }}/odds-ends">All notes</a><a href="{{ root }}/odds-ends#movies">Movies</a></div>
         </div>
     </div>
 </section>
@@ -68,8 +51,7 @@
 {% block scripts %}
 <script>
     // LineDream card: plotter-style flow lines, drawn once (and again on resize)
-    const cv = document.getElementById("ld");
-    function draw() {
+    function draw(cv) {
         const r = cv.getBoundingClientRect(), dpr = devicePixelRatio || 1;
         cv.width = r.width * dpr; cv.height = r.height * dpr;
         const g = cv.getContext("2d"); g.scale(dpr, dpr);
@@ -90,7 +72,9 @@
             g.stroke();
         }
     }
-    draw();
-    addEventListener("resize", draw);
+    const plots = document.querySelectorAll(".ld-plot");
+    const drawAll = () => plots.forEach(draw);
+    drawAll();
+    addEventListener("resize", drawAll);
 </script>
 {% endblock %}
