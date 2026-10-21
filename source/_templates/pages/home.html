@@ -1,17 +1,16 @@
 {% extends "page_template.html" %}
-{% from "_macros.html" import post_list, project_cards %}
+{% from "_macros.html" import post_list, project_cards, profile_links %}
 
 {% block content %}
 <section class="hero">
     <div class="wrap">
         <div class="hello">
             <h1>Software developer, <em>15+ years</em> in media &amp; entertainment.</h1>
-            <p>I'm on the <strong>Ingest and Processing</strong> team at <a href="https://mux.com">Mux</a>. Before code I was a video director and wore most of the hats in post-production.</p>
+            <p>I'm on the <strong>Ingest and Processing</strong> team at <a href="https://mux.com">Mux</a>. Before code I was a video director and wore most of the hats in post-production. <a class="read-more" href="{{ root }}/about">Read more</a></p>
             <div class="rule"></div>
             <div class="links">
-                <a href="{{ root }}/about">About me</a>
+                {{ profile_links() }}
                 <a href="{{ root }}/resume">Résumé</a>
-                <a href="https://video.marcrleonard.com">Director reel</a>
             </div>
         </div>
         {% include "_portrait.html" %}

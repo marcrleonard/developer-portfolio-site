@@ -75,7 +75,14 @@ section.hero { padding-block: clamp(40px, 7vw, 96px) clamp(32px, 5vw, 64px); }
 .hello p { margin-top: 24px; font-size: clamp(18px, 1.5vw, 20px); max-width: 40ch; color: var(--muted); }
 .hello p strong { color: var(--ink); font-weight: 600; }
 .hello .rule { width: 64px; height: 4px; background: var(--red); margin-top: 28px; }
-.hello .links { display: flex; gap: 22px; flex-wrap: wrap; margin-top: 24px; font-weight: 500; }
+.hello .links { display: flex; align-items: center; gap: 22px; flex-wrap: wrap; margin-top: 24px; font-weight: 500; }
+.hello .read-more { color: var(--ink); font-weight: 500; white-space: nowrap; }
+
+/* profile links with a small icon; only the text gets the dotted underline */
+.ico-link { display: inline-flex; align-items: center; gap: 7px; text-decoration: none; }
+.ico-link span { text-decoration: underline dotted var(--red); text-decoration-thickness: 2px; text-underline-offset: 4px; }
+.ico-link:hover span { text-decoration-style: solid; }
+.icon { width: 16px; height: 16px; flex: none; }
 
 .portrait { view-transition-name: portrait; position: relative; max-width: 480px; margin: 0 0 0 auto; width: 100%; }
 .photo-card { margin: 0; background: var(--card); padding: 10px; border-radius: 8px; box-shadow: var(--shadow); }
