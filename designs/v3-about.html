@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>About · marc leonard</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..800&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="v3.css">
+<style>
+/* About, round 3: portrait and contact pinned on the left, the bio on the right
+   broken into chapters with their years, so it reads like the timeline in prose. */
+.about { padding-block: clamp(32px, 6vw, 80px) clamp(64px, 8vw, 120px); }
+.about .wrap { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(32px, 6vw, 96px); align-items: start; }
+.aside { position: sticky; top: 96px; display: grid; gap: 20px; max-width: 400px; }
+.aside .photo-card img { aspect-ratio: 474 / 573; object-position: 50% 20%; }
+.contact { background: var(--card); border-radius: 8px; box-shadow: var(--shadow); padding: 18px 20px; display: grid; gap: 12px; }
+.contact img { width: 190px; height: auto; filter: var(--email-filter); }
+.contact nav { display: flex; gap: 20px; flex-wrap: wrap; font-weight: 500; }
+
+.bio h1 { font-size: clamp(38px, 5vw, 68px); font-weight: 700; letter-spacing: -0.045em; line-height: 1; }
+.bio .lede { margin-top: 24px; font-size: clamp(20px, 2vw, 26px); line-height: 1.35; letter-spacing: -0.015em; max-width: 34ch; }
+.bio .lede em { font-style: normal; color: var(--red); }
+.bio .rule { width: 64px; height: 4px; background: var(--red); margin: 32px 0 8px; }
+
+.chapters { list-style: none; margin: 0; padding: 0; }
+.chapters li { display: grid; grid-template-columns: 150px minmax(0, 1fr); gap: 8px 24px; padding-block: 22px; border-bottom: 1px solid var(--line); }
+.chapters li:last-child { border-bottom: 0; }
+.chapters .when { display: grid; gap: 4px; align-content: start; padding-top: 4px; }
+.chapters .when .yr { font-family: var(--mono); font-size: 13px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.chapters .now .yr { color: var(--red); }
+.chapters h2 { font-size: 15px; font-weight: 650; letter-spacing: -0.01em; }
+.chapters p { color: var(--muted); max-width: 62ch; }
+.chapters p strong { color: var(--ink); font-weight: 600; }
+
+.switcher .on { background: var(--red); color: var(--on-red); opacity: 1; }
+
+@media (max-width: 900px) {
+  .about .wrap { grid-template-columns: 1fr; }
+  .aside { position: static; max-width: 360px; }
+}
+@media (max-width: 600px) {
+  .chapters li { grid-template-columns: 1fr; }
+  .chapters .when { grid-auto-flow: column; justify-content: start; gap: 12px; align-items: baseline; }
+}
+</style>
+</head>
+<body>
+
+<header class="site-head" id="head">
+  <div class="wrap">
+    <div class="logo"><a href="v3.html" style="text-decoration:none">marc leonard</a></div>
+    <nav><a href="v3.html">home</a><span>about</span><a href="v3.html#exp">experience</a><a href="v3.html#notes">odds &amp; ends</a></nav>
+  </div>
+</header>
+
+<main class="about">
+  <div class="wrap">
+    <aside class="aside">
+      <figure class="photo-card settle">
+        <img src="img/me.jpg" alt="Portrait of Marc outdoors">
+        <figcaption><span class="label">Bozeman, MT</span><span class="label">ski · bike · hike</span></figcaption>
+      </figure>
+      <div class="contact">
+        <span class="label">get in touch</span>
+        <img src="img/email.png" alt="Email address">
+        <nav><a href="https://www.linkedin.com/in/marc-leonard/">LinkedIn</a><a href="https://github.com/marcrleonard">GitHub</a><a href="https://marcrleonard.com/resume">Résumé</a></nav>
+      </div>
+    </aside>
+
+    <article class="bio">
+      <h1>about me</h1>
+      <p class="lede">My name is Marc. I'm a creative professional and software engineer whose background bridges <em>media and entertainment</em> with software development.</p>
+      <div class="rule"></div>
+      <ol class="chapters">
+        <li>
+          <div class="when"><span class="yr">2006 — 2010</span><h2>Film school</h2></div>
+          <p>I graduated from <strong>DeSales University</strong> in Center Valley, PA, in 2010, with a major in Television/Film and a minor in Business.</p>
+        </li>
+        <li>
+          <div class="when"><span class="yr">2011 — 2019</span><h2>Editing &amp; color</h2></div>
+          <p>Early in my career I spent two years as the lead editor of special programming for <strong>Reelz Channel</strong>. After that I freelanced for online media outlets and brands such as Reddit, Pop Sci, and The Verge. I also worked as a colorist for feature films, short-form content, and dailies.</p>
+        </li>
+        <li>
+          <div class="when"><span class="yr">2010s</span><h2>Outdoors</h2></div>
+          <p>My career took a turn toward the outdoor industry. I started The Crux Collective, a short-lived outdoor news aggregator, and later founded <strong>Rove Media</strong>, a one-man media consultancy. Through Rove Media I made videos and materials for brands like L.L.Bean, Outside Online, Patrol USA, and GoPro.</p>
+        </li>
+        <li>
+          <div class="when"><span class="yr">2017 — 2024</span><h2>Cinnafilm</h2></div>
+          <p>I was a Senior Software Developer at <strong>Cinnafilm</strong>, working on PixelStrings, a cloud-based video processing platform. I designed and built the API and backend, orchestrated the cloud infrastructure, and maintained a horizontally scalable video transcoding system, mostly in Python, JavaScript, and TypeScript with Flask, Django, and FastAPI.</p>
+        </li>
+        <li class="now">
+          <div class="when"><span class="yr">2024 — now</span><h2>Mux</h2></div>
+          <p>Since Q3 of 2024 I've been a Software Developer at <a href="https://mux.com">Mux</a>, on the <strong>Ingest and Processing</strong> team.</p>
+        </li>
+        <li>
+          <div class="when"><span class="yr">on the side</span><h2>Projects</h2></div>
+          <p>I made <a href="https://linedream.marcrleonard.com">LineDream</a>, a Python generative art library built for SVG output and originally meant for pen plotter art. I'm also building <a href="https://assetveranda.com">Asset Veranda</a>, media asset management software, and <a href="https://timecodetool.com/">TimecodeTool</a>, a timecode CLI.</p>
+        </li>
+        <li>
+          <div class="when"><span class="yr">home</span><h2>Bozeman</h2></div>
+          <p>These days I'm enjoying the fruits of living in Bozeman, Montana, where I ski, mountain bike, and hike.</p>
+        </li>
+      </ol>
+    </article>
+  </div>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="big">say hello.</div>
+    <nav><a href="https://www.linkedin.com/in/marc-leonard/">LinkedIn</a><a href="https://github.com/marcrleonard">GitHub</a><a href="https://marcrleonard.com/resume">Résumé</a></nav>
+  </div>
+</footer>
+
+<nav class="switcher" aria-label="Concepts"><a href="index.html">all</a><a href="v2.html">round 2</a><a class="on" href="v3.html" aria-current="page">round 3</a></nav>
+
+<script>
+// hairline under the header once the page has scrolled
+const head = document.getElementById("head");
+const onScroll = () => head.classList.toggle("scrolled", scrollY > 8);
+addEventListener("scroll", onScroll, { passive: true }); onScroll();
+</script>
+</body>
+</html>
