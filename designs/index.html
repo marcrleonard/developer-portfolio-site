@@ -22,8 +22,8 @@
 .shot { position: relative; }
 .shot img { width: 100%; aspect-ratio: 900 / 558; object-fit: cover; object-position: top; border: 1px solid var(--line); border-radius: 6px; position: relative; z-index: 1; transition: transform .5s cubic-bezier(.2,.8,.2,1); }
 .shot::before { content: ""; position: absolute; inset: 0; border-radius: 6px; background: var(--red); transform: translate(14px, 14px); transition: transform .5s cubic-bezier(.2,.8,.2,1); }
-.row:nth-of-type(3) .shot::before { background: var(--ink); }
-.row:nth-of-type(4) .shot::before { background: var(--line); }
+.row:nth-of-type(4) .shot::before { background: var(--ink); }
+.row:nth-of-type(5) .shot::before { background: var(--line); }
 .row:hover .shot img, .row:focus-visible .shot img { transform: translate(-6px, -6px); }
 .row:hover .shot::before { transform: translate(20px, 20px); }
 @media (max-width: 760px) { .row { grid-template-columns: 1fr; } .shot::before { transform: translate(8px, 8px); } }
@@ -33,13 +33,23 @@
   <header class="intro">
     <span class="label">marcrleonard.com · redesign</span>
     <h1 style="margin-top:16px">redesign<span>.</span></h1>
-    <p>Same Swiss bones as the current site: Inter, the red, the dotted links, lowercase nav. Round 2 is the newest. The round 1 explorations below it are louder.</p>
+    <p>Same Swiss bones as the current site: Inter, the red, the dotted links, lowercase nav. Round 3 is the newest. Earlier rounds below it are louder.</p>
   </header>
 
   <div class="list">
+    <a class="row" href="v3.html">
+      <div>
+        <span class="label">Round 3 · latest</span>
+        <h2>Deck, calmer</h2>
+        <p>Deck's look without the deck. A split hero with one still photo card and a small "now" card over its corner. Side projects as cards with little illustrated tops. Experience is a timeline drawn to scale from 2005 to now, so you can see where jobs overlapped. Soft shadows, rounded corners, and the Odds &amp; Ends cards.</p>
+        <span class="go">open round 3 →</span>
+      </div>
+      <div class="shot"><img src="img/thumb-v3.jpg" alt="Preview of the round 3 design"></div>
+    </a>
+    <h2 class="label" style="margin-top:24px">Round 2</h2>
     <a class="row" href="v2.html">
       <div>
-        <span class="label">Round 2 · latest</span>
+        <span class="label">Round 2</span>
         <h2>Quiet bold</h2>
         <p>Built from your notes. The hero is the overlapping cards from Grid, set at a normal size. Sections are sheets that slide over each other as you scroll, with no scaling or dimming. Odds &amp; Ends keeps the big red year. The only motion is scrolling, hover, and one short settle when the page loads. No timecode, no ticker. A switch in the bottom-right flips between loud, medium and quiet.</p>
         <span class="go">open round 2 →</span>

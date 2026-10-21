@@ -1,0 +1,344 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Round 3 · marc leonard</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..800&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Round 3: Deck's look, calmer. Split hero with one still photo card (no shuffling
+   deck), project cards with small illustrated tops, experience as a timeline
+   drawn to scale, Odds & Ends cards. Soft shadows, 8–10px corners. */
+:root {
+  --paper: #f6f9fc;
+  --card: #ffffff;
+  --ink: #111316;
+  --muted: #5d6673;
+  --line: #dde3ea;
+  --bar: #9aa4b1;
+  --red: #da291c;
+  --on-red: #ffffff;
+  --shadow: 0 1px 2px rgb(16 24 40 / .05), 0 18px 40px -20px rgb(16 24 40 / .28);
+  --shadow-up: 0 1px 2px rgb(16 24 40 / .06), 0 24px 48px -20px rgb(16 24 40 / .34);
+  --sans: "Inter", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  --gutter: clamp(16px, 4vw, 48px);
+  --ease: cubic-bezier(.2, .8, .2, 1);
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #0e1013; --card: #171a1f; --ink: #eef1f4; --muted: #98a2ae; --line: #2a3038; --bar: #5b6470; --red: #e8392b;
+    --shadow: 0 1px 2px rgb(0 0 0 / .3), 0 18px 40px -20px rgb(0 0 0 / .7);
+    --shadow-up: 0 1px 2px rgb(0 0 0 / .3), 0 24px 48px -20px rgb(0 0 0 / .8);
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #0e1013; --card: #171a1f; --ink: #eef1f4; --muted: #98a2ae; --line: #2a3038; --bar: #5b6470; --red: #e8392b;
+  --shadow: 0 1px 2px rgb(0 0 0 / .3), 0 18px 40px -20px rgb(0 0 0 / .7);
+  --shadow-up: 0 1px 2px rgb(0 0 0 / .3), 0 24px 48px -20px rgb(0 0 0 / .8);
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--paper); color: var(--ink); font: 400 17px/1.55 var(--sans); overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+img { max-width: 100%; display: block; }
+h1, h2, h3 { margin: 0; text-wrap: balance; }
+p { margin: 0; }
+a { color: inherit; text-decoration: underline dotted var(--red); text-decoration-thickness: 2px; text-underline-offset: 4px; }
+a:hover { text-decoration-style: solid; }
+a:focus-visible { outline: 2px solid var(--red); outline-offset: 3px; border-radius: 3px; }
+.wrap { max-width: 1200px; margin: 0 auto; padding-inline: var(--gutter); }
+.label { font-family: var(--mono); font-size: 12px; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); }
+
+/* header: same as today */
+.site-head { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 50; background: color-mix(in srgb, var(--paper) 88%, transparent); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-bottom: 1px solid transparent; transition: border-color .3s; view-transition-name: site-head; }
+.site-head.scrolled { border-color: var(--line); }
+.site-head .wrap { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; padding-block: 18px; }
+.logo { font-size: 22px; letter-spacing: -0.01em; }
+.site-head nav { display: flex; gap: clamp(14px, 2.4vw, 28px); flex-wrap: wrap; }
+.site-head nav span { color: var(--muted); }
+
+section { padding-block: clamp(48px, 7vw, 96px); }
+section + section { border-top: 1px solid var(--line); }
+.sect-head { display: flex; justify-content: space-between; align-items: end; gap: 16px; flex-wrap: wrap; margin-bottom: clamp(28px, 4vw, 48px); }
+.sect-head h2 { font-size: clamp(34px, 4.6vw, 60px); font-weight: 700; letter-spacing: -0.045em; line-height: .95; }
+
+/* ---------- hero ---------- */
+.hero .wrap { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(32px, 6vw, 96px); align-items: center; }
+.hero .wrap > * { min-width: 0; }
+.hello h1 { font-size: clamp(38px, 5vw, 68px); font-weight: 700; letter-spacing: -0.045em; line-height: 1; }
+.hello h1 em { font-style: normal; color: var(--red); }
+.hello p { margin-top: 24px; font-size: clamp(18px, 1.5vw, 20px); max-width: 40ch; color: var(--muted); }
+.hello p strong { color: var(--ink); font-weight: 600; }
+.hello .rule { width: 64px; height: 4px; background: var(--red); margin-top: 28px; }
+.hello .links { display: flex; gap: 22px; flex-wrap: wrap; margin-top: 24px; font-weight: 500; }
+
+.portrait { position: relative; max-width: 480px; margin: 0 0 0 auto; width: 100%; }
+.photo-card { margin: 0; background: var(--card); padding: 10px 10px 14px; border-radius: 8px; box-shadow: var(--shadow); }
+.photo-card img { width: 100%; aspect-ratio: 1 / 1.05; object-fit: cover; object-position: 50% 28%; border-radius: 4px; }
+.photo-card figcaption { display: flex; justify-content: space-between; gap: 12px; padding: 12px 4px 0; }
+/* one small card laid over the corner: the only overlap in the hero */
+.now-card { position: absolute; left: -28px; bottom: 72px; background: var(--card); border-radius: 8px; box-shadow: var(--shadow); padding: 14px 18px; display: grid; gap: 4px; max-width: 250px; }
+.now-card .label { color: var(--red); }
+.now-card span:last-child { font-weight: 600; letter-spacing: -0.01em; line-height: 1.3; }
+
+.settle { animation: settle .8s var(--ease) both; }
+.now-card.settle { animation-delay: .15s; }
+@keyframes settle { from { opacity: 0; transform: translateY(8px); } }
+
+/* ---------- projects: cards with small illustrated tops ---------- */
+.projects { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
+.proj { display: flex; flex-direction: column; background: var(--card); border-radius: 10px; overflow: hidden; box-shadow: var(--shadow); text-decoration: none; transition: transform .35s var(--ease), box-shadow .35s var(--ease); }
+.proj:hover, .proj:focus-visible { transform: translateY(-3px); box-shadow: var(--shadow-up); }
+.proj .art { aspect-ratio: 16 / 10; position: relative; overflow: hidden; padding: 18px; display: flex; flex-direction: column; justify-content: flex-end; }
+.proj .body { padding: 20px 22px 22px; display: grid; gap: 6px; }
+.proj h3 { font-size: 24px; font-weight: 700; letter-spacing: -0.03em; line-height: 1.1; }
+.proj p { color: var(--muted); font-size: 15px; }
+.proj .meta { display: flex; justify-content: space-between; margin-top: 12px; }
+.proj .meta .label:last-child { color: var(--red); }
+
+.art-tct { background: var(--red); color: var(--on-red); font-family: var(--mono); font-variant-numeric: tabular-nums; font-size: clamp(14px, 1.4vw, 17px); line-height: 1.6; }
+.art-tct .sum { border-top: 2px solid currentColor; display: inline-block; padding-top: 3px; margin-top: 3px; font-weight: 500; }
+.art-av { background: var(--ink); color: var(--paper); gap: 10px; }
+.art-av .bins { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; }
+.art-av .bins span { aspect-ratio: 16 / 9; border-radius: 2px; background: color-mix(in srgb, var(--paper) 16%, transparent); }
+.art-av .bins span:nth-child(3n+1) { background: color-mix(in srgb, var(--red) 75%, transparent); }
+.art-av .fname { font-family: var(--mono); font-size: 12px; opacity: .7; }
+.art-ld { background: var(--paper); border-bottom: 1px solid var(--line); }
+.art-ld canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
+
+/* ---------- experience: a timeline drawn to scale, 2005 → now ---------- */
+.tl { --d0: 2005; --span: 22; }
+.tl-axis, .tl-row { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); column-gap: clamp(20px, 3vw, 40px); }
+.tl-axis { padding-bottom: 10px; border-bottom: 1px solid var(--line); align-items: end; }
+.tl-axis .ticks { position: relative; height: 16px; }
+.tl-axis .ticks span { position: absolute; left: calc((var(--y) - var(--d0)) / var(--span) * 100%); transform: translateX(-50%); }
+.tl-axis .ticks span:first-child { transform: none; }
+.tl-axis .legend { display: flex; gap: 16px; flex-wrap: wrap; }
+.tl-axis .legend i { display: inline-block; width: 18px; height: 6px; border-radius: 3px; vertical-align: middle; margin-right: 6px; background: var(--bar); }
+.tl-axis .legend i.now { background: var(--red); }
+.tl-axis .legend i.edu { background: none; border: 1.5px solid var(--bar); }
+
+.tl ol { list-style: none; margin: 0; padding: 0; }
+.tl-row { padding-block: 18px; border-bottom: 1px solid var(--line); align-items: center; transition: background-color .25s; }
+.tl-row:hover { background: color-mix(in srgb, var(--card) 70%, transparent); }
+.tl-label { display: grid; grid-template-columns: 112px minmax(0, 1fr); column-gap: 16px; row-gap: 2px; align-items: baseline; }
+.tl-label .yr { font-family: var(--mono); font-size: 13px; color: var(--muted); font-variant-numeric: tabular-nums; grid-row: span 2; }
+.tl-label h3 { font-size: 19px; font-weight: 650; letter-spacing: -0.02em; }
+.tl-label p { color: var(--muted); font-size: 15px; grid-column: 2; }
+.tl-row.now .yr { color: var(--red); }
+
+.tl-track { position: relative; height: 28px; background: repeating-linear-gradient(to right, var(--line) 0 1px, transparent 1px calc(100% * 5 / 22)); }
+.tl-bar { position: absolute; top: 50%; height: 8px; margin-top: -4px; border-radius: 4px; background: var(--bar);
+  left: calc((var(--s) - var(--d0)) / var(--span) * 100%); width: calc((var(--e) - var(--s)) / var(--span) * 100%); transition: background-color .25s; }
+.tl-row:hover .tl-bar { background: var(--ink); }
+.tl-row.now .tl-bar, .tl-row.now:hover .tl-bar { background: var(--red); }
+.tl-row.now .tl-bar::after { content: ""; position: absolute; right: -2px; top: 50%; width: 12px; height: 12px; margin-top: -6px; border-radius: 50%; background: var(--red); box-shadow: 0 0 0 4px color-mix(in srgb, var(--red) 18%, transparent); }
+.tl-row.edu .tl-bar { background: none; border: 1.5px solid var(--bar); }
+.tl-row.edu:hover .tl-bar { border-color: var(--ink); background: none; }
+
+
+/* ---------- odds & ends ---------- */
+.notes { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+.note { display: flex; flex-direction: column; justify-content: space-between; gap: 36px; min-height: 180px; padding: 20px; background: var(--card); border: 1px solid var(--line); border-radius: 10px; text-decoration: none; transition: transform .35s var(--ease), box-shadow .35s var(--ease), border-color .2s; }
+.note:hover, .note:focus-visible { transform: translateY(-3px); box-shadow: var(--shadow); border-color: transparent; }
+.note .t { font-size: 17px; font-weight: 600; letter-spacing: -0.015em; line-height: 1.32; }
+.note .bot { display: flex; justify-content: space-between; align-items: end; gap: 12px; }
+.note .y { font-size: 38px; font-weight: 700; letter-spacing: -0.05em; line-height: .8; color: var(--red); font-variant-numeric: tabular-nums; }
+
+.foot { padding-block: 40px 120px; border-top: 1px solid var(--line); }
+.foot .wrap { display: flex; justify-content: space-between; align-items: baseline; gap: 16px 32px; flex-wrap: wrap; }
+.foot .big { font-size: clamp(26px, 3.4vw, 40px); font-weight: 700; letter-spacing: -0.04em; }
+.foot nav { display: flex; gap: 24px; flex-wrap: wrap; }
+
+.switcher {
+  position: fixed; left: 16px; bottom: calc(16px + env(safe-area-inset-bottom, 0px)); z-index: 60; view-transition-name: switcher;
+  display: flex; gap: 2px; padding: 4px; border-radius: 999px; background: var(--ink); color: var(--paper);
+  font: 500 12px/1 var(--mono); text-transform: uppercase; letter-spacing: .08em;
+}
+.switcher a, .switcher span { padding: 6px 10px; border-radius: 999px; text-decoration: none; color: inherit; }
+.switcher a { opacity: .7; }
+.switcher a:hover { opacity: 1; }
+.switcher span { background: var(--red); color: var(--on-red); }
+
+/* page transitions: the same quiet fade-and-rise as the live site */
+@view-transition { navigation: auto; }
+::view-transition-old(root) { animation: .25s ease-out both vt-out; }
+::view-transition-new(root) { animation: .4s var(--ease) .05s both vt-in; }
+@keyframes vt-out { to { opacity: 0; } }
+@keyframes vt-in { from { opacity: 0; transform: translateY(12px); } }
+
+@media (max-width: 900px) {
+  .hero .wrap { grid-template-columns: 1fr; }
+  .portrait { margin: 0 auto; max-width: 440px; }
+  .projects, .notes { grid-template-columns: 1fr 1fr; }
+  .projects .proj:last-child { grid-column: 1 / -1; }
+  .projects .proj:last-child .art { aspect-ratio: 16 / 6; }
+  .tl-axis, .tl-row { grid-template-columns: 1fr; row-gap: 12px; }
+  .tl-axis .legend { order: 2; }
+}
+@media (max-width: 600px) {
+  .projects, .notes { grid-template-columns: 1fr; }
+  .projects .proj:last-child .art { aspect-ratio: 16 / 10; }
+  .now-card { left: 12px; bottom: 64px; }
+  .tl-label { grid-template-columns: 1fr; }
+  .tl-label .yr { grid-row: auto; }
+  .tl-label p { grid-column: 1; }
+  .note { min-height: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  ::view-transition-group(*), ::view-transition-old(*), ::view-transition-new(*) { animation: none !important; }
+}
+</style>
+</head>
+<body>
+
+<header class="site-head" id="head">
+  <div class="wrap">
+    <div class="logo">marc leonard</div>
+    <nav><span>home</span><a href="#">about</a><a href="#exp">experience</a><a href="#notes">odds &amp; ends</a></nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap">
+      <div class="hello">
+        <h1>Software for moving pictures. <em>15+ years</em> of it.</h1>
+        <p>I'm a developer on the <strong>Ingest and Processing</strong> team at <a href="https://mux.com">Mux</a>. Before code I was a video director and wore most of the hats in post-production.</p>
+        <div class="rule"></div>
+        <div class="links"><a href="#">About me</a><a href="https://marcrleonard.com/resume">Résumé</a><a href="https://video.marcrleonard.com">Director reel</a></div>
+      </div>
+      <div class="portrait">
+        <figure class="photo-card settle">
+          <img src="img/me_2.jpg" alt="Marc on a beach holding a camera on a monopod">
+          <figcaption><span class="label">director → developer</span><span class="label">Bozeman, MT</span></figcaption>
+        </figure>
+        <div class="now-card settle"><span class="label">now</span><span>Ingest &amp; Processing at Mux</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="h-build">
+    <div class="wrap">
+      <div class="sect-head"><h2 id="h-build">in the hopper</h2><span class="label">side projects</span></div>
+      <div class="projects">
+        <a class="proj" href="https://timecodetool.com/">
+          <div class="art art-tct" aria-hidden="true"><div>01:00:00:00<br>+ 00:00:10:12<br><span class="sum">= 01:00:10:12</span></div></div>
+          <div class="body"><h3>TimecodeTool</h3><p>Validate timecode and calculate spans from the command line.</p><div class="meta"><span class="label">cli</span><span class="label">2024 —</span></div></div>
+        </a>
+        <a class="proj" href="https://assetveranda.com">
+          <div class="art art-av" aria-hidden="true">
+            <span class="fname">A001_C003.mov</span>
+            <div class="bins"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+          </div>
+          <div class="body"><h3>Asset Veranda</h3><p>Media asset management for producers and editors.</p><div class="meta"><span class="label">web app</span><span class="label">2023 —</span></div></div>
+        </a>
+        <a class="proj" href="https://linedream.marcrleonard.com">
+          <div class="art art-ld" aria-hidden="true"><canvas id="ld"></canvas></div>
+          <div class="body"><h3>LineDream</h3><p>A generative art library for Python, made for pen plotters.</p><div class="meta"><span class="label">python</span><span class="label">2020 —</span></div></div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section id="exp" aria-labelledby="h-exp">
+    <div class="wrap">
+      <div class="sect-head"><h2 id="h-exp">experience</h2><a href="https://marcrleonard.com/resume">PDF résumé</a></div>
+      <div class="tl">
+        <div class="tl-axis">
+          <div class="legend label"><span><i></i>work</span><span><i class="edu"></i>school</span><span><i class="now"></i>now</span></div>
+          <div class="ticks label" aria-hidden="true"><span style="--y:2005">2005</span><span style="--y:2010">2010</span><span style="--y:2015">2015</span><span style="--y:2020">2020</span><span style="--y:2025">2025</span></div>
+        </div>
+        <ol>
+          <li class="tl-row now" style="--s:2024.6; --e:2026.8">
+            <div class="tl-label"><span class="yr">2024 — now</span><h3>Mux</h3><p>Video software developer on the Ingest and Processing team.</p></div>
+            <div class="tl-track"><span class="tl-bar"></span></div>
+          </li>
+          <li class="tl-row" style="--s:2017; --e:2024.6">
+            <div class="tl-label"><span class="yr">2017 — 2024</span><h3>Cinnafilm</h3><p>Core backend developer for PixelStrings, a cloud video conversion platform for studios and post facilities.</p></div>
+            <div class="tl-track"><span class="tl-bar"></span></div>
+          </li>
+          <li class="tl-row" style="--s:2012; --e:2019">
+            <div class="tl-label"><span class="yr">2012 — 2019</span><h3>Director &amp; post production</h3><p>Freelance for L.L.Bean, Outside Online, GoPro, The Verge, Reddit and Pop Sci. <a href="https://video.marcrleonard.com">Reel</a></p></div>
+            <div class="tl-track"><span class="tl-bar"></span></div>
+          </li>
+          <li class="tl-row" style="--s:2012; --e:2014">
+            <div class="tl-label"><span class="yr">2012 — 2014</span><h3>Instructor</h3><p>Premiere and After Effects for UNM Continuing Education.</p></div>
+            <div class="tl-track"><span class="tl-bar"></span></div>
+          </li>
+          <li class="tl-row" style="--s:2011; --e:2013">
+            <div class="tl-label"><span class="yr">2011 — 2013</span><h3>Reelz Channel</h3><p>Lead editor of special programming.</p></div>
+            <div class="tl-track"><span class="tl-bar"></span></div>
+          </li>
+          <li class="tl-row edu" style="--s:2006; --e:2010">
+            <div class="tl-label"><span class="yr">2006 — 2010</span><h3>DeSales University</h3><p>Television/Film, minor in Business.</p></div>
+            <div class="tl-track"><span class="tl-bar"></span></div>
+          </li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section id="notes" aria-labelledby="h-notes">
+    <div class="wrap">
+      <div class="sect-head"><h2 id="h-notes">odds &amp; ends</h2><span class="label">notes</span></div>
+      <div class="notes">
+        <a class="note" href="https://marcrleonard.com/blog/2026/1/cmaf-vs-ts-metadata"><span class="t">Transport Stream vs CMAF: different philosophies for streaming metadata</span><span class="bot"><span class="y">26</span><span class="label">streaming</span></span></a>
+        <a class="note" href="https://marcrleonard.com/blog/2025/5/pre-commit-hooks-spell-grammar"><span class="t">Automatically check spelling and grammar on git commits</span><span class="bot"><span class="y">25</span><span class="label">development</span></span></a>
+        <a class="note" href="https://marcrleonard.com/blog/2025/2/dead-simple-goroutines-contexts-channels"><span class="t">A dead simple example of goroutines, contexts, and channels</span><span class="bot"><span class="y">25</span><span class="label">go</span></span></a>
+        <a class="note" href="https://marcrleonard.com/blog/2025/1/understanding-cpu-specific-compilation-flags-and-intrinsics"><span class="t">Understanding CPU-specific compilation flags and intrinsics</span><span class="bot"><span class="y">25</span><span class="label">til</span></span></a>
+        <a class="note" href="https://marcrleonard.com/blog/2024/7/Python-Object-Scope"><span class="t">Python object scope and reference counting</span><span class="bot"><span class="y">24</span><span class="label">python</span></span></a>
+        <a class="note" href="https://marcrleonard.com/blog/2024/7/fast-api-async-heavy-work"><span class="t">Running a CPU-heavy task asynchronously in FastAPI</span><span class="bot"><span class="y">24</span><span class="label">python</span></span></a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="big">say hello.</div>
+    <nav><a href="https://www.linkedin.com/in/marc-leonard/">LinkedIn</a><a href="https://github.com/marcrleonard">GitHub</a><a href="https://marcrleonard.com/resume">Résumé</a></nav>
+  </div>
+</footer>
+
+<nav class="switcher" aria-label="Concepts"><a href="index.html">all</a><a href="v2.html">round 2</a><span aria-current="page">round 3</span></nav>
+
+<script>
+// hairline under the header once the page has scrolled
+const head = document.getElementById("head");
+const onScroll = () => head.classList.toggle("scrolled", scrollY > 8);
+addEventListener("scroll", onScroll, { passive: true }); onScroll();
+
+// LineDream card: plotter-style flow lines, drawn once (and again on resize)
+const cv = document.getElementById("ld");
+function draw() {
+  const r = cv.getBoundingClientRect(), dpr = devicePixelRatio || 1;
+  cv.width = r.width * dpr; cv.height = r.height * dpr;
+  const g = cv.getContext("2d"); g.scale(dpr, dpr);
+  const css = getComputedStyle(document.documentElement);
+  g.lineWidth = 1;
+  for (let k = 0; k < 40; k++) {
+    const accent = k % 9 === 0;
+    g.strokeStyle = css.getPropertyValue(accent ? "--red" : "--muted");
+    g.globalAlpha = accent ? .9 : .4;
+    g.beginPath();
+    let x = -10, y = r.height * .14 + k * (r.height * .6 / 40);
+    g.moveTo(x, y);
+    while (x < r.width + 10) {
+      const a = Math.sin(x * .013 + k * .21) * .7 + Math.cos(y * .02) * .35;
+      x += 4 * Math.cos(a); y += 4 * Math.sin(a);
+      g.lineTo(x, y);
+    }
+    g.stroke();
+  }
+}
+draw(); addEventListener("resize", draw);
+</script>
+</body>
+</html>
