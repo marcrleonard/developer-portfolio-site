@@ -95,6 +95,10 @@ env = Environment(
 	# loader = FileSystemLoader(t_path),
 	autoescape=select_autoescape()
 )
+# Links and assets in the pages are site-relative on Cloudflare, so they work on
+# every deployment URL (production, branch alias, or per-commit preview).
+# Locally they keep the full_url prefix so the build folder works when opened directly.
+env.globals['root'] = "" if cloud_build else full_url
 os.makedirs(BUILD_FOLDER, exist_ok=True)
 
 md = MarkdownReader(settings=get_settings(), )
@@ -141,7 +145,8 @@ for file in os.listdir("source/blog"):
 			'news_item': news_item,
 			"fixed_footer": True,
 			"nav_items": pages_nav,
-			"page_slug": url
+			"page_slug": url,
+			"nav_active": "/odds-ends",
 		}))
 
 	NEWS_ITEMS.append(news_item)
@@ -192,10 +197,6 @@ folders_to_copy = [
 	(f'{SOURCE_FOLDER}/assets/', f'{BUILD_FOLDER}/assets/'),
 
 ]
-
-# redesign concepts are only published on preview builds, never on master
-if os.environ.get("CF_PAGES_BRANCH") != "master":
-	folders_to_copy.append(('designs/', f'{BUILD_FOLDER}/designs/'))
 
 
 def recursivly_copy_folders(source_dir, target_dir):

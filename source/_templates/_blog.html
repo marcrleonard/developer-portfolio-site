@@ -1,34 +1,20 @@
 {% extends "page_template.html" %}
+{% block title %}{{ news_item.title }} · Marc R Leonard{% endblock %}
+{% block description %}{{ news_item.summary|striptags }}{% endblock %}
+
 {% block content %}
-
-<!-- MAINPART -->
-    <div class="section_inner">
-            <h2 style="margin:0; color:var(--main-color)" class="page-title">
-                        <span>{{news_item.title}}</span>
-                    </h2>
-                    <div class="lines">
-                        <div class="line"></div>
-                        <div class="line"></div>
-                        <div class="line"></div>
-                    </div>
-            <div class="details">
-                <div class="metabox">
-                    <div style="padding-top: 20px; font-style: italic;" class="info">
-                        <span class="date">Published: {{ news_item.date }}</span>
-                        <br>
-<!--                        <span>Categories: </span>-->
-<!--                        {% for c in news_item.category %}-->
-<!--                        <span class="category"><a-->
-<!--                                href="#">{{ c }}</a></span>-->
-<!--                        {% endfor %}-->
-                    </div>
-                </div>
-            </div>
-            <div class="markdown-body">
-                {{news_item.text|safe}}
-            </div>
-</div>
-
-
-<!-- /MAINPART -->
+<article class="article">
+    <div class="wrap">
+        <a class="back" href="{{ root }}/odds-ends">← odds &amp; ends</a>
+        <div class="meta">
+            <span class="label">{{ news_item.date.strftime('%B %-d, %Y') }}</span>
+            {%- for c in news_item.category %}<span class="label">{{ c }}</span>{% endfor %}
+        </div>
+        <h1>{{ news_item.title }}</h1>
+        <div class="rule"></div>
+        <div class="prose">
+            {{ news_item.text|safe }}
+        </div>
+    </div>
+</article>
 {% endblock %}

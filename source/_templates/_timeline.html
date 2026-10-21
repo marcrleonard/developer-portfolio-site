@@ -1,0 +1,35 @@
+{# Experience drawn to scale on a 2005 → now axis. s/e are start/end years; "now" is late 2026. #}
+{% set jobs = [
+    {"s": 2024.6, "e": 2026.8, "yr": "2024 — now", "title": "Mux", "cls": "now",
+     "desc": "Video Software Developer for the Ingest and Processing team."},
+    {"s": 2017, "e": 2024.6, "yr": "2017 — 2024", "title": "Cinnafilm",
+     "desc": "Core backend developer for PixelStrings, a cloud video conversion platform for studios, broadcasters, independent creators, and post-production facilities."},
+    {"s": 2012, "e": 2019, "yr": "2012 — 2019", "title": "Video Director & Post Production Specialist",
+     "desc": "For 7 years I worked as a freelancer for many companies and productions. For a comprehensive overview of my work, please", "link": ["https://video.marcrleonard.com", "visit this link"]},
+    {"s": 2012, "e": 2014, "yr": "2012 — 2014", "title": "Instructor",
+     "desc": "Adobe Premiere and Adobe After Effects instructor for the University of New Mexico Continuing Education program."},
+    {"s": 2011, "e": 2013, "yr": "2011 — 2013", "title": "Reelz Channel",
+     "desc": "Lead editor of special programming."},
+    {"s": 2006, "e": 2010, "yr": "2006 — 2010", "title": "DeSales University", "cls": "edu",
+     "desc": "Major in Television/Film, minor in Business."},
+] %}
+<div class="tl">
+    <div class="tl-axis">
+        <div class="legend label"><span><i></i>work</span><span><i class="edu"></i>school</span><span><i class="now"></i>now</span></div>
+        <div class="ticks label" aria-hidden="true">
+            {%- for y in [2005, 2010, 2015, 2020, 2025] %}<span style="--y:{{ y }}">{{ y }}</span>{% endfor -%}
+        </div>
+    </div>
+    <ol>
+        {%- for j in jobs %}
+        <li class="tl-row {{ j.cls or '' }}" style="--s:{{ j.s }}; --e:{{ j.e }}">
+            <div class="tl-label">
+                <span class="yr">{{ j.yr }}</span>
+                <h3>{{ j.title }}</h3>
+                <p>{{ j.desc }}{% if j.link %} <a href="{{ j.link[0] }}">{{ j.link[1] }}</a>.{% endif %}</p>
+            </div>
+            <div class="tl-track"><span class="tl-bar"></span></div>
+        </li>
+        {%- endfor %}
+    </ol>
+</div>

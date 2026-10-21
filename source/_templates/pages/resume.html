@@ -1,22 +1,15 @@
 {% extends "page_template.html" %}
-{% block page_title %}
-<div class="full-width-page-title">
-    <h2 class="page-title">
-        <span>resume</span>
-    </h2>
-</div>
-{% endblock %}
-{% block content %}
+{% block title %}Résumé · Marc R Leonard{% endblock %}
 
-    <div class="page" id="experience">
-        <div class="section_inner">
-            <div class="cavani_tm_about">
-                <iframe style="width: 100%;height: 80vh;" src="{{ full_url }}/assets/Marc_Leonard_SWE_2026.pdf" width="100%" height="600px">
-                  This browser does not support PDFs.
-                  <a href="{{ full_url }}/assets/Marc Leonard - SWE - 2026.pdf">Download the PDF</a>
-                </iframe>
-<!--            <div class="resume"></div>-->
-            </div>
+{% block content %}
+<section class="page-top" aria-labelledby="h-resume">
+    <div class="wrap">
+        <div class="sect-head"><h1 class="page-title" id="h-resume">résumé</h1><a href="{{ root }}/assets/Marc_Leonard_SWE_2026.pdf">Download the PDF</a></div>
+        <div class="resume-frame">
+            <iframe src="{{ root }}/assets/Marc_Leonard_SWE_2026.pdf" title="Marc Leonard résumé (PDF)">
+                This browser does not support PDFs. <a href="{{ root }}/assets/Marc_Leonard_SWE_2026.pdf">Download the PDF</a>
+            </iframe>
         </div>
     </div>
+</section>
 {% endblock %}

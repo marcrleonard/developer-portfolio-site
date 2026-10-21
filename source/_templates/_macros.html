@@ -1,0 +1,8 @@
+{# A list of posts as dated rows. Used on home (latest few) and odds & ends (all). #}
+{% macro post_list(items) -%}
+<ol class="posts">
+    {%- for item in items %}
+    <li><a href="{{ root }}/blog/{{ item.slug }}"><span class="d">{{ item.date.strftime('%Y·%m') }}</span><span class="t">{{ item.title }}</span></a></li>
+    {%- endfor %}
+</ol>
+{%- endmacro %}

@@ -1,6 +1,7 @@
-/* Round 3: Deck's look, calmer. Split hero with one still photo card (no shuffling
-   deck), project cards with small illustrated tops, experience as a timeline
-   drawn to scale, Odds & Ends cards. Soft shadows, 8–10px corners. */
+/* marcrleonard.com
+   Swiss bones: Inter, one red, dotted red links, lowercase nav. Split hero with a
+   still photo card, a to-scale experience timeline, illustrated project cards and
+   a writing panel. Soft shadows, 8–10px corners, very little motion. */
 :root {
   --paper: #f6f9fc;
   --card: #ffffff;
@@ -17,6 +18,8 @@
   --gutter: clamp(16px, 4vw, 48px);
   --ease: cubic-bezier(.2, .8, .2, 1);
   --email-filter: none;
+  --code-bg: #f3f6f9;      /* code stays on a light card in both themes, to suit pygment.css */
+  --code-ink: #16181c;
   color-scheme: light;
 }
 @media (prefers-color-scheme: dark) {
@@ -149,24 +152,66 @@ section + section { border-top: 1px solid var(--line); }
 .posts .t { font-size: 19px; font-weight: 550; letter-spacing: -0.01em; line-height: 1.35; }
 .writing .all { display: inline-block; margin-top: 24px; font-weight: 500; }
 
-.foot { padding-block: 40px 40px; border-top: 1px solid var(--line); }
+.foot { padding-block: 40px 48px; border-top: 1px solid var(--line); }
 .foot .wrap { display: flex; justify-content: space-between; align-items: baseline; gap: 16px 32px; flex-wrap: wrap; }
 .foot .big { font-size: clamp(26px, 3.4vw, 40px); font-weight: 700; letter-spacing: -0.04em; }
 .foot nav { display: flex; gap: 24px; flex-wrap: wrap; }
 
-.switcher {
-  /* review-only control: sits at the very bottom of the page, never over content */
-  width: fit-content; margin: 0 var(--gutter) 32px; view-transition-name: switcher;
-  display: flex; gap: 2px; padding: 4px; border-radius: 999px; background: var(--ink); color: var(--paper);
-  font: 500 12px/1 var(--mono); text-transform: uppercase; letter-spacing: .08em;
-}
-.switcher a, .switcher span { padding: 6px 10px; border-radius: 999px; text-decoration: none; color: inherit; }
-.switcher a { opacity: .7; }
-.switcher a:hover { opacity: 1; }
-.switcher span { background: var(--red); color: var(--on-red); }
+/* ---------- inner pages ---------- */
+section.page-top { padding-top: clamp(32px, 6vw, 80px); }
+.page-title, .writing h1 { font-size: clamp(38px, 5vw, 68px); font-weight: 700; letter-spacing: -0.045em; line-height: 1; }
+.writing h1 { font-size: clamp(36px, 5.4vw, 76px); font-weight: 750; letter-spacing: -0.05em; line-height: .95; }
 
-/* page transitions: a plain crossfade. The header and portrait are named, so
-   they stay put and only the content around them changes. */
+/* about: the home hero with the bio in place of the intro, same portrait in the same spot */
+.about-text { align-self: start; }
+.about-text h1 { font-size: clamp(38px, 5vw, 68px); font-weight: 700; letter-spacing: -0.045em; line-height: 1; }
+.bio { margin-top: 28px; display: grid; gap: 1.1em; max-width: 60ch; font-size: 18px; line-height: 1.65; }
+.contact { display: flex; align-items: center; gap: 12px 24px; flex-wrap: wrap; margin-top: 32px; padding-top: 24px; border-top: 1px solid var(--line); font-weight: 500; }
+.contact img { width: 200px; height: auto; filter: var(--email-filter); }
+.about-page .portrait { position: sticky; top: 96px; }
+
+/* experience: skills line up with the timeline columns */
+.skills { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); }
+.skills li { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); column-gap: clamp(20px, 3vw, 40px); padding-block: 16px; border-bottom: 1px solid var(--line); }
+.skills .k { font-weight: 650; letter-spacing: -0.01em; }
+.skills .v { color: var(--muted); }
+
+/* résumé */
+.resume-frame { background: var(--card); border-radius: 10px; box-shadow: var(--shadow); padding: 10px; }
+.resume-frame iframe { display: block; width: 100%; height: 80vh; border: 0; border-radius: 6px; background: var(--paper); }
+
+/* blog posts */
+.article { padding-block: clamp(32px, 6vw, 72px) clamp(56px, 8vw, 112px); }
+.article .wrap { max-width: calc(780px + 2 * var(--gutter)); }
+.article .back { font-weight: 500; }
+.article .meta { display: flex; flex-wrap: wrap; gap: 6px 16px; margin-top: clamp(28px, 4vw, 44px); }
+.article .meta .label:first-child { color: var(--ink); }
+.article h1 { margin-top: 14px; font-size: clamp(32px, 4.4vw, 54px); font-weight: 700; letter-spacing: -0.04em; line-height: 1.05; }
+.article .rule { width: 64px; height: 4px; background: var(--red); margin: 28px 0 36px; }
+.prose { font-size: 18px; line-height: 1.7; }
+.prose > * { margin: 0; }
+.prose > * + * { margin-top: 1.1em; }
+.prose h2 { margin-top: 2em; font-size: clamp(24px, 2.4vw, 30px); font-weight: 700; letter-spacing: -0.03em; line-height: 1.15; }
+.prose h3 { margin-top: 1.7em; font-size: 21px; font-weight: 650; letter-spacing: -0.02em; line-height: 1.25; }
+.prose h4 { margin-top: 1.5em; font-size: 18px; font-weight: 650; }
+.prose > :first-child { margin-top: 0; }
+.prose ul, .prose ol { padding-left: 1.3em; }
+.prose li + li { margin-top: .35em; }
+.prose li::marker { color: var(--red); }
+.prose blockquote { margin-inline: 0; padding: 2px 0 2px 20px; border-left: 3px solid var(--red); color: var(--muted); }
+.prose img { border-radius: 6px; height: auto; }
+.prose hr { border: 0; border-top: 1px solid var(--line); margin-block: 2em; }
+.prose code { font-family: var(--mono); font-size: .86em; background: color-mix(in srgb, var(--ink) 7%, transparent); padding: .12em .36em; border-radius: 4px; }
+.prose pre, .prose .highlight { background: var(--code-bg); color: var(--code-ink); border: 1px solid var(--line); border-radius: 8px; overflow-x: auto; }
+.prose pre { margin: 0; padding: 18px 20px; font-family: var(--mono); font-size: 14px; line-height: 1.6; }
+.prose .highlight pre { border: 0; border-radius: 0; background: none; }
+.prose pre code { background: none; padding: 0; font-size: inherit; color: inherit; }
+.prose table { display: block; overflow-x: auto; border-collapse: collapse; font-size: 15px; line-height: 1.5; }
+.prose th, .prose td { text-align: left; padding: 10px 14px; border-bottom: 1px solid var(--line); vertical-align: top; }
+.prose th { font-weight: 650; border-bottom-color: var(--ink); }
+
+/* page transitions: a plain crossfade. The header and the portrait (home and
+   about) are named, so they hold still and only the content around them changes. */
 @view-transition { navigation: auto; }
 ::view-transition-old(root) { animation: .2s ease-out both vt-out; }
 ::view-transition-new(root) { animation: .3s ease-out both vt-in; }
@@ -184,6 +229,8 @@ section + section { border-top: 1px solid var(--line); }
 }
 @media (max-width: 700px) {
   .hero .wrap { grid-template-columns: 1fr; }
+  .about-page .portrait { position: static; }
+  .bio, .prose { font-size: 17px; }
   .hero .hello { align-self: auto; }
   .portrait { margin: 0; max-width: 420px; view-transition-name: none; }
   .now-card { position: static; margin-top: 12px; max-width: none; }
@@ -201,6 +248,8 @@ section + section { border-top: 1px solid var(--line); }
   .tl-label { grid-template-columns: 1fr; }
   .tl-label .yr { grid-row: auto; }
   .tl-label p { grid-column: 1; }
+  .skills li { grid-template-columns: 1fr; row-gap: 2px; }
+  .resume-frame iframe { height: 70vh; }
 }
 @media (max-width: 360px) {
   /* the logo already goes home, so drop "home" to keep the nav on one line */

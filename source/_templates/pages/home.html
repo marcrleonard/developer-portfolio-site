@@ -1,95 +1,96 @@
 {% extends "page_template.html" %}
+{% from "_macros.html" import post_list %}
+
 {% block content %}
-<!-- HOME -->
-<style>
-
-
-</style>
-<div class="active-page page" id="home">
-    <div class="cavani_tm_home">
-        <div class="container">
-            <div class="left-item">
-                <img class="main" src="img/about/me_2.jpg" style="
-                    z-index: 0;
-                    top: 0px;
-                    bottom: 0px;
-                    left: 0px;
-                    right: 0px;
-                    background-repeat: no-repeat;
-                    background-size: auto;
-                    background-position: center;
-                    height: 100%;">
+<section class="hero">
+    <div class="wrap">
+        <div class="hello">
+            <h1>Software developer, <em>15+ years</em> in media &amp; entertainment.</h1>
+            <p>I'm on the <strong>Ingest and Processing</strong> team at <a href="https://mux.com">Mux</a>. Before code I was a video director and wore most of the hats in post-production.</p>
+            <div class="rule"></div>
+            <div class="links">
+                <a href="{{ root }}/about">About me</a>
+                <a href="{{ root }}/resume">Résumé</a>
+                <a href="https://video.marcrleonard.com">Director reel</a>
             </div>
-            <div class="right-item">
-                <div class="cavani_tm_section animated">
-                    <div class="cavani_tm_home">
-                        <div class="content">
-                            <h3 class="name">👋🏻👨🏼‍💻‍🎬</h3>
-                            <span class="line"></span>
-                            <div class="jumbo-text">
-                                I'm a software developer with 15+ years experience in the <strong>Media and
-                                Entertainment Industry</strong>.
-                            </div>
-                            <div class="jumbo-text-sm">
-                                Currently, I work on the Ingest and Processing team at <strong><a
-                                    href="https://mux.com">Mux</a></strong>.
-                            </div>
-                            <div class="jumbo-text-sm" style="padding-bottom: 0">
-                                I've always got a handful of side projects in the hopper:
-                            </div>
-                            <div style="">
-                                <ul class="timeline">
-                                    <li>
-                                        <strong><a href="https://timecodetool.com/">TimecodeTool</a></strong> - my
-                                        timecode
-                                        CLI for validation and calculations
-                                    </li>
-                                    <li>
-                                        <strong><a
-                                                href="https://assetveranda.com" target="_blank">Asset
-                                            Veranda</a></strong> - a media asset management tool
-                                    </li>
-                                    <li>
-                                        <strong><a target="_blank"
-                                                   href="https://linedream.marcrleonard.com">LineDream</a></strong> -
-                                        my generative art library for Python
-                                    </li>
+        </div>
+        {% include "_portrait.html" %}
+    </div>
+</section>
 
+<section id="experience" aria-labelledby="h-exp">
+    <div class="wrap">
+        <div class="sect-head"><h2 id="h-exp">experience</h2><a href="{{ root }}/experience">Skills &amp; more</a></div>
+        {% include "_timeline.html" %}
+    </div>
+</section>
 
-                                </ul>
-                            </div>
-
-                            <div class="jumbo-text-sm">
-                                Before diving into code, I was a video director and wore many hats in
-                                post-production. Curious about my past life as a video director? Check out my portfolio
-                                <strong><a
-                                        href="https://video.marcrleonard.com" target="_blank">here</a></strong>.
-                            </div>
-                            <!--							<br>-->
-                            <!--							<div class="cavani_tm_button transition_link">-->
-                            <!--								<a href="#about">Tell me more!</a>-->
-                            <!--							</div>-->
-
-
-                            <!--                Todo: implement these-->
-                            <!--                <div style="display: flex; gap:5px">-->
-                            <!--                    <div class="cavani_tm_button" style="width:unset">-->
-                            <!--                        <a>Experience</a>-->
-                            <!--                    </div>-->
-                            <!--                    <div class="cavani_tm_button" style="width:unset">-->
-                            <!--                        <a>Projects</a>-->
-                            <!--                    </div>-->
-                            <!--                </div>-->
-
-
-                        </div>
-                    </div>
+<section aria-labelledby="h-build">
+    <div class="wrap">
+        <div class="sect-head">
+            <div><h2 id="h-build">in the hopper</h2><p class="sect-sub">I've always got a handful of side projects going.</p></div>
+            <span class="label">side projects</span>
+        </div>
+        <div class="projects">
+            <a class="proj" href="https://timecodetool.com/">
+                <div class="art art-tct" aria-hidden="true"><div>01:00:00:00<br>+ 00:00:10:12<br><span class="sum">= 01:00:10:12</span></div></div>
+                <div class="body"><h3>TimecodeTool</h3><p>My timecode CLI for validation and calculations.</p><div class="meta"><span class="label">cli</span><span class="label">2024 —</span></div></div>
+            </a>
+            <a class="proj" href="https://assetveranda.com">
+                <div class="art art-av" aria-hidden="true">
+                    <span class="fname">A001_C003.mov</span>
+                    <div class="bins"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
                 </div>
-            </div>
-
-
+                <div class="body"><h3>Asset Veranda</h3><p>A media asset management tool for producers and editors.</p><div class="meta"><span class="label">web app</span><span class="label">2023 —</span></div></div>
+            </a>
+            <a class="proj" href="https://linedream.marcrleonard.com">
+                <div class="art art-ld" aria-hidden="true"><canvas id="ld"></canvas></div>
+                <div class="body"><h3>LineDream</h3><p>My generative art library for Python.</p><div class="meta"><span class="label">python</span><span class="label">2020 —</span></div></div>
+            </a>
         </div>
     </div>
-</div>
-<!-- HOME -->
+</section>
+
+<section id="notes" aria-labelledby="h-notes">
+    <div class="wrap">
+        <div class="writing">
+            <div class="side"><span class="label">odds &amp; ends</span><span class="label">notes &amp; posts</span></div>
+            <div>
+                <h2 id="h-notes">Less than a blog, more than a tweet.</h2>
+                {{ post_list(news_items[:6]) }}
+                <a class="all" href="{{ root }}/odds-ends">All notes</a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    // LineDream card: plotter-style flow lines, drawn once (and again on resize)
+    const cv = document.getElementById("ld");
+    function draw() {
+        const r = cv.getBoundingClientRect(), dpr = devicePixelRatio || 1;
+        cv.width = r.width * dpr; cv.height = r.height * dpr;
+        const g = cv.getContext("2d"); g.scale(dpr, dpr);
+        const css = getComputedStyle(document.documentElement);
+        g.lineWidth = 1;
+        for (let k = 0; k < 40; k++) {
+            const accent = k % 9 === 0;
+            g.strokeStyle = css.getPropertyValue(accent ? "--red" : "--muted");
+            g.globalAlpha = accent ? .9 : .4;
+            g.beginPath();
+            let x = -10, y = r.height * .14 + k * (r.height * .6 / 40);
+            g.moveTo(x, y);
+            while (x < r.width + 10) {
+                const a = Math.sin(x * .013 + k * .21) * .7 + Math.cos(y * .02) * .35;
+                x += 4 * Math.cos(a); y += 4 * Math.sin(a);
+                g.lineTo(x, y);
+            }
+            g.stroke();
+        }
+    }
+    draw();
+    addEventListener("resize", draw);
+</script>
 {% endblock %}

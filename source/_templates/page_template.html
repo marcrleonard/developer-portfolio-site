@@ -1,99 +1,68 @@
 <!DOCTYPE html>
-<!--[if lt IE 7 ]>
-<html class="ie ie6" lang="en"> <![endif]-->
-<!--[if IE 7 ]>
-<html class="ie ie7" lang="en"> <![endif]-->
-<!--[if IE 8 ]>
-<html class="ie ie8" lang="en"> <![endif]-->
-<!--[if (gte IE 9)|!(IE)]><!-->
-<html lang="en"> <!--<![endif]-->
-
+<html lang="en">
 <head>
-
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-
-    <meta name="description" content="Personal Site">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="description" content="{% block description %}Marc Leonard is a software developer with 15+ years in media and entertainment, on the Ingest and Processing team at Mux.{% endblock %}">
     <meta name="author" content="Marc R Leonard">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>{% block title %}Marc R Leonard | Developer{% endblock %}</title>
+    <link rel="icon" href="{{ root }}/favicon.ico">
+    <link rel="alternate" type="application/rss+xml" title="Marc Leonard" href="{{ root }}/rss.xml">
 
-    <title>Marc R Leonard | Developer</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
-          rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..800&family=IBM+Plex+Mono:wght@400;500&display=swap">
 
-    <link rel="stylesheet" type="text/css" href="{{ full_url }}/css/style.css"/>
-    <link rel="stylesheet" type="text/css" href="{{ full_url }}/css/pygment.css"/>
-    <link rel="stylesheet" type="text/css" href="{{ full_url }}/css/custom.css"/>
+    <link rel="stylesheet" href="{{ root }}/css/site.css">
+    <link rel="stylesheet" href="{{ root }}/css/pygment.css">
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-C2F6FPRGES"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
-
-        function gtag() {
-            dataLayer.push(arguments);
-        }
-
+        function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
-
         gtag('config', 'G-C2F6FPRGES');
     </script>
-
-
 </head>
 
 <body>
-
-<!-- WRAPPER ALL -->
-<div class="cavani_tm_all_wrap" data-enter="fadeInUp" data-exit="">
-
-    <!-- HEADER -->
-    <div class="cavani_tm_header">
-        <div class="logo">
-            <h2 style="font-weight: 400"><a href="{{full_url}}">marc leonard</a></h2>
-        </div>
-        <div class="menu">
-            <input type="checkbox" id="menu-toggle" class="menu-checkbox">
-            <label for="menu-toggle" class="hamburger">&#9776;</label>
-            <ul class="nav-links">
-                {% for nav_item in nav_items %}
-                {% if nav_item[0] != page_slug %}
-                   <li><a class="nav-item" data-target="home" href="{{full_url}}{{nav_item[0]}}">{{nav_item[1]}}</a></li>
-                {% else %}
-                   <li>{{nav_item[1]}}</li>
-                {% endif %}
-                {% endfor %}
-            </ul>
-        </div>
+{% set active = nav_active or page_slug %}
+<header class="site-head" id="head">
+    <div class="wrap">
+        <div class="logo"><a href="{{ root }}/">marc leonard</a></div>
+        <nav>
+            {%- for url, title, _ in nav_items %}
+            {%- if url == active %}<span aria-current="page">{{ title }}</span>{% else %}<a href="{{ root }}{{ url }}">{{ title }}</a>{% endif %}
+            {%- endfor %}
+        </nav>
     </div>
-    <!-- /HEADER -->
+</header>
 
-    <section class="page-padding">
-        <div style="padding-top: 60px;">{% block page_title %}{% endblock %}</div>
+<main{% block main_attrs %}{% endblock %}>
+{% block content %}{% endblock %}
+</main>
 
-        <div class="cavani_tm_mainpart">
-            <div class="main_content">
-                {% block content %}{% endblock %}
-            </div>
-        </div>
-        <!-- /FOOTER -->
-    </section>
-
-</div>
-
-
-<!-- / WRAPPER ALL -->
-
-<!-- SCRIPTS -->
-<script async defer
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA5bpEs3xlB8vhxNFErwoo3MXR64uavf6Y&callback=initMap"></script>
-<!-- /SCRIPTS -->
+<footer class="foot">
+    <div class="wrap">
+        <div class="big">say hello.</div>
+        <nav>
+            <a href="https://www.linkedin.com/in/marc-leonard/">LinkedIn</a>
+            <a href="https://github.com/marcrleonard">GitHub</a>
+            <a href="{{ root }}/resume">Résumé</a>
+            <a href="{{ root }}/rss.xml">RSS</a>
+        </nav>
+    </div>
+</footer>
 
 <script>
+    // hairline under the header once the page has scrolled
+    const head = document.getElementById("head");
+    const onScroll = () => head.classList.toggle("scrolled", scrollY > 8);
+    addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
 </script>
-
-
+{% block scripts %}{% endblock %}
 </body>
 </html>
