@@ -50,6 +50,7 @@ a:focus-visible { outline: 2px solid var(--red); outline-offset: 3px; border-rad
 .site-head.scrolled { border-color: var(--line); }
 .site-head .wrap { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; padding-block: 18px; }
 .logo { font-size: 22px; letter-spacing: -0.01em; }
+.logo a { text-decoration: none; }
 .site-head nav { display: flex; gap: clamp(14px, 2.4vw, 28px); flex-wrap: wrap; }
 .site-head nav span { color: var(--muted); }
 
@@ -60,7 +61,9 @@ section + section { border-top: 1px solid var(--line); }
 .sect-sub { margin-top: 14px; color: var(--muted); font-size: clamp(17px, 1.5vw, 19px); max-width: 48ch; }
 
 /* ---------- hero ---------- */
-.hero .wrap { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(32px, 6vw, 96px); align-items: center; }
+/* the portrait sits at the top of the row on every page, so it holds still between home and about */
+.hero .wrap { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(32px, 6vw, 96px); align-items: start; }
+.hero .hello { align-self: center; }
 .hero .wrap > * { min-width: 0; }
 .hello h1 { font-size: clamp(38px, 5vw, 68px); font-weight: 700; letter-spacing: -0.045em; line-height: 1; }
 .hello h1 em { font-style: normal; color: var(--red); }
@@ -69,8 +72,8 @@ section + section { border-top: 1px solid var(--line); }
 .hello .rule { width: 64px; height: 4px; background: var(--red); margin-top: 28px; }
 .hello .links { display: flex; gap: 22px; flex-wrap: wrap; margin-top: 24px; font-weight: 500; }
 
-.portrait { position: relative; max-width: 480px; margin: 0 0 0 auto; width: 100%; }
-.photo-card { view-transition-name: portrait; margin: 0; background: var(--card); padding: 10px 10px 14px; border-radius: 8px; box-shadow: var(--shadow); }
+.portrait { view-transition-name: portrait; position: relative; max-width: 480px; margin: 0 0 0 auto; width: 100%; }
+.photo-card { margin: 0; background: var(--card); padding: 10px 10px 14px; border-radius: 8px; box-shadow: var(--shadow); }
 .photo-card img { width: 100%; aspect-ratio: 1 / 1.05; object-fit: cover; object-position: 50% 28%; border-radius: 4px; }
 .photo-card figcaption { display: flex; justify-content: space-between; gap: 12px; padding: 12px 4px 0; }
 /* one small card laid over the corner: the only overlap in the hero */
@@ -78,9 +81,6 @@ section + section { border-top: 1px solid var(--line); }
 .now-card .label { color: var(--red); }
 .now-card span:last-child { font-weight: 600; letter-spacing: -0.01em; line-height: 1.3; }
 
-.settle { animation: settle .8s var(--ease) both; }
-.now-card.settle { animation-delay: .15s; }
-@keyframes settle { from { opacity: 0; transform: translateY(8px); } }
 
 /* ---------- projects: cards with small illustrated tops ---------- */
 .projects { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
@@ -149,13 +149,14 @@ section + section { border-top: 1px solid var(--line); }
 .posts .t { font-size: 19px; font-weight: 550; letter-spacing: -0.01em; line-height: 1.35; }
 .writing .all { display: inline-block; margin-top: 24px; font-weight: 500; }
 
-.foot { padding-block: 40px 120px; border-top: 1px solid var(--line); }
+.foot { padding-block: 40px 40px; border-top: 1px solid var(--line); }
 .foot .wrap { display: flex; justify-content: space-between; align-items: baseline; gap: 16px 32px; flex-wrap: wrap; }
 .foot .big { font-size: clamp(26px, 3.4vw, 40px); font-weight: 700; letter-spacing: -0.04em; }
 .foot nav { display: flex; gap: 24px; flex-wrap: wrap; }
 
 .switcher {
-  position: fixed; left: 16px; bottom: calc(16px + env(safe-area-inset-bottom, 0px)); z-index: 60; view-transition-name: switcher;
+  /* review-only control: sits at the very bottom of the page, never over content */
+  width: fit-content; margin: 0 var(--gutter) 32px; view-transition-name: switcher;
   display: flex; gap: 2px; padding: 4px; border-radius: 999px; background: var(--ink); color: var(--paper);
   font: 500 12px/1 var(--mono); text-transform: uppercase; letter-spacing: .08em;
 }
@@ -164,34 +165,46 @@ section + section { border-top: 1px solid var(--line); }
 .switcher a:hover { opacity: 1; }
 .switcher span { background: var(--red); color: var(--on-red); }
 
-/* page transitions: the same quiet fade-and-rise as the live site */
+/* page transitions: a plain crossfade. The header and portrait are named, so
+   they stay put and only the content around them changes. */
 @view-transition { navigation: auto; }
-::view-transition-old(root) { animation: .25s ease-out both vt-out; }
-::view-transition-new(root) { animation: .4s var(--ease) .05s both vt-in; }
+::view-transition-old(root) { animation: .2s ease-out both vt-out; }
+::view-transition-new(root) { animation: .3s ease-out both vt-in; }
 @keyframes vt-out { to { opacity: 0; } }
-@keyframes vt-in { from { opacity: 0; transform: translateY(12px); } }
-::view-transition-group(portrait) { animation-duration: .45s; animation-timing-function: var(--ease); }
+@keyframes vt-in { from { opacity: 0; } }
 
 @media (max-width: 900px) {
-  .hero .wrap { grid-template-columns: 1fr; }
-  .portrait { margin: 0 auto; max-width: 440px; }
   .projects { grid-template-columns: 1fr 1fr; }
   .projects .proj:last-child { grid-column: 1 / -1; }
   .projects .proj:last-child .art { aspect-ratio: 16 / 6; }
   .tl-axis, .tl-row { grid-template-columns: 1fr; row-gap: 12px; }
   .tl-axis .legend { order: 2; }
+  .writing { grid-template-columns: 1fr; gap: 20px; }
+  .writing .side { flex-direction: row; padding-top: 0; }
+}
+@media (max-width: 700px) {
+  .hero .wrap { grid-template-columns: 1fr; }
+  .hero .hello { align-self: auto; }
+  .portrait { margin: 0; max-width: 420px; view-transition-name: none; }
+  .now-card { position: static; margin-top: 12px; max-width: none; }
 }
 @media (max-width: 600px) {
+  /* one compact, non-sticky header: logo on top, nav underneath */
+  .site-head { position: static; }
+  .site-head .wrap { padding-block: 14px 12px; row-gap: 4px; }
+  .logo { font-size: 20px; }
+  .site-head nav { gap: 14px; font-size: 15px; }
   .projects { grid-template-columns: 1fr; }
-  .writing { grid-template-columns: 1fr; }
-  .writing .side { flex-direction: row; padding-top: 0; }
+  .projects .proj .art, .projects .proj:last-child .art { aspect-ratio: 16 / 8; }
   .posts a { grid-template-columns: 1fr; gap: 2px; }
   .posts .t { font-size: 17px; }
-  .projects .proj:last-child .art { aspect-ratio: 16 / 10; }
-  .now-card { left: 12px; bottom: 64px; }
   .tl-label { grid-template-columns: 1fr; }
   .tl-label .yr { grid-row: auto; }
   .tl-label p { grid-column: 1; }
+}
+@media (max-width: 360px) {
+  /* the logo already goes home, so drop "home" to keep the nav on one line */
+  .site-head nav > :first-child { display: none; }
 }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; }
