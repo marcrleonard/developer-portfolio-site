@@ -167,11 +167,6 @@ section + section { border-top: 1px solid var(--line); }
   display: flex; gap: 2px; padding: 4px; border-radius: 999px; background: var(--ink); color: var(--paper);
   font: 500 12px/1 var(--mono); text-transform: uppercase; letter-spacing: .08em;
 }
-.hl-pick { left: auto; right: 16px; view-transition-name: hl-pick; align-items: center; }
-.hl-pick > span:first-child { background: none; color: inherit; opacity: .7; padding-right: 4px; }
-.hl-pick button { font: inherit; text-transform: inherit; letter-spacing: inherit; border: 0; background: none; color: inherit; padding: 6px 10px; border-radius: 999px; cursor: pointer; opacity: .7; }
-.hl-pick button[aria-pressed="true"] { background: var(--paper); color: var(--ink); opacity: 1; }
-.hl-pick button:focus-visible { outline: 2px solid var(--red); outline-offset: 2px; }
 .switcher a, .switcher span { padding: 6px 10px; border-radius: 999px; text-decoration: none; color: inherit; }
 .switcher a { opacity: .7; }
 .switcher a:hover { opacity: 1; }
@@ -194,7 +189,6 @@ section + section { border-top: 1px solid var(--line); }
   .tl-axis .legend { order: 2; }
 }
 @media (max-width: 600px) {
-  .hl-pick { right: auto; left: 16px; bottom: calc(58px + env(safe-area-inset-bottom, 0px)); }
   .projects { grid-template-columns: 1fr; }
   .writing { grid-template-columns: 1fr; }
   .writing .side { flex-direction: row; padding-top: 0; }
@@ -225,8 +219,8 @@ section + section { border-top: 1px solid var(--line); }
   <section class="hero">
     <div class="wrap">
       <div class="hello">
-        <h1 id="hl">Video software developer. <em>Former video director.</em></h1>
-        <p id="hp">15+ years in media and entertainment. I'm on the <strong>Ingest and Processing</strong> team at <a href="https://mux.com">Mux</a>. Before code I spent years directing and editing for brands like L.L.Bean, GoPro and The Verge.</p>
+        <h1>Software developer, <em>15+ years</em> in media &amp; entertainment.</h1>
+        <p>I'm on the <strong>Ingest and Processing</strong> team at <a href="https://mux.com">Mux</a>. Before code I was a video director and wore most of the hats in post-production.</p>
         <div class="rule"></div>
         <div class="links"><a href="#">About me</a><a href="https://marcrleonard.com/resume">Résumé</a><a href="https://video.marcrleonard.com">Director reel</a></div>
       </div>
@@ -329,33 +323,9 @@ section + section { border-top: 1px solid var(--line); }
   </div>
 </footer>
 
-<div class="switcher hl-pick" role="group" aria-label="Headline option"><span>headline</span><button type="button" data-k="0">A</button><button type="button" data-k="1">B</button><button type="button" data-k="2">C</button></div>
 <nav class="switcher" aria-label="Concepts"><a href="index.html">all</a><a href="v2.html">round 2</a><span aria-current="page">round 3</span></nav>
 
 <script>
-// headline options to compare in place (A is what's in the markup)
-(function () {
-  const mux = '<strong>Ingest and Processing</strong> team at <a href="https://mux.com">Mux</a>';
-  const opts = [
-    ["Video software developer. <em>Former video director.</em>",
-     `15+ years in media and entertainment. I'm on the ${mux}. Before code I spent years directing and editing for brands like L.L.Bean, GoPro and The Verge.`],
-    ["I build software for video, <em>after years of making it.</em>",
-     `I'm on the ${mux}. Before code I directed and edited for brands like L.L.Bean, GoPro and The Verge.`],
-    ["Software developer, <em>15+ years</em> in media &amp; entertainment.",
-     `I'm on the ${mux}. Before code I was a video director and wore most of the hats in post-production.`],
-  ];
-  const h = document.getElementById("hl"), p = document.getElementById("hp");
-  const btns = document.querySelectorAll(".hl-pick button");
-  const set = (k) => {
-    h.innerHTML = opts[k][0]; p.innerHTML = opts[k][1];
-    btns.forEach((b) => b.setAttribute("aria-pressed", String(+b.dataset.k === k)));
-    try { localStorage.setItem("hl", k); } catch (e) {}
-  };
-  let k = 0;
-  try { k = +localStorage.getItem("hl") || 0; } catch (e) {}
-  set(opts[k] ? k : 0);
-  btns.forEach((b) => b.addEventListener("click", () => set(+b.dataset.k)));
-})();
 // hairline under the header once the page has scrolled
 const head = document.getElementById("head");
 const onScroll = () => head.classList.toggle("scrolled", scrollY > 8);
