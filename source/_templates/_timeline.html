@@ -1,0 +1,23 @@
+{# Experience drawn to scale. Content lives in source/data/experience.json; main.py adds the axis and each job's "until". #}
+{% set exp = data.experience %}
+<div class="tl" style="--d0:{{ exp.axis.start }}; --span:{{ exp.axis.span }}">
+    <div class="tl-axis">
+        <div class="legend label"><span><i></i>work</span><span><i class="edu"></i>school</span><span><i class="now"></i>now</span></div>
+        <div class="ticks label" aria-hidden="true">
+            {%- for y in exp.axis.ticks %}<span style="--y:{{ y }}">{{ y }}</span>{% endfor -%}
+        </div>
+    </div>
+    <ol>
+        {%- for j in exp.jobs %}
+        {%- set current = j.end is none %}
+        <li class="tl-row{% if current %} now{% endif %}{% if j.kind == 'school' %} edu{% endif %}" style="--s:{{ j.start }}; --e:{{ '%.2f'|format(j.until) }}">
+            <div class="tl-label">
+                <span class="yr">{{ j.start|int }} — {{ 'now' if current else j.end|int }}</span>
+                <h3>{% if j.url %}<a href="{{ j.url }}">{{ j.title }}</a>{% else %}{{ j.title }}{% endif %}</h3>
+                <p>{{ j.desc }}{% if j.link %} <a href="{{ j.link.url }}">{{ j.link.text }}</a>.{% endif %}</p>
+            </div>
+            <div class="tl-track"><span class="tl-bar"></span></div>
+        </li>
+        {%- endfor %}
+    </ol>
+</div>

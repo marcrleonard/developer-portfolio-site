@@ -10,12 +10,22 @@ USERNAME = "marcrleonard"
 RSS_FEED_URL = f"https://letterboxd.com/{USERNAME}/rss/"
 
 
-def get_watched_films_from_rss():
-	response = requests.get(RSS_FEED_URL)
+# Letterboxd sits behind Cloudflare, which can turn away the default python-requests
+# user agent. Look like a feed reader instead.
+HEADERS = {"User-Agent": "Mozilla/5.0 (compatible; marcrleonard.com site build; +https://marcrleonard.com)"}
 
+
+def get_watched_films_from_rss():
 	# Initialize a defaultdict to store films by year
 	all_films = []
 	films_by_year = defaultdict(list)
+
+	# A failed fetch shouldn't fail the whole site build; the page shows a link instead.
+	try:
+		response = requests.get(RSS_FEED_URL, headers=HEADERS, timeout=20)
+	except requests.RequestException as e:
+		print(f"Letterboxd feed unavailable: {e}")
+		return films_by_year
 
 	if response.status_code == 200:
 		content = response.text  # Get content as a string
@@ -63,7 +73,7 @@ def get_watched_films_from_rss():
 			films_by_year[date_obj.year].append(film)
 
 	else:
-		print(f"Error: {response.status_code} - {response.text}")
+		print(f"Letterboxd feed error: {response.status_code} - {response.text[:200]}")
 
 	return films_by_year
 

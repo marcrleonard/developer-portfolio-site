@@ -1,0 +1,52 @@
+{
+  "_comment": "Drawn to scale on the experience timeline. start/end are years (decimals ok, e.g. 2024.6 = ~Aug 2024). end: null means current. kind: work | school.",
+  "axis_start": 2005,
+  "jobs": [
+    {
+      "title": "Mux",
+      "start": 2024.6,
+      "end": null,
+      "kind": "work",
+      "desc": "Video Software Developer for the Ingest and Processing team.",
+      "url": "https://mux.com"
+    },
+    {
+      "title": "Cinnafilm",
+      "start": 2017,
+      "end": 2024.6,
+      "kind": "work",
+      "desc": "Core backend developer for PixelStrings, a cloud video conversion platform for studios, broadcasters, independent creators, and post-production facilities.",
+      "url": "https://cinnafilm.com/"
+    },
+    {
+      "title": "Video Director & Post Production Specialist",
+      "start": 2012,
+      "end": 2019,
+      "kind": "work",
+      "desc": "For 7 years I worked as a freelancer for many companies and productions. For a comprehensive overview of my work, please",
+      "link": {"url": "https://video.marcrleonard.com", "text": "visit this link"}
+    },
+    {
+      "title": "Instructor",
+      "start": 2012,
+      "end": 2014,
+      "kind": "work",
+      "desc": "Adobe Premiere and Adobe After Effects instructor for the University of New Mexico Continuing Education program."
+    },
+    {
+      "title": "Reelz Channel",
+      "start": 2011,
+      "end": 2013,
+      "kind": "work",
+      "desc": "Lead editor of special programming.",
+      "url": "https://www.reelz.com/"
+    },
+    {
+      "title": "DeSales University",
+      "start": 2006,
+      "end": 2010,
+      "kind": "school",
+      "desc": "Major in Television/Film, minor in Business."
+    }
+  ]
+}

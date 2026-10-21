@@ -1,0 +1,9 @@
+{
+  "skills": [
+    {"name": "Languages", "items": ["Python", "JavaScript", "TypeScript", "HTML/CSS", "C++", "C# (working knowledge)"]},
+    {"name": "Frameworks", "items": ["Flask", "Django", "FastAPI", "SQLAlchemy", "Pydantic", "Pytest", "boto3", "Angular", "Vue", "HTMX"]},
+    {"name": "Audio/Video Libraries", "items": ["MainConcept", "SRT", "FFmpeg", "gstreamer", "miniaudio", "Blackmagic RAW SDK"]},
+    {"name": "Tools", "items": ["Terraform", "Ansible", "Docker", "Linux", "Nginx", "AWS", "Azure"]},
+    {"name": "Databases", "items": ["MySQL", "PostgreSQL", "SQLite", "MongoDB", "Redis"]}
+  ]
+}

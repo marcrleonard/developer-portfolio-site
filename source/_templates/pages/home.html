@@ -1,95 +1,79 @@
 {% extends "page_template.html" %}
+{% from "_macros.html" import post_list, project_cards, profile_links %}
+
 {% block content %}
-<!-- HOME -->
-<style>
-
-
-</style>
-<div class="active-page page" id="home">
-    <div class="cavani_tm_home">
-        <div class="container">
-            <div class="left-item">
-                <img class="main" src="img/about/me_2.jpg" style="
-                    z-index: 0;
-                    top: 0px;
-                    bottom: 0px;
-                    left: 0px;
-                    right: 0px;
-                    background-repeat: no-repeat;
-                    background-size: auto;
-                    background-position: center;
-                    height: 100%;">
+<section class="hero">
+    <div class="wrap">
+        <div class="hello">
+            <h1>Software developer, <em>15+ years</em> in media &amp; entertainment.</h1>
+            <p>I'm on the <strong>Ingest and Processing</strong> team at <a href="https://mux.com">Mux</a>. Before code I was a video director and wore most of the hats in post-production. <a class="read-more" href="{{ root }}/about">Read more</a></p>
+            <div class="rule"></div>
+            <div class="links">
+                {{ profile_links() }}
+                <a href="{{ root }}/resume">Résumé</a>
             </div>
-            <div class="right-item">
-                <div class="cavani_tm_section animated">
-                    <div class="cavani_tm_home">
-                        <div class="content">
-                            <h3 class="name">👋🏻👨🏼‍💻‍🎬</h3>
-                            <span class="line"></span>
-                            <div class="jumbo-text">
-                                I'm a software developer with 15+ years experience in the <strong>Media and
-                                Entertainment Industry</strong>.
-                            </div>
-                            <div class="jumbo-text-sm">
-                                Currently, I work on the Ingest and Processing team at <strong><a
-                                    href="https://mux.com">Mux</a></strong>.
-                            </div>
-                            <div class="jumbo-text-sm" style="padding-bottom: 0">
-                                I've always got a handful of side projects in the hopper:
-                            </div>
-                            <div style="">
-                                <ul class="timeline">
-                                    <li>
-                                        <strong><a href="https://timecodetool.com/">TimecodeTool</a></strong> - my
-                                        timecode
-                                        CLI for validation and calculations
-                                    </li>
-                                    <li>
-                                        <strong><a
-                                                href="https://assetveranda.com" target="_blank">Asset
-                                            Veranda</a></strong> - a media asset management tool
-                                    </li>
-                                    <li>
-                                        <strong><a target="_blank"
-                                                   href="https://linedream.marcrleonard.com">LineDream</a></strong> -
-                                        my generative art library for Python
-                                    </li>
+        </div>
+        {% include "_portrait.html" %}
+    </div>
+</section>
 
-
-                                </ul>
-                            </div>
-
-                            <div class="jumbo-text-sm">
-                                Before diving into code, I was a video director and wore many hats in
-                                post-production. Curious about my past life as a video director? Check out my portfolio
-                                <strong><a
-                                        href="https://video.marcrleonard.com" target="_blank">here</a></strong>.
-                            </div>
-                            <!--							<br>-->
-                            <!--							<div class="cavani_tm_button transition_link">-->
-                            <!--								<a href="#about">Tell me more!</a>-->
-                            <!--							</div>-->
-
-
-                            <!--                Todo: implement these-->
-                            <!--                <div style="display: flex; gap:5px">-->
-                            <!--                    <div class="cavani_tm_button" style="width:unset">-->
-                            <!--                        <a>Experience</a>-->
-                            <!--                    </div>-->
-                            <!--                    <div class="cavani_tm_button" style="width:unset">-->
-                            <!--                        <a>Projects</a>-->
-                            <!--                    </div>-->
-                            <!--                </div>-->
-
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-
+<section id="experience" aria-labelledby="h-exp">
+    <div class="wrap">
+        <div class="panel">
+            <div class="sect-head"><h2 id="h-exp">experience</h2><a href="{{ root }}/resume">PDF résumé</a></div>
+            {% include "_timeline.html" %}
         </div>
     </div>
-</div>
-<!-- HOME -->
+</section>
+
+<section aria-labelledby="h-build">
+    <div class="wrap">
+        <div class="sect-head">
+            <div><h2 id="h-build">in the hopper</h2><p class="sect-sub">I've always got a handful of side projects going.</p></div>
+        </div>
+        {{ project_cards(data.projects.projects) }}
+    </div>
+</section>
+
+<section id="notes" aria-labelledby="h-notes">
+    <div class="wrap">
+        <div class="panel writing">
+            <span class="label">odds &amp; ends</span>
+            <h2 id="h-notes">Less than a blog, more than a tweet.</h2>
+            {{ post_list(news_items[:6]) }}
+            <div class="more"><a href="{{ root }}/odds-ends">All notes</a><a href="{{ root }}/odds-ends#movies">Movies</a></div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    // LineDream card: plotter-style flow lines, drawn once (and again on resize)
+    function draw(cv) {
+        const r = cv.getBoundingClientRect(), dpr = devicePixelRatio || 1;
+        cv.width = r.width * dpr; cv.height = r.height * dpr;
+        const g = cv.getContext("2d"); g.scale(dpr, dpr);
+        const css = getComputedStyle(document.documentElement);
+        g.lineWidth = 1;
+        for (let k = 0; k < 40; k++) {
+            const accent = k % 9 === 0;
+            g.strokeStyle = css.getPropertyValue(accent ? "--red" : "--muted");
+            g.globalAlpha = accent ? .9 : .4;
+            g.beginPath();
+            let x = -10, y = r.height * .14 + k * (r.height * .6 / 40);
+            g.moveTo(x, y);
+            while (x < r.width + 10) {
+                const a = Math.sin(x * .013 + k * .21) * .7 + Math.cos(y * .02) * .35;
+                x += 4 * Math.cos(a); y += 4 * Math.sin(a);
+                g.lineTo(x, y);
+            }
+            g.stroke();
+        }
+    }
+    const plots = document.querySelectorAll(".ld-plot");
+    const drawAll = () => plots.forEach(draw);
+    drawAll();
+    addEventListener("resize", drawAll);
+</script>
 {% endblock %}

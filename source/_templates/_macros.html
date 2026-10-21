@@ -1,0 +1,45 @@
+{# A list of posts as dated rows. Used on home (latest few) and odds & ends (all). #}
+{% macro post_list(items) -%}
+<ol class="posts">
+    {%- for item in items %}
+    <li><a href="{{ root }}/blog/{{ item.slug }}"><span class="d">{{ item.date.strftime('%Y·%m') }}</span><span class="t">{{ item.title }}</span></a></li>
+    {%- endfor %}
+</ol>
+{%- endmacro %}
+
+{# Side project cards, from source/data/projects.json. #}
+{% macro project_cards(projects) -%}
+<div class="projects">
+    {%- for p in projects %}
+    <a class="proj" href="{{ p.url }}">
+        {%- if p.art == 'timecode' %}
+        <div class="art art-tct" aria-hidden="true"><div>01:00:00:00<br>+ 00:00:10:12<br><span class="sum">= 01:00:10:12</span></div></div>
+        {%- elif p.art == 'bins' %}
+        <div class="art art-av" aria-hidden="true"><span class="fname">A001_C003.mov</span><div class="bins"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div></div>
+        {%- elif p.art == 'plot' %}
+        <div class="art art-ld" aria-hidden="true"><canvas class="ld-plot"></canvas></div>
+        {%- endif %}
+        <div class="body">
+            <h3>{{ p.name }}</h3>
+            <p>{{ p.desc }}</p>
+            <div class="meta"><span class="label">{{ p.kind }}</span><span class="label">{{ p.since }} —</span></div>
+        </div>
+    </a>
+    {%- endfor %}
+</div>
+{%- endmacro %}
+
+
+{# Small brand icons for profile links; they take the link's text color. #}
+{% macro icon(name) -%}
+{%- if name == 'linkedin' -%}
+<svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>
+{%- elif name == 'github' -%}
+<svg class="icon" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
+{%- endif -%}
+{%- endmacro %}
+
+{% macro profile_links() -%}
+<a class="ico-link" href="https://www.linkedin.com/in/marc-leonard/">{{ icon('linkedin') }}<span>LinkedIn</span></a>
+<a class="ico-link" href="https://github.com/marcrleonard">{{ icon('github') }}<span>GitHub</span></a>
+{%- endmacro %}
